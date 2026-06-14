@@ -17,6 +17,32 @@
   }
   </script>
   <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Startseite",
+      "item": "https://chatifa.de/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Glossar",
+      "item": "https://chatifa.de/chatifa-glossar"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "CRM",
+      "item": "https://chatifa.de/chatifa-glossar-crm"
+    }
+  ]
+}
+  </script>
+  <script type="application/ld+json">
   {
   "@context": "https://schema.org",
   "@type": "FAQPage",
@@ -527,6 +553,34 @@ footer { border-top:1px solid var(--border); padding:4.5rem 0 2.5rem }
   color: var(--accent);
 }
 .glossar-back { margin-bottom: 2rem; }
+.breadcrumb { margin-bottom: 1.5rem }
+.breadcrumb-list {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  flex-wrap: wrap;
+}
+.breadcrumb-item {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  font-size: var(--f-xs);
+  color: var(--t4);
+}
+.breadcrumb-item::after {
+  content: '/';
+  color: var(--t4);
+  opacity: .4;
+}
+.breadcrumb-item:last-child::after { display: none }
+.breadcrumb-item a {
+  color: var(--t4);
+  text-decoration: none;
+  transition: color .2s;
+}
+.breadcrumb-item a:hover { color: var(--t2) }
+.breadcrumb-current { color: var(--t3) }
 .glossar-detail-layout {
   display: flex; align-items: flex-start; gap: 3rem;
   padding: 0 0 9rem;
@@ -743,9 +797,13 @@ footer { border-top:1px solid var(--border); padding:4.5rem 0 2.5rem }
 <section class="glossar-detail-hero">
   <div class="orb orb-hero" aria-hidden="true"></div>
   <div class="wrap">
-    <div class="glossar-back reveal">
-      <a href="chatifa-glossar.html" class="btn-text" style="font-size:var(--f-sm)">← Zurück zur Glossar-Übersicht</a>
-    </div>
+    <nav class="breadcrumb reveal" aria-label="Breadcrumb">
+      <ol class="breadcrumb-list">
+        <li class="breadcrumb-item"><a href="chatifa-homepage.html">Startseite</a></li>
+        <li class="breadcrumb-item"><a href="chatifa-glossar.html">Glossar</a></li>
+        <li class="breadcrumb-item breadcrumb-current" aria-current="page">CRM</li>
+      </ol>
+    </nav>
     <div class="glossar-detail-head reveal d1">
       <span class="glossar-cat-badge">Automatisierung</span>
       <h1 class="t-h1" style="margin-top:.75rem;margin-bottom:0">CRM</h1>
@@ -793,6 +851,10 @@ footer { border-top:1px solid var(--border); padding:4.5rem 0 2.5rem }
           </div>
         </div>
 
+        <p class="t-sm reveal" style="color:var(--t3);margin-top:1.5rem">
+          Wir bauen Automatisierungen, die dort ansetzen, wo wiederkehrende Arbeit entsteht — konkret und ohne Blackbox. <a href="chatifa-automatisierung.html" class="glossar-link">Mehr zu unserer Automatisierungs-Leistung →</a>
+        </p>
+
         <!-- Related terms -->
         <div class="related-terms reveal" style="margin-top:2.5rem">
           <span class="kicker" style="display:block;margin-bottom:1rem">Verwandte Begriffe</span>
@@ -800,7 +862,9 @@ footer { border-top:1px solid var(--border); padding:4.5rem 0 2.5rem }
             <a href="chatifa-glossar-workflow-automatisierung.html" class="related-chip">Workflow-Automatisierung</a>
         <a href="chatifa-glossar-webhook.html" class="related-chip">Webhook</a>
         <a href="chatifa-glossar-lead-qualifizierung.html" class="related-chip">Lead-Qualifizierung</a>
-        
+        <a href="chatifa-glossar-n8n.html" class="related-chip">n8n</a>
+        <a href="chatifa-glossar-make.html" class="related-chip">Make</a>
+
           </div>
         </div>
 

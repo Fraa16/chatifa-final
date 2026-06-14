@@ -1,0 +1,12 @@
+{
+  "name": "chatifa",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "serve . --listen 5173",
+    "start": "serve . --listen 5173"
+  },
+  "dependencies": {
+    "serve": "^14.2.3"
+  }
+}

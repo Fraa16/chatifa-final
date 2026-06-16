@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+Disallow: /chatifa-datenschutz
+Disallow: /chatifa-impressum
+
+Sitemap: https://chatifa.de/sitemap.xml

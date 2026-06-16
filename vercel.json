@@ -5,30 +5,7 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "rewrites": [
-    { "source": "/",                                  "destination": "/chatifa-homepage.html" },
-    { "source": "/websites",                          "destination": "/chatifa-websites.html" },
-    { "source": "/automatisierung",                   "destination": "/chatifa-automatisierung.html" },
-    { "source": "/kontakt",                           "destination": "/chatifa-kontakt.html" },
-    { "source": "/glossar",                           "destination": "/chatifa-glossar.html" },
-    { "source": "/preiskalkulator",                   "destination": "/chatifa-preiskalkulator.html" },
-    { "source": "/projekt-anfragen",                  "destination": "/chatifa-projekt-anfragen.html" },
-    { "source": "/impressum",                         "destination": "/chatifa-impressum.html" },
-    { "source": "/datenschutz",                       "destination": "/chatifa-datenschutz.html" },
-    { "source": "/glossar/cms",                       "destination": "/chatifa-glossar-cms.html" },
-    { "source": "/glossar/conversion-rate",           "destination": "/chatifa-glossar-conversion-rate.html" },
-    { "source": "/glossar/crm",                       "destination": "/chatifa-glossar-crm.html" },
-    { "source": "/glossar/follow-up-automatisierung", "destination": "/chatifa-glossar-follow-up-automatisierung.html" },
-    { "source": "/glossar/landingpage",               "destination": "/chatifa-glossar-landingpage.html" },
-    { "source": "/glossar/lead-qualifizierung",       "destination": "/chatifa-glossar-lead-qualifizierung.html" },
-    { "source": "/glossar/make",                      "destination": "/chatifa-glossar-make.html" },
-    { "source": "/glossar/n8n",                       "destination": "/chatifa-glossar-n8n.html" },
-    { "source": "/glossar/nutzerfuehrung",            "destination": "/chatifa-glossar-nutzerfuehrung.html" },
-    { "source": "/glossar/responsives-design",        "destination": "/chatifa-glossar-responsives-design.html" },
-    { "source": "/glossar/seo-grundstruktur",         "destination": "/chatifa-glossar-seo-grundstruktur.html" },
-    { "source": "/glossar/ux",                        "destination": "/chatifa-glossar-ux.html" },
-    { "source": "/glossar/webhook",                   "destination": "/chatifa-glossar-webhook.html" },
-    { "source": "/glossar/website-relaunch",          "destination": "/chatifa-glossar-website-relaunch.html" },
-    { "source": "/glossar/workflow-automatisierung",  "destination": "/chatifa-glossar-workflow-automatisierung.html" }
+    { "source": "/", "destination": "/chatifa-homepage.html" }
   ],
   "headers": [
     {

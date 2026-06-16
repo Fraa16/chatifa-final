@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SEO-Grundstruktur — Was es ist und wann es sinnvoll ist | Chatifa Glossar</title>
+  <meta name="description" content="Die SEO-Grundstruktur beschreibt die technischen und inhaltlichen Voraussetzungen, die eine Website erfüllen muss, damit Suchmaschinen sie korrekt indexier">
+  <link rel="stylesheet" href="fonts.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Chatifa",
+    "url": "https://chatifa.de",
+    "email": "francesco@chatifa.de",
+    "description": "B2B-Webagentur für professionelle Websites und Workflow-Automatisierung für mittelständische Unternehmen im deutschsprachigen Raum."
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Was gehört zur SEO-Grundstruktur?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Zur technischen Basis gehören: saubere URL-Strukturen, korrekte Meta-Tags (Title und Description), eine strukturierte Sitemap, schnelle Ladezeiten, mobil optimierte Darstellung und eine fehlerfreie interne Verlinkung. Hinzu kommen semantisch korrektes HTML — also die richtige Verwendung von H1, H2 und weiteren Überschriften-Hierarchien. Auf inhaltlicher Seite gehört dazu, dass jede Seite ein klares Thema hat, relevante Suchbegriffe sinnvoll eingesetzt werden und der Text tatsächlich beantwortet, was Nutzer bei diesem Thema suchen. Inhalte, die nur für Suchmaschinen geschrieben sind, funktionieren mittelfristig nicht."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Warum reicht ein gutes Design allein nicht aus?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Suchmaschinen sehen keine Designs — sie lesen Code und Inhalte. Eine optisch ansprechende Website kann für Google unsichtbar sein, wenn Titel fehlen, die Ladezeit zu hoch ist oder interne Links nicht korrekt gesetzt sind. SEO beginnt im Code, nicht im Browser. Viele Websites wurden ohne SEO-Grundstruktur gebaut und müssen später nachgerüstet werden. Das ist möglich, aber aufwändiger als von Anfang an richtig zu starten. Bei einem Relaunch oder Neubau lässt sich die Basis sauber legen."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Was ist der Unterschied zwischen SEO-Grundstruktur und SEO-Optimierung?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Die Grundstruktur ist die Voraussetzung — sie sorgt dafür, dass eine Website überhaupt korrekt indexiert wird. SEO-Optimierung geht darüber hinaus: gezielter Aufbau von Inhalten für bestimmte Suchbegriffe, Backlink-Aufbau, technische Performance-Optimierung, strukturierte Daten für Rich Snippets. Für viele B2B-Websites ist eine solide Grundstruktur bereits ausreichend, um bei relevanten Suchanfragen sichtbar zu sein — ohne aufwändige SEO-Kampagnen."
+      }
+    }
+  ]
+}
+  </script>
+  <style>
+/* ═══════════════════════════════════════
+   DESIGN TOKENS
+═══════════════════════════════════════ */
+:root {
+  --bg:          #050405;
+  --surface:     #0B080A;
+  --surface-el:  #120B10;
+  --accent:      #ED5A26;
+  --accent-h:    #FF6A32;
+  --accent-soft: rgba(237,90,38,0.07);
+  --glow-rgb:    237,90,38;
+  --secondary:   #2A1026;
+  --t1: #F4F0ED;
+  --t2: #C8BDB7;
+  --t3: #8F827B;
+  --t4: #6D625D;
+  --border: #24151A;
+  --f-hero:    clamp(56px, 8.5vw, 110px);
+  --f-h1:      clamp(38px, 4.8vw,  64px);
+  --f-h2:      clamp(28px, 3.2vw,  42px);
+  --f-h3:      20px;
+  --f-body-lg: 18px;
+  --f-body:    16px;
+  --f-sm:      14px;
+  --f-xs:      12px;
+  --f-2xs:     11px;
+  --w-light:   300;
+  --w-regular: 400;
+  --w-medium:  500;
+  --w-semi:    600;
+  --w-bold:    700;
+  --w-xbold:   800;
+  --ls-tight:  -0.03em;
+  --ls-snug:   -0.02em;
+  --ls-normal:  0;
+  --ls-wide:    0.06em;
+  --ls-wider:   0.12em;
+  --ls-widest:  0.18em;
+  --lh-hero:   1.00;
+  --lh-head:   1.08;
+  --lh-mid:    1.22;
+  --lh-body:   1.70;
+  --r-sm:   10px;
+  --r-md:   16px;
+  --r-lg:   26px;
+  --r-pill: 9999px;
+  --ease:   cubic-bezier(0.16,1,0.3,1);
+  --spring: cubic-bezier(0.34,1.56,0.64,1);
+}
+*,*::before,*::after { box-sizing:border-box; margin:0; padding:0 }
+html { scroll-behavior:smooth }
+body {
+  font-family: 'Instrument Sans', -apple-system, sans-serif;
+  background: var(--bg); color: var(--t1);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: var(--lh-body);
+  font-size: var(--f-body);
+}
+.wrap    { max-width:1120px; margin:0 auto; padding:0 2rem; position:relative; z-index:2 }
+.wrap-md { max-width: 780px; margin:0 auto; padding:0 2rem; position:relative; z-index:2 }
+.wrap-sm { max-width: 640px; margin:0 auto; padding:0 2rem; position:relative; z-index:2 }
+section  { position:relative; overflow:hidden }
+.orb { position:absolute; border-radius:50%; pointer-events:none; z-index:0; }
+.orb-hero {
+  width:800px; height:800px; top:-200px; left:50%;
+  transform:translateX(-50%);
+  background:radial-gradient(circle,rgba(var(--glow-rgb),.16) 0%,rgba(var(--glow-rgb),.05) 42%,transparent 68%);
+  filter:blur(1px);
+}
+.orb-cta {
+  width:700px; height:700px;
+  bottom:-180px; right:-140px;
+  background:radial-gradient(circle,rgba(var(--glow-rgb),.18) 0%,rgba(var(--glow-rgb),.05) 42%,transparent 68%);
+  filter:blur(3px);
+}
+.kicker {
+  font-family:'Instrument Sans', sans-serif;
+  font-size: var(--f-2xs);
+  font-weight: var(--w-semi);
+  letter-spacing: var(--ls-widest);
+  text-transform: uppercase;
+  color: var(--accent);
+  display: inline-block;
+}
+.t-h1 {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: var(--f-h1);
+  font-weight: var(--w-bold);
+  line-height: var(--lh-head);
+  letter-spacing: var(--ls-snug);
+  color: var(--t1);
+}
+.t-h2 {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: var(--f-h2);
+  font-weight: var(--w-semi);
+  line-height: var(--lh-mid);
+  letter-spacing: -0.01em;
+  color: var(--t1);
+}
+.t-h3 {
+  font-family: 'Instrument Sans', sans-serif;
+  font-size: var(--f-h3);
+  font-weight: var(--w-semi);
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  color: var(--t1);
+}
+.t-body-lg { font-size: var(--f-body-lg); line-height: var(--lh-body); color: var(--t2); font-weight: var(--w-regular); }
+.t-body { font-size: var(--f-body); line-height: var(--lh-body); color: var(--t2); font-weight: var(--w-regular); }
+.t-sm { font-size: var(--f-sm); line-height: 1.6; color: var(--t2); }
+.t-xs { font-size: var(--f-xs); color: var(--t4); }
+.t-center { text-align: center }
+.t-accent { color: var(--accent) }
+.card {
+  background: linear-gradient(170deg, var(--surface-el) 0%, var(--surface) 100%);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  position: relative;
+  overflow: hidden;
+  transition: box-shadow .4s ease, border-color .4s ease;
+}
+.card:hover {
+  box-shadow: 0 0 60px rgba(var(--glow-rgb),.10), 0 24px 48px rgba(0,0,0,.5);
+  border-color: rgba(var(--glow-rgb),.15);
+}
+.grid-bg {
+  position:absolute; inset:0;
+  background-image:
+    linear-gradient(var(--border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-size:28px 28px;
+  opacity:.38;
+  mask-image:linear-gradient(to bottom, black 0%, transparent 62%);
+  -webkit-mask-image:linear-gradient(to bottom, black 0%, transparent 62%);
+  pointer-events:none; border-radius:inherit;
+}
+.card-glow {
+  position:absolute; inset:0;
+  background:radial-gradient(circle 240px at var(--gx,50%) var(--gy,25%),
+    rgba(var(--glow-rgb),.28) 0%,
+    rgba(var(--glow-rgb),.08) 40%,
+    transparent 64%);
+  pointer-events:none; border-radius:inherit; z-index:1;
+  transition: background .15s;
+}
+.btn {
+  display:inline-flex; align-items:center; gap:8px;
+  font-family:'Instrument Sans',sans-serif;
+  font-size: var(--f-sm);
+  font-weight: var(--w-semi);
+  letter-spacing: 0.01em;
+  padding:.8rem 1.8rem;
+  border-radius:var(--r-pill); cursor:pointer; border:none;
+  transition:all .22s var(--ease); text-decoration:none; white-space:nowrap;
+}
+.btn-primary {
+  background:var(--accent); color:#fff;
+  box-shadow:0 4px 22px rgba(var(--glow-rgb),.32);
+}
+.btn-primary:hover {
+  background:var(--accent-h);
+  box-shadow:0 6px 30px rgba(var(--glow-rgb),.50);
+  transform:translateY(-1px);
+}
+.btn-primary:active { transform:translateY(1px) }
+.btn-ghost {
+  background:transparent; color:var(--t2);
+  border:1px solid var(--border);
+}
+.btn-ghost:hover {
+  background:rgba(255,255,255,.03);
+  border-color:rgba(var(--glow-rgb),.25);
+  color:var(--t1); transform:translateY(-1px);
+}
+.btn-text {
+  background:none; border:none;
+  color:var(--t3);
+  font-family:'Instrument Sans',sans-serif;
+  font-size:var(--f-sm); font-weight:var(--w-medium);
+  cursor:pointer; padding:0; text-decoration:none; transition:color .2s;
+}
+.btn-text:hover { color:var(--t1) }
+.reveal {
+  opacity:0; transform:translateY(24px);
+  transition: opacity .65s var(--ease), transform .65s var(--ease);
+}
+.reveal.in { opacity:1; transform:translateY(0) }
+.d1{transition-delay:.06s} .d2{transition-delay:.14s}
+.d3{transition-delay:.24s} .d4{transition-delay:.36s}
+.hero-badge {
+  display:inline-flex; align-items:center; gap:8px;
+  border:1px solid rgba(var(--glow-rgb),.18);
+  background:var(--accent-soft);
+  border-radius:var(--r-pill);
+  padding:.35rem 1rem;
+  margin-bottom:2.5rem;
+}
+.hero-badge::before {
+  content:''; width:6px; height:6px;
+  background:var(--accent); border-radius:50%;
+  box-shadow:0 0 8px rgba(var(--glow-rgb),.9);
+  animation:pdot 2s ease-in-out infinite;
+}
+@keyframes pdot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.45;transform:scale(.7)}}
+footer { border-top:1px solid var(--border); padding:4.5rem 0 2.5rem }
+.footer-grid {
+  display:grid; grid-template-columns:2fr 1fr 1fr 1fr;
+  gap:3rem; margin-bottom:3rem;
+}
+.footer-logo {
+  font-family:'Bricolage Grotesque',sans-serif;
+  font-size:22px; font-weight:var(--w-bold);
+  letter-spacing:-.02em;
+  color:var(--t1); margin-bottom:1rem;
+}
+.footer-logo span { color:var(--accent) }
+.footer-desc { font-size:var(--f-sm); line-height:1.7; color:var(--t4); max-width:280px; }
+.footer-col-h {
+  font-size:var(--f-2xs); font-weight:var(--w-bold);
+  letter-spacing:var(--ls-widest); text-transform:uppercase;
+  color:var(--t4); margin-bottom:1.1rem;
+}
+.footer-links { list-style:none; display:flex; flex-direction:column; gap:.65rem }
+.footer-links a { font-size:var(--f-sm); color:var(--t3); text-decoration:none; transition:color .2s; }
+.footer-links a:hover { color:var(--t1) }
+.footer-bar {
+  border-top:1px solid var(--border); padding-top:1.75rem;
+  display:flex; align-items:center; justify-content:space-between; gap:1rem;
+}
+.footer-copy { font-size:var(--f-xs); color:var(--t4) }
+.footer-legal { display:flex; gap:1.5rem }
+.footer-legal a { font-size:var(--f-xs); color:var(--t4); text-decoration:none; transition:color .2s }
+.footer-legal a:hover { color:var(--t2) }
+@media(max-width:768px) {
+  .nav-links, .nav-right { display: none; }
+  .nav-hamburger { display: flex; }
+}
+@media(max-width:940px) {
+  .footer-grid { grid-template-columns:1fr 1fr }
+}
+@media(max-width:600px) {
+  .wrap,.wrap-md,.wrap-sm { padding:0 1.25rem }
+  .footer-grid { grid-template-columns:1fr; gap:2rem }
+  .footer-bar { flex-direction:column; align-items:flex-start }
+}
+/* ── NAVBAR ── */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 300;
+  padding: 1.1rem 0;
+  transition: background .3s, backdrop-filter .3s, border-color .3s;
+}
+.nav.scrolled {
+  background: rgba(5,4,5,.92);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+.nav-inner {
+  max-width: 1120px; margin: 0 auto; padding: 0 2rem;
+  display: flex; align-items: center; justify-content: space-between; gap: 2rem;
+  position: relative;
+}
+.nav-logo {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 21px; font-weight: var(--w-bold);
+  letter-spacing: -.02em; color: var(--t1); text-decoration: none;
+  flex-shrink: 0; z-index: 1;
+}
+.nav-logo span { color: var(--accent) }
+.nav-links { display: flex; align-items: center; gap: .15rem; list-style: none; }
+.nav-links a {
+  font-size: 13px; font-weight: var(--w-medium); color: var(--t3);
+  text-decoration: none; padding: .4rem .8rem;
+  border-radius: var(--r-sm); transition: color .2s, background .2s;
+  letter-spacing: .01em;
+}
+.nav-links a:hover { color: var(--t1); background: rgba(255,255,255,.04) }
+.nav-trigger {
+  background: none; border: none; cursor: pointer;
+  font-family: 'Instrument Sans', sans-serif;
+  font-size: 13px; font-weight: var(--w-medium);
+  color: var(--t3); padding: .4rem .8rem;
+  border-radius: var(--r-sm);
+  display: flex; align-items: center; gap: 5px;
+  transition: color .2s, background .2s;
+  letter-spacing: .01em;
+}
+.nav-trigger:hover,
+.nav-trigger[aria-expanded="true"] { color: var(--t1); background: rgba(255,255,255,.04); }
+.nav-trigger svg { transition: transform .2s var(--ease); flex-shrink: 0; color: var(--t4); }
+.nav-trigger[aria-expanded="true"] svg { transform: rotate(180deg); color: var(--accent) }
+.nav-right { display: flex; align-items: center; gap: .6rem; flex-shrink: 0; }
+.nav-panel-anchor { position: static; }
+.nav-panel {
+  position: fixed;
+  top: 68px;
+  left: 50%;
+  transform: translateX(-50%) translateY(-8px);
+  background: rgba(11,8,10,0.97);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  box-shadow: 0 24px 64px rgba(0,0,0,0.65), 0 0 0 1px rgba(255,255,255,0.03);
+  padding: 1.5rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .22s var(--ease), transform .22s var(--ease);
+  z-index: 200;
+}
+.nav-panel::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 1.5rem; right: 1.5rem;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(237,90,38,0.40), transparent);
+}
+.nav-panel.open {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+  pointer-events: auto;
+}
+#panel-leistungen { min-width: 620px; }
+.panel-leistungen-inner { display: flex; flex-direction: column; gap: .75rem; }
+.panel-cards-row { display: grid; grid-template-columns: 1fr 1fr; gap: .75rem; }
+.panel-service-card {
+  padding: 1.25rem 1.5rem;
+  text-decoration: none;
+  display: flex; flex-direction: column; gap: .5rem;
+}
+.panel-service-card .kicker { font-size: 10px; margin-bottom: .1rem; }
+.panel-service-card .t-h3 { font-size: 16px; color: var(--t1); margin: 0; }
+.panel-service-card .t-sm { font-size: var(--f-sm); color: var(--t3); line-height: 1.55; margin: 0; }
+.panel-service-link {
+  font-size: var(--f-xs); color: var(--accent);
+  font-weight: var(--w-medium); letter-spacing: .02em;
+  margin-top: auto; padding-top: .6rem; transition: color .2s;
+}
+.panel-service-card:hover .panel-service-link { color: var(--accent-h) }
+.panel-cta-bar {
+  display: flex; align-items: center; justify-content: space-between; gap: 1.5rem;
+  padding: .9rem 1.25rem;
+  border-top: 1px solid var(--border);
+  margin-top: .15rem;
+}
+.panel-cta-bar-text { display: flex; flex-direction: column; gap: .15rem; }
+.panel-cta-bar-text .kicker { font-size: 10px; }
+.panel-cta-bar-text span {
+  font-family: 'Instrument Sans', sans-serif;
+  font-size: 13px; font-weight: var(--w-medium);
+  color: var(--t3); line-height: 1.45;
+}
+.panel-cta-bar-actions { display: flex; align-items: center; gap: .85rem; flex-shrink: 0; }
+.panel-cta-bar-actions .btn-primary { font-size: 13px; padding: .55rem 1.1rem; }
+.panel-cta-bar-actions .btn-text { font-size: 12px; white-space: nowrap; }
+#panel-ressourcen { min-width: 580px; }
+.panel-ressourcen-inner { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+.panel-resource-card {
+  padding: 1.1rem 1.25rem;
+  text-decoration: none;
+  display: flex; flex-direction: column; gap: .5rem;
+}
+.panel-resource-card-icon {
+  width: 34px; height: 34px; border-radius: var(--r-sm);
+  background: var(--secondary); border: 1px solid rgba(var(--glow-rgb),.12);
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: .2rem; flex-shrink: 0;
+}
+.panel-resource-card-icon svg { color: var(--accent); }
+.panel-resource-card .t-h3 { font-size: 14px; margin: 0; }
+.panel-resource-card .t-sm { font-size: 12px; color: var(--t3); line-height: 1.5; margin: 0; flex: 1; }
+.panel-tag {
+  display: inline-flex; align-items: center;
+  font-size: 10px; font-weight: var(--w-medium);
+  color: var(--t4); letter-spacing: .05em;
+  border: 1px solid var(--border); border-radius: var(--r-pill);
+  padding: .2rem .6rem; margin-top: .3rem; width: fit-content;
+}
+.nav-hamburger {
+  display: none;
+  flex-direction: column; justify-content: center; align-items: center;
+  gap: 5px; width: 38px; height: 38px;
+  background: none; border: 1px solid var(--border);
+  border-radius: var(--r-sm); cursor: pointer; padding: 0; z-index: 1;
+  transition: border-color .2s;
+}
+.nav-hamburger:hover { border-color: rgba(var(--glow-rgb),.25) }
+.nav-hamburger span {
+  display: block; width: 16px; height: 1.5px;
+  background: var(--t3); border-radius: 2px;
+  transition: transform .3s var(--ease), opacity .2s, background .2s;
+  transform-origin: center;
+}
+.nav-hamburger[aria-expanded="true"] span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.nav-hamburger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+.nav-hamburger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+.mobile-menu {
+  position: fixed; top: 0; left: 0; right: 0;
+  background: rgba(5,4,5,.98);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+  z-index: 250;
+  transform: translateY(-100%); opacity: 0;
+  transition: transform .35s var(--ease), opacity .28s var(--ease);
+  pointer-events: none;
+  padding-top: 80px; max-height: 100vh; overflow-y: auto;
+}
+.mobile-menu.open { transform: translateY(0); opacity: 1; pointer-events: auto; }
+.mobile-menu-inner { padding: 1.5rem 1.5rem 2rem; display: flex; flex-direction: column; gap: .25rem; }
+.mobile-nav-link {
+  display: block; font-size: 15px; font-weight: var(--w-medium);
+  color: var(--t2); text-decoration: none; padding: .85rem 1rem;
+  border-radius: var(--r-sm); transition: color .2s, background .2s;
+}
+.mobile-nav-link:hover { color: var(--t1); background: rgba(255,255,255,.04) }
+.mobile-accordion-trigger {
+  width: 100%; background: none; border: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: .85rem 1rem; border-radius: var(--r-sm);
+  transition: color .2s, background .2s;
+}
+.mobile-accordion-trigger:hover { background: rgba(255,255,255,.04) }
+.mobile-accordion-trigger-text { font-family: 'Instrument Sans', sans-serif; font-size: 15px; font-weight: var(--w-medium); color: var(--t2); }
+.mobile-accordion-trigger svg { color: var(--t4); transition: transform .25s var(--ease), color .2s; flex-shrink: 0; }
+.mobile-accordion-trigger[aria-expanded="true"] svg { transform: rotate(180deg); color: var(--accent); }
+.mobile-accordion-trigger[aria-expanded="true"] .mobile-accordion-trigger-text { color: var(--t1); }
+.mobile-accordion-body { overflow: hidden; max-height: 0; transition: max-height .35s var(--ease); }
+.mobile-accordion-inner { padding: .5rem 0 .75rem 1rem; display: flex; flex-direction: column; gap: .5rem; }
+.mobile-service-item {
+  display: flex; flex-direction: column; gap: .25rem; padding: .9rem 1rem;
+  background: var(--surface-el); border: 1px solid var(--border);
+  border-radius: var(--r-md); text-decoration: none; transition: border-color .2s;
+}
+.mobile-service-item:hover { border-color: rgba(var(--glow-rgb),.18) }
+.mobile-service-item .kicker { font-size: 10px; }
+.mobile-service-item .t-h3 { font-size: 14px; color: var(--t1); }
+.mobile-service-item .t-sm { font-size: 12px; color: var(--t3); line-height: 1.45; }
+.mobile-resource-item {
+  display: flex; align-items: flex-start; gap: .75rem; padding: .75rem 1rem;
+  background: var(--surface-el); border: 1px solid var(--border);
+  border-radius: var(--r-md); text-decoration: none; transition: border-color .2s;
+}
+.mobile-resource-item:hover { border-color: rgba(var(--glow-rgb),.18) }
+.mobile-resource-icon {
+  width: 30px; height: 30px; flex-shrink: 0; border-radius: var(--r-sm);
+  background: var(--secondary); border: 1px solid rgba(var(--glow-rgb),.12);
+  display: flex; align-items: center; justify-content: center;
+}
+.mobile-resource-icon svg { color: var(--accent); }
+.mobile-resource-text { display: flex; flex-direction: column; gap: .15rem; }
+.mobile-resource-text .t-h3 { font-size: 13px; color: var(--t1); }
+.mobile-resource-text .panel-tag { margin-top: .15rem; }
+.mobile-divider { height: 1px; background: var(--border); margin: .75rem 0; }
+.mobile-cta-block { padding: .5rem 1rem 0; display: flex; flex-direction: column; gap: .65rem; }
+.mobile-cta-block .btn-primary { font-size: 14px; padding: .8rem 1.4rem; text-align: center; justify-content: center; width: 100%; }
+@media (max-width: 768px) {
+  .nav-links, .nav-right { display: none; }
+  .nav-hamburger { display: flex; }
+}
+@media (max-width: 600px) {
+  .nav-inner { padding: 0 1.25rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+}
+</style>
+<style>
+/* ── DETAIL SPECIFIC ── */
+.glossar-detail-hero { padding: 6rem 0 3rem; }
+.glossar-cat-badge {
+  font-size: var(--f-xs); font-weight: var(--w-semi);
+  letter-spacing: .12em; text-transform: uppercase;
+  color: var(--accent);
+}
+.glossar-back { margin-bottom: 2rem; }
+.glossar-detail-layout {
+  display: flex; align-items: flex-start; gap: 3rem;
+  padding: 0 0 9rem;
+}
+.glossar-detail-content { flex: 1 1 0; min-width: 0; }
+.glossar-detail-sidebar {
+  flex: 0 0 300px; width: 300px;
+  position: sticky; top: 7rem; align-self: flex-start;
+}
+.glossar-detail-content h2 {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: var(--f-h2); font-weight: var(--w-bold);
+  color: var(--t1); letter-spacing: -.02em;
+  line-height: var(--lh-head); margin: 2.5rem 0 1rem;
+}
+.glossar-detail-content p {
+  font-size: var(--f-body); color: var(--t3);
+  line-height: 1.8; margin-bottom: 1.25rem;
+}
+.related-chips { display: flex; gap: .6rem; flex-wrap: wrap; }
+.related-chip {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--r-pill); padding: .45rem 1rem;
+  font-size: var(--f-sm); font-weight: var(--w-medium);
+  color: var(--t3); text-decoration: none;
+  transition: border-color .2s, color .2s;
+}
+.related-chip:hover { border-color: rgba(var(--glow-rgb),.3); color: var(--t1) }
+@media(max-width:900px) {
+  .glossar-detail-layout { flex-direction: column; }
+  .glossar-detail-sidebar { flex: none; width: 100%; position: static; }
+}
+@media(max-width:600px) {
+  .glossar-detail-hero { padding: 5rem 0 2rem; }
+  .glossar-detail-layout { padding: 0 0 6rem; }
+}
+.breadcrumb { margin-bottom: 1.5rem }
+.breadcrumb-list {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  flex-wrap: wrap;
+}
+.breadcrumb-item {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  font-size: var(--f-xs);
+  color: var(--t4);
+}
+.breadcrumb-item::after {
+  content: '/';
+  color: var(--t4);
+  opacity: .4;
+}
+.breadcrumb-item:last-child::after { display: none }
+.breadcrumb-item a {
+  color: var(--t4);
+  text-decoration: none;
+  transition: color .2s;
+}
+.breadcrumb-item a:hover { color: var(--t2) }
+.breadcrumb-current { color: var(--t3) }
+.glossar-link {
+  color: var(--t2);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(237,90,38,0.3);
+  transition: color .2s, border-color .2s;
+}
+.glossar-link:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Startseite",
+      "item": "https://chatifa.de/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Glossar",
+      "item": "https://chatifa.de/chatifa-glossar"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "SEO-Grundstruktur",
+      "item": "https://chatifa.de/chatifa-glossar-seo-grundstruktur"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<!-- ══ NAVBAR ══ -->
+<nav class="nav" id="nav" role="navigation" aria-label="Hauptnavigation">
+  <div class="nav-inner">
+    <a href="chatifa-homepage.html" class="nav-logo" aria-label="Chatifa — Startseite">Chatifa<span>.</span></a>
+    <ul class="nav-links" role="list">
+      <li role="listitem">
+        <button class="nav-trigger" id="trigger-leistungen" data-panel="leistungen" aria-expanded="false" aria-haspopup="true" aria-controls="panel-leistungen">
+          Leistungen
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </li>
+      <li role="listitem">
+        <button class="nav-trigger" id="trigger-ressourcen" data-panel="ressourcen" aria-expanded="false" aria-haspopup="true" aria-controls="panel-ressourcen">
+          Ressourcen
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </li>
+      <li role="listitem"><a href="#">Über uns</a></li>
+      <li role="listitem"><a href="chatifa-kontakt.html">Kontakt</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="chatifa-projekt-anfragen.html" class="btn btn-ghost" style="font-size:13px;padding:.5rem 1.1rem">Einschätzung einholen →</a>
+      <a href="chatifa-projekt-anfragen.html" class="btn btn-primary" style="font-size:13px;padding:.5rem 1.1rem">Projekt anfragen</a>
+    </div>
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobile-menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <!-- Leistungen panel -->
+  <div class="nav-panel" id="panel-leistungen" role="dialog" aria-label="Leistungen" aria-hidden="true">
+    <div class="panel-leistungen-inner">
+      <div class="panel-cards-row">
+        <a href="chatifa-websites.html" class="card panel-service-card" tabindex="-1">
+          <div class="grid-bg"></div><div class="card-glow"></div>
+          <div style="position:relative;z-index:2;display:flex;flex-direction:column;gap:.5rem;height:100%">
+            <span class="kicker">Websites</span>
+            <h3 class="t-h3">Klarheit für Besucher.</h3>
+            <p class="t-sm">Strukturierte Websites, die Angebot, Relevanz und nächste Schritte klar führen.</p>
+            <span class="panel-service-link" aria-hidden="true">Mehr erfahren →</span>
+          </div>
+        </a>
+        <a href="chatifa-automatisierung.html" class="card panel-service-card" tabindex="-1">
+          <div class="grid-bg"></div><div class="card-glow"></div>
+          <div style="position:relative;z-index:2;display:flex;flex-direction:column;gap:.5rem;height:100%">
+            <span class="kicker">Automatisierung</span>
+            <h3 class="t-h3">Entlastung für Teams.</h3>
+            <p class="t-sm">Workflows und Automatisierungen dort, wo wiederkehrende Arbeit Zeit kostet.</p>
+            <span class="panel-service-link" aria-hidden="true">Mehr erfahren →</span>
+          </div>
+        </a>
+      </div>
+      <div class="panel-cta-bar">
+        <div class="panel-cta-bar-text">
+          <span class="kicker">Nächster Schritt</span>
+          <span>Eine grobe Idee reicht — wir prüfen, ob und wie wir helfen können.</span>
+        </div>
+        <div class="panel-cta-bar-actions">
+          <a href="chatifa-projekt-anfragen.html" class="btn-text" tabindex="-1">Einschätzung einholen →</a>
+          <a href="chatifa-projekt-anfragen.html" class="btn btn-primary" tabindex="-1">Projekt anfragen</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Ressourcen panel -->
+  <div class="nav-panel" id="panel-ressourcen" role="dialog" aria-label="Ressourcen" aria-hidden="true">
+    <div class="panel-ressourcen-inner">
+      <a href="chatifa-glossar.html" class="card panel-resource-card" tabindex="-1">
+        <div class="grid-bg"></div><div class="card-glow"></div>
+        <div style="position:relative;z-index:2;display:flex;flex-direction:column;gap:.45rem;height:100%">
+          <div class="panel-resource-card-icon" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3 2h8a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1z" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"/>
+              <path d="M5 5.5h6M5 8h6M5 10.5h4" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3 class="t-h3">Glossar</h3>
+          <p class="t-sm" style="flex:1">Begriffe aus Website, UX und Automatisierung — klar erklärt.</p>
+        </div>
+      </a>
+      <a href="#" class="card panel-resource-card" tabindex="-1">
+        <div class="grid-bg"></div><div class="card-glow"></div>
+        <div style="position:relative;z-index:2;display:flex;flex-direction:column;gap:.45rem;height:100%">
+          <div class="panel-resource-card-icon" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="2" y="1.5" width="12" height="13" rx="1.5" stroke="currentColor" stroke-width="1.25"/>
+              <path d="M5 5h6M5 7.5h6M5 10h4" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3 class="t-h3">Ratgeber</h3>
+          <p class="t-sm" style="flex:1">Konkrete Anleitungen und Einschätzungen zu digitalen Projekten.</p>
+          <span class="panel-tag">Bald verfügbar</span>
+        </div>
+      </a>
+      <a href="chatifa-preiskalkulator.html" class="card panel-resource-card" tabindex="-1">
+        <div class="grid-bg"></div><div class="card-glow"></div>
+        <div style="position:relative;z-index:2;display:flex;flex-direction:column;gap:.45rem;height:100%">
+          <div class="panel-resource-card-icon" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="2" y="2" width="12" height="12" rx="2" stroke="currentColor" stroke-width="1.25"/>
+              <path d="M5 8h6" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"/>
+              <path d="M8 5v6" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"/>
+              <circle cx="5" cy="5.5" r=".75" fill="currentColor"/>
+              <circle cx="11" cy="5.5" r=".75" fill="currentColor"/>
+              <circle cx="5" cy="10.5" r=".75" fill="currentColor"/>
+              <circle cx="11" cy="10.5" r=".75" fill="currentColor"/>
+            </svg>
+          </div>
+          <h3 class="t-h3">Preiskalkulator</h3>
+          <p class="t-sm" style="flex:1">Orientierung zum realistischen Budget für Website-Projekte.</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</nav>
+<!-- ══ MOBILE MENU ══ -->
+<div class="mobile-menu" id="mobile-menu" role="dialog" aria-label="Navigation" aria-hidden="true">
+  <div class="mobile-menu-inner">
+    <div>
+      <button class="mobile-accordion-trigger" id="mob-trigger-leistungen" aria-expanded="false" aria-controls="mob-body-leistungen">
+        <span class="mobile-accordion-trigger-text">Leistungen</span>
+        <svg width="14" height="14" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="mobile-accordion-body" id="mob-body-leistungen" role="region">
+        <div class="mobile-accordion-inner">
+          <a href="chatifa-websites.html" class="mobile-service-item">
+            <span class="kicker">Websites</span>
+            <span class="t-h3">Klarheit für Besucher.</span>
+            <span class="t-sm">Strukturierte Websites, die Angebot, Relevanz und nächste Schritte klar führen.</span>
+          </a>
+          <a href="chatifa-automatisierung.html" class="mobile-service-item">
+            <span class="kicker">Automatisierung</span>
+            <span class="t-h3">Entlastung für Teams.</span>
+            <span class="t-sm">Workflows und Automatisierungen dort, wo wiederkehrende Arbeit Zeit kostet.</span>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div>
+      <button class="mobile-accordion-trigger" id="mob-trigger-ressourcen" aria-expanded="false" aria-controls="mob-body-ressourcen">
+        <span class="mobile-accordion-trigger-text">Ressourcen</span>
+        <svg width="14" height="14" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="mobile-accordion-body" id="mob-body-ressourcen" role="region">
+        <div class="mobile-accordion-inner">
+          <a href="chatifa-glossar.html" class="mobile-resource-item">
+            <div class="mobile-resource-icon" aria-hidden="true">
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 2h8a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1z" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"/><path d="M5 5.5h6M5 8h6M5 10.5h4" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"/></svg>
+            </div>
+            <div class="mobile-resource-text"><span class="t-h3">Glossar</span></div>
+          </a>
+          <a href="#" class="mobile-resource-item">
+            <div class="mobile-resource-icon" aria-hidden="true">
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><rect x="2" y="1.5" width="12" height="13" rx="1.5" stroke="currentColor" stroke-width="1.25"/><path d="M5 5h6M5 7.5h6M5 10h4" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"/></svg>
+            </div>
+            <div class="mobile-resource-text"><span class="t-h3">Ratgeber</span><span class="panel-tag">Bald verfügbar</span></div>
+          </a>
+          <a href="chatifa-preiskalkulator.html" class="mobile-resource-item">
+            <div class="mobile-resource-icon" aria-hidden="true">
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><rect x="2" y="2" width="12" height="12" rx="2" stroke="currentColor" stroke-width="1.25"/><path d="M5 8h6M8 5v6" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"/></svg>
+            </div>
+            <div class="mobile-resource-text"><span class="t-h3">Preiskalkulator</span></div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <a href="#" class="mobile-nav-link">Über uns</a>
+    <a href="chatifa-kontakt.html" class="mobile-nav-link">Kontakt</a>
+    <div class="mobile-divider" aria-hidden="true"></div>
+    <div class="mobile-cta-block">
+      <a href="chatifa-projekt-anfragen.html" class="btn btn-primary">Projekt anfragen</a>
+    </div>
+  </div>
+</div>
+<!-- ══ HERO ══ -->
+<section class="glossar-detail-hero">
+  <div class="orb orb-hero" aria-hidden="true"></div>
+  <div class="wrap">
+    <nav class="breadcrumb reveal" aria-label="Breadcrumb">
+      <ol class="breadcrumb-list">
+        <li class="breadcrumb-item"><a href="chatifa-homepage.html">Startseite</a></li>
+        <li class="breadcrumb-item"><a href="chatifa-glossar.html">Glossar</a></li>
+        <li class="breadcrumb-item breadcrumb-current" aria-current="page">SEO-Grundstruktur</li>
+      </ol>
+    </nav>
+    <div class="glossar-detail-head reveal d1">
+      <span class="glossar-cat-badge">Website & UX</span>
+      <h1 class="t-h1" style="margin-top:.75rem;margin-bottom:0">SEO-Grundstruktur</h1>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CONTENT ══ -->
+<section style="border-top:1px solid var(--border)">
+  <div class="wrap">
+    <div class="glossar-detail-layout">
+
+      <!-- ── CONTENT COLUMN ── -->
+      <main class="glossar-detail-content">
+
+        <!-- Definition card -->
+        <div class="card definition-card reveal d1" style="padding:2rem 2.5rem;margin-bottom:2.5rem">
+          <div class="grid-bg"></div>
+          <div class="card-glow"></div>
+          <div style="position:relative;z-index:2">
+            <span class="kicker">Definition</span>
+            <p class="t-sm" style="color:var(--t2);line-height:1.8;margin-top:.75rem">Die SEO-Grundstruktur beschreibt die technischen und inhaltlichen Voraussetzungen, die eine Website erfüllen muss, damit Suchmaschinen sie korrekt indexieren und relevante Inhalte gefunden werden können. Ohne diese Basis nützen auch gute Inhalte wenig.</p>
+          </div>
+        </div>
+
+        <h2 class="reveal">Was gehört zur SEO-Grundstruktur?</h2>
+        <p class="reveal d1">Zur technischen Basis gehören: saubere URL-Strukturen, korrekte Meta-Tags (Title und Description), eine strukturierte Sitemap, schnelle Ladezeiten, mobil optimierte Darstellung und eine fehlerfreie interne Verlinkung. Hinzu kommen semantisch korrektes HTML — also die richtige Verwendung von H1, H2 und weiteren Überschriften-Hierarchien.</p>
+        <p class="reveal d1">Auf inhaltlicher Seite gehört dazu, dass jede Seite ein klares Thema hat, relevante Suchbegriffe sinnvoll eingesetzt werden und der Text tatsächlich beantwortet, was Nutzer bei diesem Thema suchen. Inhalte, die nur für Suchmaschinen geschrieben sind, funktionieren mittelfristig nicht.</p>
+
+        <h2 class="reveal">Warum reicht ein gutes Design allein nicht aus?</h2>
+        <p class="reveal d1">Suchmaschinen sehen keine Designs — sie lesen Code und Inhalte. Eine optisch ansprechende Website kann für Google unsichtbar sein, wenn Titel fehlen, die Ladezeit zu hoch ist oder interne Links nicht korrekt gesetzt sind. SEO beginnt im Code, nicht im Browser.</p>
+        <p class="reveal d1">Viele Websites wurden ohne SEO-Grundstruktur gebaut und müssen später nachgerüstet werden. Das ist möglich, aber aufwändiger als von Anfang an richtig zu starten. Bei einem Relaunch oder Neubau lässt sich die Basis sauber legen.</p>
+
+        <h2 class="reveal">Was ist der Unterschied zwischen SEO-Grundstruktur und SEO-Optimierung?</h2>
+        <p class="reveal d1">Die Grundstruktur ist die Voraussetzung — sie sorgt dafür, dass eine Website überhaupt korrekt indexiert wird. SEO-Optimierung geht darüber hinaus: gezielter Aufbau von Inhalten für bestimmte Suchbegriffe, Backlink-Aufbau, technische Performance-Optimierung, strukturierte Daten für Rich Snippets.</p>
+        <p class="reveal d1">Für viele B2B-Websites ist eine solide Grundstruktur bereits ausreichend, um bei relevanten Suchanfragen sichtbar zu sein — ohne aufwändige SEO-Kampagnen.</p>
+
+        <!-- Fazit card -->
+        <div class="card fazit-card reveal" style="padding:1.75rem 2rem;margin-top:2.5rem">
+          <div class="grid-bg"></div>
+          <div class="card-glow"></div>
+          <div style="position:relative;z-index:2">
+            <span class="kicker">Fazit</span>
+            <p class="t-sm" style="color:var(--t2);line-height:1.8;margin-top:.75rem">Die SEO-Grundstruktur ist kein optionales Feature, sondern Teil einer professionellen Website. Sie sorgt dafür, dass Inhalte gefunden werden — und schafft die Basis für alle weiteren Maßnahmen.</p>
+          </div>
+        </div>
+
+        <p class="t-sm reveal" style="color:var(--t3);margin-top:1.5rem">
+          Bei einem Website-Projekt übernehmen wir die strukturierte Umsetzung — von der Konzeption bis zum Launch. <a href="chatifa-websites.html" class="glossar-link">Mehr zu unserer Website-Leistung →</a>
+        </p>
+
+        <!-- Related terms -->
+        <div class="related-terms reveal" style="margin-top:2.5rem">
+          <span class="kicker" style="display:block;margin-bottom:1rem">Verwandte Begriffe</span>
+          <div class="related-chips">
+            <a href="chatifa-glossar-website-relaunch.html" class="related-chip">Website-Relaunch</a>
+        <a href="chatifa-glossar-cms.html" class="related-chip">CMS</a>
+        <a href="chatifa-glossar-responsives-design.html" class="related-chip">Responsives Design</a>
+        
+          </div>
+        </div>
+
+      </main>
+
+      <!-- ── SIDEBAR ── -->
+      <aside class="glossar-detail-sidebar">
+        <div class="card sidebar-cta reveal d2" style="padding:1.75rem">
+          <div class="grid-bg"></div>
+          <div class="card-glow"></div>
+          <div style="position:relative;z-index:2">
+            <span class="kicker">Nächster Schritt</span>
+            <h3 class="t-h3" style="margin-top:.65rem;margin-bottom:.75rem">SEO-Basis einrichten.</h3>
+            <p class="t-sm" style="color:var(--t3);margin-bottom:1.25rem">Wir bauen die technische Grundlage, auf der Sichtbarkeit wächst.</p>
+            <a href="chatifa-websites.html" class="btn btn-primary" style="width:100%;text-align:center;display:block">Projekt anfragen</a>
+            <a href="chatifa-projekt-anfragen.html" class="btn-text" style="display:block;text-align:center;margin-top:.85rem;font-size:var(--f-sm)">Einschätzung einholen →</a>
+          </div>
+        </div>
+        <div style="margin-top:1.5rem;text-align:center">
+          <a href="chatifa-glossar.html" class="btn-text" style="font-size:var(--f-sm)">← Alle Begriffe</a>
+        </div>
+      </aside>
+
+    </div>
+  </div>
+</section>
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">Chatifa<span>.</span></div>
+        <p class="footer-desc">Professionelle Websites und sinnvolle Automatisierungen für B2B-Unternehmen — für klare Außenwirkung, bessere Nutzerführung und weniger manuelle Arbeit im Alltag.</p>
+      </div>
+      <div>
+        <p class="footer-col-h">Leistungen</p>
+        <ul class="footer-links" role="list">
+          <li><a href="chatifa-websites.html">Websites</a></li>
+          <li><a href="chatifa-automatisierung.html">Automatisierung</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-h">Unternehmen</p>
+        <ul class="footer-links" role="list">
+          <li><a href="#">Über uns</a></li>
+          <li><a href="chatifa-projekt-anfragen.html">Projekt anfragen</a></li>
+          <li><a href="chatifa-kontakt.html">Kontakt</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-h">Ressourcen</p>
+        <ul class="footer-links" role="list">
+          <li><a href="chatifa-glossar.html">Glossar</a></li>
+          <li><a href="#">Ratgeber</a></li>
+          <li><a href="chatifa-preiskalkulator.html">Website-Preiskalkulator</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bar">
+      <span class="footer-copy">© 2026 Chatifa. Alle Rechte vorbehalten.</span>
+      <nav class="footer-legal" aria-label="Rechtliche Links">
+        <a href="chatifa-impressum.html">Impressum</a>
+        <a href="chatifa-datenschutz.html">Datenschutz</a>
+      </nav>
+    </div>
+  </div>
+</footer><script>
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', scrollY > 40); }, { passive: true });
+const MOBILE = () => window.innerWidth <= 768;
+const triggers = {
+  leistungen: document.getElementById('trigger-leistungen'),
+  ressourcen:  document.getElementById('trigger-ressourcen'),
+};
+const panels = {
+  leistungen: document.getElementById('panel-leistungen'),
+  ressourcen:  document.getElementById('panel-ressourcen'),
+};
+function getPanelLinks(panel) { return Array.from(panel.querySelectorAll('a, button:not([disabled])')); }
+let activePanel = null, closeTimer = null;
+function openPanel(key) {
+  if (MOBILE()) return;
+  if (activePanel && activePanel !== key) closePanel(activePanel, true);
+  activePanel = key;
+  clearTimeout(closeTimer);
+  const panel = panels[key], trigger = triggers[key];
+  panel.classList.add('open');
+  panel.setAttribute('aria-hidden', 'false');
+  trigger.setAttribute('aria-expanded', 'true');
+  getPanelLinks(panel).forEach(el => el.removeAttribute('tabindex'));
+}
+function closePanel(key, immediate = false) {
+  const doClose = () => {
+    if (activePanel === key) activePanel = null;
+    const panel = panels[key], trigger = triggers[key];
+    panel.classList.remove('open');
+    panel.setAttribute('aria-hidden', 'true');
+    trigger.setAttribute('aria-expanded', 'false');
+    getPanelLinks(panel).forEach(el => el.setAttribute('tabindex', '-1'));
+  };
+  if (immediate) { clearTimeout(closeTimer); doClose(); }
+  else { clearTimeout(closeTimer); closeTimer = setTimeout(doClose, 80); }
+}
+function closeAllPanels(immediate = false) { Object.keys(panels).forEach(k => closePanel(k, immediate)); }
+Object.keys(triggers).forEach(key => {
+  const trigger = triggers[key], panel = panels[key];
+  trigger.addEventListener('mouseenter', () => { if (!MOBILE()) openPanel(key); });
+  trigger.addEventListener('mouseleave', () => { if (!MOBILE()) closePanel(key); });
+  panel.addEventListener('mouseenter', () => { if (!MOBILE()) clearTimeout(closeTimer); });
+  panel.addEventListener('mouseleave', () => { if (!MOBILE()) closePanel(key); });
+  trigger.addEventListener('click', () => {
+    if (MOBILE()) return;
+    if (panel.classList.contains('open')) { closePanel(key, true); } else { openPanel(key); }
+  });
+  getPanelLinks(panel).forEach(link => { link.addEventListener('click', () => closeAllPanels(true)); });
+});
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    closeAllPanels(true);
+    Object.keys(triggers).forEach(k => { if (triggers[k].getAttribute('aria-expanded') === 'true') triggers[k].focus(); });
+  }
+});
+document.addEventListener('click', e => {
+  const inside = Object.keys(triggers).some(k => triggers[k].contains(e.target) || panels[k].contains(e.target));
+  if (!inside) closeAllPanels(true);
+});
+let wasM = MOBILE();
+window.addEventListener('resize', () => { const isM = MOBILE(); if (wasM !== isM) { closeAllPanels(true); wasM = isM; } }, { passive: true });
+const hamburger  = document.getElementById('nav-hamburger');
+const mobileMenu = document.getElementById('mobile-menu');
+hamburger.addEventListener('click', () => { mobileMenu.classList.contains('open') ? closeMobileMenu() : openMobileMenu(); });
+function openMobileMenu() {
+  mobileMenu.classList.add('open'); mobileMenu.setAttribute('aria-hidden', 'false');
+  hamburger.setAttribute('aria-expanded', 'true'); hamburger.setAttribute('aria-label', 'Menü schließen');
+  document.body.style.overflow = 'hidden';
+}
+function closeMobileMenu() {
+  mobileMenu.classList.remove('open'); mobileMenu.setAttribute('aria-hidden', 'true');
+  hamburger.setAttribute('aria-expanded', 'false'); hamburger.setAttribute('aria-label', 'Menü öffnen');
+  document.body.style.overflow = '';
+  closeAllMobileAccordions();
+}
+document.addEventListener('click', e => {
+  if (mobileMenu.classList.contains('open') && !mobileMenu.contains(e.target) && !hamburger.contains(e.target)) closeMobileMenu();
+});
+document.addEventListener('keydown', e => { if (e.key === 'Escape' && mobileMenu.classList.contains('open')) { closeMobileMenu(); hamburger.focus(); } });
+const mobileAccordions = [
+  { trigger: 'mob-trigger-leistungen', body: 'mob-body-leistungen' },
+  { trigger: 'mob-trigger-ressourcen', body: 'mob-body-ressourcen' },
+];
+mobileAccordions.forEach(({ trigger: tid, body: bid }) => {
+  const btn = document.getElementById(tid), body = document.getElementById(bid);
+  btn.addEventListener('click', () => {
+    const open = btn.getAttribute('aria-expanded') === 'true';
+    if (open) { closeMobileAccordion(btn, body); }
+    else {
+      mobileAccordions.forEach(({ trigger: otid, body: obid }) => {
+        if (otid !== tid) {
+          const ob = document.getElementById(otid), obb = document.getElementById(obid);
+          if (ob.getAttribute('aria-expanded') === 'true') closeMobileAccordion(ob, obb);
+        }
+      });
+      openMobileAccordion(btn, body);
+    }
+  });
+});
+function openMobileAccordion(btn, body) { btn.setAttribute('aria-expanded', 'true'); body.style.maxHeight = body.scrollHeight + 'px'; }
+function closeMobileAccordion(btn, body) { btn.setAttribute('aria-expanded', 'false'); body.style.maxHeight = '0'; }
+function closeAllMobileAccordions() {
+  mobileAccordions.forEach(({ trigger: tid, body: bid }) => { closeMobileAccordion(document.getElementById(tid), document.getElementById(bid)); });
+}
+const ro = new IntersectionObserver(
+  entries => entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); ro.unobserve(e.target) } }),
+  {threshold:.1, rootMargin:'0px 0px -40px 0px'}
+);
+document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
+document.querySelectorAll('.card').forEach(card => {
+  const g = card.querySelector('.card-glow');
+  if(!g) return;
+  card.addEventListener('mousemove', e => {
+    const r = card.getBoundingClientRect();
+    const x = ((e.clientX - r.left) / r.width) * 100;
+    const y = ((e.clientY - r.top) / r.height) * 100;
+    g.style.background = `radial-gradient(circle 240px at ${x}% ${y}%,rgba(237,90,38,.26) 0%,rgba(237,90,38,.08) 40%,transparent 64%)`;
+  });
+  card.addEventListener('mouseleave', () => g.style.background = '');
+});
+</script>
+</body>
+</html>

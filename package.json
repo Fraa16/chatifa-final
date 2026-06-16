@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "build": "mkdir -p dist && cp *.html fonts.css robots.txt sitemap.xml dist/",
+    "build": "mkdir -p dist && cp *.html fonts.css robots.txt sitemap.xml dist/ && cp -r assets dist/",
     "dev": "serve . --listen 5173",
     "start": "serve . --listen 5173"
   },

@@ -1,0 +1,18 @@
+# Chatifa
+
+> B2B-Webagentur für professionelle Websites und Workflow-Automatisierung für kleine bis mittelständische Unternehmen im deutschsprachigen Raum.
+
+## Leistungen
+- [Websites](https://chatifa.de/chatifa-websites): Professionelle B2B-Websites, gebaut für Konversion.
+- [Automatisierung](https://chatifa.de/chatifa-automatisierung): Workflow-Automatisierung für wiederkehrende Aufgaben.
+
+## Über uns
+- [Über Chatifa](https://chatifa.de/chatifa-ueber-uns): Wer Chatifa ist und wofür die Agentur steht.
+
+## Ressourcen
+- [Glossar](https://chatifa.de/chatifa-glossar): 14 Begriffe rund um Websites, SEO und Automatisierung erklärt.
+- [Preiskalkulator](https://chatifa.de/chatifa-preiskalkulator): Interaktive Kostenschätzung für Website-Projekte.
+
+## Kontakt
+- [Kontakt](https://chatifa.de/chatifa-kontakt)
+- [Projekt anfragen](https://chatifa.de/chatifa-projekt-anfragen)

@@ -3,16 +3,2140 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="refresh" content="0;url=chatifa-homepage.html">
-  <title>Chatifa</title>
-  <script>window.location.replace("chatifa-homepage.html");</script>
+  <meta name="description" content="Chatifa baut professionelle Websites und Workflow-Automatisierungen für B2B-Unternehmen. Klare Struktur, saubere Umsetzung, ehrliche Einschätzung.">
+  <title>Chatifa — Digitale Klarheit für B2B-Unternehmen</title>
+  <meta name="google-site-verification" content="REPLACE_WITH_YOUR_VERIFICATION_CODE">
+  <link rel="canonical" href="https://chatifa.de/">
+  <link rel="stylesheet" href="fonts.css">
   <link rel="icon" href="assets/chatifa-favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="assets/chatifa-favicon.svg">
-  <meta property="og:image" content="https://bolt.new/static/og_default.png">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content="https://bolt.new/static/og_default.png">
+  <meta property="og:image" content="https://chatifa.de/assets/og-image_copy.png">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Chatifa — Digitale Klarheit für B2B-Unternehmen">
+  <meta property="og:description" content="Chatifa baut professionelle Websites und Workflow-Automatisierungen für B2B-Unternehmen. Klare Struktur, saubere Umsetzung, ehrliche Einschätzung.">
+  <meta property="og:url" content="https://chatifa.de/">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Chatifa",
+    "url": "https://chatifa.de",
+    "logo": "https://chatifa.de/assets/Chatifa-logo.svg",
+    "email": "francesco@chatifa.de",
+    "description": "B2B-Webagentur für professionelle Websites und Workflow-Automatisierung für mittelständische Unternehmen im deutschsprachigen Raum.",
+    "sameAs": ["https://www.instagram.com/chatifa.de/"]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Chatifa",
+    "url": "https://chatifa.de",
+    "logo": "https://chatifa.de/assets/Chatifa-logo.svg",
+    "email": "francesco@chatifa.de",
+    "description": "B2B-Webagentur für professionelle Websites und Workflow-Automatisierung für mittelständische Unternehmen im deutschsprachigen Raum.",
+    "address": {"@type": "PostalAddress", "addressLocality": "Stuttgart", "addressRegion": "Baden-Württemberg", "addressCountry": "DE"},
+    "areaServed": [
+      {"@type": "City", "name": "Stuttgart"},
+      {"@type": "State", "name": "Baden-Württemberg"},
+      {"@type": "Country", "name": "Deutschland"},
+      {"@type": "AdministrativeArea", "name": "DACH"}
+    ],
+    "sameAs": ["https://www.instagram.com/chatifa.de/"]
+  }
+  </script>
+  <style>
+
+/* ═══════════════════════════════════════
+   DESIGN TOKENS
+═══════════════════════════════════════ */
+:root {
+  /* Brand colors */
+  --bg:          #050405;
+  --surface:     #0B080A;
+  --surface-el:  #120B10;
+  --accent:      #ED5A26;
+  --accent-h:    #FF6A32;
+  --accent-soft: rgba(237,90,38,0.07);
+  --glow-rgb:    237,90,38;
+  --secondary:   #2A1026;
+
+  /* Text scale — 4 distinct levels */
+  --t1: #F4F0ED;   /* headings, hero   */
+  --t2: #C8BDB7;   /* body copy        */
+  --t3: #8F827B;   /* secondary labels */
+  --t4: #6D625D;   /* muted / captions */
+
+  --border: #24151A;
+
+  /* Type scale (fluid) */
+  --f-hero:    clamp(56px, 8.5vw, 110px);
+  --f-h1:      clamp(38px, 4.8vw,  64px);
+  --f-h2:      clamp(28px, 3.2vw,  42px);
+  --f-h3:      20px;
+  --f-body-lg: 18px;
+  --f-body:    16px;
+  --f-sm:      14px;
+  --f-xs:      12px;
+  --f-2xs:     11px;
+
+  /* Type weights */
+  --w-light:   300;
+  --w-regular: 400;
+  --w-medium:  500;
+  --w-semi:    600;
+  --w-bold:    700;
+  --w-xbold:   800;
+
+  /* Letter spacing */
+  --ls-tight:  -0.03em;
+  --ls-snug:   -0.02em;
+  --ls-normal:  0;
+  --ls-wide:    0.06em;
+  --ls-wider:   0.12em;
+  --ls-widest:  0.18em;
+
+  /* Line heights */
+  --lh-hero:   1.00;
+  --lh-head:   1.08;
+  --lh-mid:    1.22;
+  --lh-body:   1.70;
+
+  /* Radii */
+  --r-sm:   10px;
+  --r-md:   16px;
+  --r-lg:   26px;
+  --r-pill: 9999px;
+
+  --ease:   cubic-bezier(0.16,1,0.3,1);
+  --spring: cubic-bezier(0.34,1.56,0.64,1);
+}
+
+/* ═══════════════════════════════════════
+   RESET
+═══════════════════════════════════════ */
+*,*::before,*::after { box-sizing:border-box; margin:0; padding:0 }
+html { scroll-behavior:smooth }
+body {
+  font-family: 'Instrument Sans', -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--t1);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: var(--lh-body);
+  font-size: var(--f-body);
+}
+
+/* ═══════════════════════════════════════
+   LAYOUT
+═══════════════════════════════════════ */
+.wrap    { max-width:1120px; margin:0 auto; padding:0 2rem; position:relative; z-index:2 }
+.wrap-md { max-width: 780px; margin:0 auto; padding:0 2rem; position:relative; z-index:2 }
+.wrap-sm { max-width: 640px; margin:0 auto; padding:0 2rem; position:relative; z-index:2 }
+section  { position:relative; overflow:hidden }
+
+/* ═══════════════════════════════════════
+   ATMOSPHERE
+═══════════════════════════════════════ */
+.orb {
+  position:absolute; border-radius:50%; pointer-events:none; z-index:0;
+}
+.orb-hero {
+  width:800px; height:800px; top:-200px; left:50%;
+  transform:translateX(-50%);
+  background:radial-gradient(circle,rgba(var(--glow-rgb),.16) 0%,rgba(var(--glow-rgb),.05) 42%,transparent 68%);
+  filter:blur(1px);
+}
+.orb-side {
+  width:500px; height:500px;
+  background:radial-gradient(circle,rgba(var(--glow-rgb),.10) 0%,transparent 65%);
+}
+.orb-cta {
+  width:700px; height:700px;
+  bottom:-180px; right:-140px;
+  background:radial-gradient(circle,rgba(var(--glow-rgb),.18) 0%,rgba(var(--glow-rgb),.05) 42%,transparent 68%);
+  filter:blur(3px);
+}
+.ring {
+  position:absolute; border-radius:50%; pointer-events:none;
+  border:1px solid rgba(var(--glow-rgb),.10);
+}
+
+/* ═══════════════════════════════════════
+   TYPOGRAPHY SYSTEM
+   — Five elements, each has one job —
+═══════════════════════════════════════ */
+
+/* 1. Kicker / eyebrow — always same treatment */
+.kicker {
+  font-family:'Instrument Sans', sans-serif;
+  font-size: var(--f-2xs);
+  font-weight: var(--w-semi);
+  letter-spacing: var(--ls-widest);
+  text-transform: uppercase;
+  color: var(--accent);
+  display: inline-block;
+}
+
+/* 2. Hero headline — biggest thing on screen, only used once */
+.t-hero {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: var(--f-hero);
+  font-weight: var(--w-xbold);
+  line-height: var(--lh-hero);
+  letter-spacing: var(--ls-tight);
+  color: var(--t1);
+}
+.t-hero em {
+  font-style: normal;
+  color: var(--accent);
+  /* slight weight drop on the italic variant for rhythm */
+  font-weight: var(--w-bold);
+}
+
+/* 3. Section headline — strong, clear, scannable */
+.t-h1 {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: var(--f-h1);
+  font-weight: var(--w-bold);
+  line-height: var(--lh-head);
+  letter-spacing: var(--ls-snug);
+  color: var(--t1);
+}
+
+/* 4. Card / sub-section title */
+.t-h2 {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: var(--f-h2);
+  font-weight: var(--w-semi);
+  line-height: var(--lh-mid);
+  letter-spacing: -0.01em;
+  color: var(--t1);
+}
+
+/* 5. Card label heading */
+.t-h3 {
+  font-family: 'Instrument Sans', sans-serif;
+  font-size: var(--f-h3);
+  font-weight: var(--w-semi);
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  color: var(--t1);
+}
+
+/* Body copy variants */
+.t-body-lg {
+  font-size: var(--f-body-lg);
+  line-height: var(--lh-body);
+  color: var(--t2);
+  font-weight: var(--w-regular);
+}
+.t-body {
+  font-size: var(--f-body);
+  line-height: var(--lh-body);
+  color: var(--t2);
+  font-weight: var(--w-regular);
+}
+.t-sm {
+  font-size: var(--f-sm);
+  line-height: 1.6;
+  color: var(--t2);
+}
+.t-xs {
+  font-size: var(--f-xs);
+  color: var(--t4);
+}
+.t-center { text-align: center }
+
+/* Accent inline text */
+.t-accent { color: var(--accent) }
+
+/* ═══════════════════════════════════════
+   SECTION HEADER — reusable centered block
+═══════════════════════════════════════ */
+.sec-head {
+  text-align: center;
+  margin-bottom: 4.5rem;
+}
+.sec-head .kicker {
+  margin-bottom: 1.25rem;
+}
+.sec-head .t-h1 {
+  max-width: 680px;
+  margin: 0 auto;
+}
+.sec-head .lead {
+  font-size: var(--f-body-lg);
+  line-height: var(--lh-body);
+  color: var(--t3);
+  max-width: 540px;
+  margin: 1.25rem auto 0;
+  font-weight: var(--w-regular);
+}
+
+/* ═══════════════════════════════════════
+   CARD
+═══════════════════════════════════════ */
+.card {
+  background: linear-gradient(170deg, var(--surface-el) 0%, var(--surface) 100%);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  position: relative;
+  overflow: hidden;
+  transition: box-shadow .4s ease, border-color .4s ease;
+}
+.card:hover {
+  box-shadow: 0 0 60px rgba(var(--glow-rgb),.10), 0 24px 48px rgba(0,0,0,.5);
+  border-color: rgba(var(--glow-rgb),.15);
+}
+.grid-bg {
+  position:absolute; inset:0;
+  background-image:
+    linear-gradient(var(--border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-size:28px 28px;
+  opacity:.38;
+  mask-image:linear-gradient(to bottom, black 0%, transparent 62%);
+  -webkit-mask-image:linear-gradient(to bottom, black 0%, transparent 62%);
+  pointer-events:none; border-radius:inherit;
+}
+.card-glow {
+  position:absolute; inset:0;
+  background:radial-gradient(circle 240px at var(--gx,50%) var(--gy,25%),
+    rgba(var(--glow-rgb),.28) 0%,
+    rgba(var(--glow-rgb),.08) 40%,
+    transparent 64%);
+  pointer-events:none; border-radius:inherit; z-index:1;
+  transition: background .15s;
+}
+
+/* ═══════════════════════════════════════
+   BUTTONS
+═══════════════════════════════════════ */
+.btn {
+  display:inline-flex; align-items:center; gap:8px;
+  font-family:'Instrument Sans',sans-serif;
+  font-size: var(--f-sm);
+  font-weight: var(--w-semi);
+  letter-spacing: 0.01em;
+  padding:.8rem 1.8rem;
+  border-radius:var(--r-pill); cursor:pointer; border:none;
+  transition:all .22s var(--ease); text-decoration:none; white-space:nowrap;
+}
+.btn-primary {
+  background:var(--accent); color:#fff;
+  box-shadow:0 4px 22px rgba(var(--glow-rgb),.32);
+}
+.btn-primary:hover {
+  background:var(--accent-h);
+  box-shadow:0 6px 30px rgba(var(--glow-rgb),.50);
+  transform:translateY(-1px);
+}
+.btn-primary:active { transform:translateY(1px) }
+.btn-ghost {
+  background:transparent; color:var(--t2);
+  border:1px solid var(--border);
+}
+.btn-ghost:hover {
+  background:rgba(255,255,255,.03);
+  border-color:rgba(var(--glow-rgb),.25);
+  color:var(--t1); transform:translateY(-1px);
+}
+.btn-text {
+  background:none; border:none;
+  color:var(--t3);
+  font-family:'Instrument Sans',sans-serif;
+  font-size:var(--f-sm); font-weight:var(--w-medium);
+  cursor:pointer; padding:0; text-decoration:none; transition:color .2s;
+}
+.btn-text:hover { color:var(--t1) }
+
+/* ═══════════════════════════════════════
+   SCROLL REVEAL
+═══════════════════════════════════════ */
+.reveal {
+  opacity:0; transform:translateY(24px);
+  transition: opacity .65s var(--ease), transform .65s var(--ease);
+}
+.reveal.in { opacity:1; transform:translateY(0) }
+.d1{transition-delay:.06s} .d2{transition-delay:.14s}
+.d3{transition-delay:.24s} .d4{transition-delay:.36s}
+
+/* ═══════════════════════════════════════
+   HERO
+═══════════════════════════════════════ */
+#hero {
+  min-height:100vh;
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  text-align:center;
+  padding:9rem 2rem 6rem;
+}
+
+.hero-badge {
+  display:inline-flex; align-items:center; gap:8px;
+  border:1px solid rgba(var(--glow-rgb),.18);
+  background:var(--accent-soft);
+  border-radius:var(--r-pill);
+  padding:.35rem 1rem;
+  margin-bottom:2.5rem;
+}
+.hero-badge::before {
+  content:''; width:6px; height:6px;
+  background:var(--accent); border-radius:50%;
+  box-shadow:0 0 8px rgba(var(--glow-rgb),.9);
+  animation:pdot 2s ease-in-out infinite;
+}
+@keyframes pdot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.45;transform:scale(.7)}}
+
+/* Hero headline uses the dedicated hero scale */
+.hero-hl {
+  max-width:980px;
+  margin:0 auto 2rem;
+}
+/* Line 1: light weight for contrast */
+.hero-hl .l1 {
+  display:block;
+  font-weight: var(--w-light);
+  color: var(--t2);
+}
+/* Line 2: heavy, accent */
+.hero-hl .l2 {
+  display:block;
+  font-weight: var(--w-xbold);
+  color: var(--t1);
+}
+
+.hero-sub {
+  max-width:520px; margin:0 auto 3rem;
+  font-size:var(--f-body-lg);
+  line-height:var(--lh-body);
+  color:var(--t3);
+  font-weight:var(--w-regular);
+}
+.hero-actions {
+  display:flex; align-items:center; justify-content:center;
+  gap:1.25rem; flex-wrap:wrap; margin-bottom:1.25rem;
+}
+
+/* decorative rings */
+.ring-1 { width:560px; height:560px; top:50%; left:50%; transform:translate(-50%,-50%); opacity:.8 }
+.ring-2 { width:820px; height:820px; top:50%; left:50%; transform:translate(-50%,-50%); border-color:rgba(var(--glow-rgb),.05) }
+
+/* ═══════════════════════════════════════
+   PROBLEM
+═══════════════════════════════════════ */
+#problem { padding:9rem 0; border-top:1px solid var(--border) }
+
+.prob-grid {
+  display:grid; grid-template-columns:repeat(3,1fr); gap:1.25rem;
+  margin-bottom:2.25rem;
+}
+.prob-card { padding:2.25rem }
+.prob-num {
+  font-size:var(--f-2xs); font-weight:var(--w-bold);
+  letter-spacing:var(--ls-wider); color:var(--accent);
+  margin-bottom:1rem; display:block;
+}
+/* Card title at h3 level */
+.prob-card .t-h3 { margin-bottom:.65rem }
+.prob-card .t-sm { color:var(--t3) }
+
+.callout {
+  padding:1.75rem 2.25rem;
+  border-left:2px solid var(--accent);
+  background:rgba(var(--glow-rgb),.04);
+  border-radius:0 var(--r-sm) var(--r-sm) 0;
+  max-width:900px; margin:0 auto;
+  font-size:var(--f-body); line-height:var(--lh-body);
+  color:var(--t3);
+  font-style:italic;
+}
+
+/* ═══════════════════════════════════════
+   CORE
+═══════════════════════════════════════ */
+#core { padding:9rem 0; border-top:1px solid var(--border) }
+
+.core-grid { display:grid; grid-template-columns:1fr 1fr; gap:1.5rem }
+.core-card  { padding:2.75rem }
+
+.core-card-kicker {
+  display:inline-flex; align-items:center; gap:10px;
+  margin-bottom:1.5rem;
+}
+.core-card-kicker::before {
+  content:''; width:20px; height:1px;
+  background:var(--accent); opacity:.55;
+}
+
+/* Card headline one step down from section h1 */
+.core-card .t-h2 { margin-bottom:1rem }
+.core-card .t-body { margin-bottom:2rem; color:var(--t3) }
+
+.tag-list { list-style:none; display:flex; flex-wrap:wrap; gap:8px }
+.tag-item {
+  font-size:var(--f-xs); font-weight:var(--w-medium);
+  color:var(--t3);
+  background:rgba(255,255,255,.03);
+  border:1px solid var(--border);
+  border-radius:var(--r-pill);
+  padding:.3rem .85rem;
+  transition:border-color .2s, color .2s;
+}
+.tag-item:hover { border-color:rgba(var(--glow-rgb),.25); color:var(--t2) }
+
+.core-bar {
+  grid-column:1/-1;
+  display:flex; align-items:center; gap:1.5rem;
+  padding:1.75rem 2rem;
+}
+.core-bar-line {
+  flex:1; height:1px;
+  background:linear-gradient(90deg,rgba(var(--glow-rgb),.22),transparent);
+}
+.core-bar-line.rev {
+  background:linear-gradient(270deg,rgba(var(--glow-rgb),.22),transparent);
+}
+/* Closing line uses mid-level italic */
+.core-bar-text {
+  font-family:'Instrument Sans',sans-serif;
+  font-size:var(--f-sm); font-weight:var(--w-regular);
+  font-style:italic; color:var(--t3);
+  white-space:nowrap;
+}
+
+/* ═══════════════════════════════════════
+   WHY
+═══════════════════════════════════════ */
+#why { padding:9rem 0; border-top:1px solid var(--border) }
+
+.diff-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.25rem }
+.diff-card  { padding:2.25rem }
+.diff-num   {
+  font-size:var(--f-2xs); font-weight:var(--w-bold);
+  letter-spacing:var(--ls-wider); color:var(--accent);
+  margin-bottom:1rem; display:block;
+}
+.diff-card .t-h3 { margin-bottom:.65rem }
+.diff-card .t-sm { color:var(--t3) }
+
+/* The quote/closing card */
+.diff-card-quote {
+  display:flex; flex-direction:column;
+  align-items:flex-start; justify-content:space-between;
+  padding:2.25rem;
+}
+.diff-quote-text {
+  font-family:'Bricolage Grotesque',sans-serif;
+  font-size:20px; font-weight:var(--w-light);
+  line-height:1.45; letter-spacing:-.01em;
+  color:var(--t2); font-style:italic;
+  margin-bottom:1.75rem;
+}
+
+/* ═══════════════════════════════════════
+   PROCESS
+═══════════════════════════════════════ */
+#process { padding:9rem 0; border-top:1px solid var(--border) }
+
+.steps {
+  display:grid; grid-template-columns:repeat(4,1fr);
+  gap:0; position:relative;
+}
+.steps::before {
+  content:''; position:absolute;
+  top:26px; left:10%; right:10%; height:1px;
+  background:linear-gradient(90deg,transparent,rgba(var(--glow-rgb),.18) 20%,rgba(var(--glow-rgb),.18) 80%,transparent);
+}
+.step { padding:0 1.5rem; position:relative; z-index:1 }
+.step-dot {
+  width:52px; height:52px; border-radius:50%;
+  background:var(--surface-el);
+  border:1px solid var(--border);
+  display:flex; align-items:center; justify-content:center;
+  font-family:'Bricolage Grotesque',sans-serif;
+  font-size:18px; font-weight:var(--w-bold);
+  color:var(--t4); margin-bottom:1.75rem;
+  transition:border-color .3s, color .3s, box-shadow .3s;
+}
+.step:hover .step-dot {
+  border-color:rgba(var(--glow-rgb),.40);
+  color:var(--accent);
+  box-shadow:0 0 20px rgba(var(--glow-rgb),.20);
+}
+/* Step title is h3 level */
+.step .t-h3   { margin-bottom:.55rem }
+.step .t-sm   { color:var(--t3) }
+.process-cta  { text-align:center; margin-top:4.5rem }
+.process-note { font-size:var(--f-xs); color:var(--t4); margin-top:.85rem }
+
+/* ═══════════════════════════════════════
+   FAQ
+═══════════════════════════════════════ */
+#faq { padding:9rem 0; border-top:1px solid var(--border) }
+
+.faq-list {
+  max-width:720px; margin:0 auto;
+  display:flex; flex-direction:column;
+}
+.faq-item  { border-bottom:1px solid var(--border) }
+.faq-btn {
+  width:100%; background:none; border:none; cursor:pointer;
+  text-align:left; padding:1.5rem 0;
+  display:flex; align-items:center; justify-content:space-between; gap:1rem;
+  transition:color .2s;
+}
+/* FAQ question gets h3-level weight */
+.faq-btn-text {
+  font-family:'Instrument Sans',sans-serif;
+  font-size:var(--f-body);
+  font-weight:var(--w-semi);
+  color:var(--t1);
+  line-height:1.4;
+  transition:color .2s;
+}
+.faq-btn:hover .faq-btn-text { color:var(--accent) }
+
+.faq-ico {
+  width:22px; height:22px; border-radius:50%;
+  border:1px solid var(--border); flex-shrink:0;
+  display:flex; align-items:center; justify-content:center;
+  transition:background .3s, border-color .3s;
+}
+.faq-ico svg { transition:transform .3s var(--spring); color:var(--t3) }
+.faq-item.open .faq-ico { background:var(--accent-soft); border-color:rgba(var(--glow-rgb),.28) }
+.faq-item.open .faq-ico svg { transform:rotate(180deg); color:var(--accent) }
+
+.faq-body { overflow:hidden; max-height:0; transition:max-height .4s var(--ease) }
+.faq-inner {
+  padding:0 0 1.5rem;
+  font-size:var(--f-sm); line-height:var(--lh-body);
+  color:var(--t3);
+}
+
+/* ═══════════════════════════════════════
+   CTA
+═══════════════════════════════════════ */
+#cta { padding:9rem 0 7rem }
+.cta-card {
+  max-width:900px; margin:0 auto;
+  text-align:center;
+  padding:6rem 3.5rem;
+}
+.cta-kicker { margin-bottom:2rem }
+.cta-hl { max-width:680px; margin:0 auto 1.5rem }
+.cta-sub {
+  font-size:var(--f-body-lg); line-height:var(--lh-body);
+  color:var(--t3); max-width:500px;
+  margin:0 auto 3rem;
+}
+.cta-actions {
+  display:flex; align-items:center; justify-content:center;
+  gap:1.25rem; flex-wrap:wrap; margin-bottom:1.25rem;
+}
+
+/* ═══════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════ */
+footer { border-top:1px solid var(--border); padding:4.5rem 0 2.5rem }
+.footer-grid {
+  display:grid; grid-template-columns:2fr 1fr 1fr 1fr;
+  gap:3rem; margin-bottom:3rem;
+}
+.footer-logo {
+  font-family:'Bricolage Grotesque',sans-serif;
+  font-size:22px; font-weight:var(--w-bold);
+  letter-spacing:-.02em;
+  color:var(--t1); margin-bottom:1rem;
+}
+.footer-logo span { color:var(--accent) }
+.footer-desc {
+  font-size:var(--f-sm); line-height:1.7;
+  color:var(--t4); max-width:280px;
+}
+.footer-col-h {
+  font-size:var(--f-2xs); font-weight:var(--w-bold);
+  letter-spacing:var(--ls-widest); text-transform:uppercase;
+  color:var(--t4); margin-bottom:1.1rem;
+}
+.footer-links { list-style:none; display:flex; flex-direction:column; gap:.65rem }
+.footer-links a {
+  font-size:var(--f-sm); color:var(--t3);
+  text-decoration:none; transition:color .2s;
+}
+.footer-links a:hover { color:var(--t1) }
+.footer-bar {
+  border-top:1px solid var(--border); padding-top:1.75rem;
+  display:flex; align-items:center; justify-content:space-between; gap:1rem;
+}
+.footer-copy { font-size:var(--f-xs); color:var(--t4) }
+.footer-legal { display:flex; gap:1.5rem }
+.footer-legal a { font-size:var(--f-xs); color:var(--t4); text-decoration:none; transition:color .2s }
+.footer-legal a:hover { color:var(--t2) }
+
+/* ═══════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════ */
+@media(max-width:940px){
+  .prob-grid, .diff-grid { grid-template-columns:1fr 1fr }
+  .core-grid { grid-template-columns:1fr }
+  .steps { grid-template-columns:1fr 1fr; gap:2.5rem 1rem }
+  .steps::before { display:none }
+  .footer-grid { grid-template-columns:1fr 1fr }
+}
+@media(max-width:600px){
+  .wrap,.wrap-md,.wrap-sm { padding:0 1.25rem }
+  .prob-grid,.diff-grid { grid-template-columns:1fr }
+  .steps { grid-template-columns:1fr }
+  .footer-grid { grid-template-columns:1fr; gap:2rem }
+  .footer-bar { flex-direction:column; align-items:flex-start }
+:root { --f-hero: 46px }
+  .cta-card { padding:3.5rem 1.5rem }
+}
+
+  
+/* ═══════════════════════════════════════
+   NAVBAR — UPDATED (panel nav)
+═══════════════════════════════════════ */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 300;
+  padding: 1.1rem 0;
+  transition: background .3s, backdrop-filter .3s, border-color .3s;
+}
+.nav.scrolled {
+  background: rgba(5,4,5,.92);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+.nav-inner {
+  max-width: 1120px; margin: 0 auto; padding: 0 2rem;
+  display: flex; align-items: center; justify-content: space-between; gap: 2rem;
+  position: relative;
+}
+.nav-logo {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 21px; font-weight: var(--w-bold);
+  letter-spacing: -.02em; color: var(--t1); text-decoration: none;
+  flex-shrink: 0; z-index: 1;
+}
+.nav-logo span { color: var(--accent) }
+.nav-links {
+  display: flex; align-items: center; gap: .15rem; list-style: none;
+}
+.nav-links a {
+  font-size: 13px; font-weight: var(--w-medium); color: var(--t3);
+  text-decoration: none; padding: .4rem .8rem;
+  border-radius: var(--r-sm); transition: color .2s, background .2s;
+  letter-spacing: .01em;
+}
+.nav-links a:hover { color: var(--t1); background: rgba(255,255,255,.04) }
+.nav-trigger {
+  background: none; border: none; cursor: pointer;
+  font-family: 'Instrument Sans', sans-serif;
+  font-size: 13px; font-weight: var(--w-medium);
+  color: var(--t3); padding: .4rem .8rem;
+  border-radius: var(--r-sm);
+  display: flex; align-items: center; gap: 5px;
+  transition: color .2s, background .2s;
+  letter-spacing: .01em;
+}
+.nav-trigger:hover,
+.nav-trigger[aria-expanded="true"] {
+  color: var(--t1); background: rgba(255,255,255,.04);
+}
+.nav-trigger svg {
+  transition: transform .2s var(--ease);
+  flex-shrink: 0;
+  color: var(--t4);
+}
+.nav-trigger[aria-expanded="true"] svg { transform: rotate(180deg); color: var(--accent) }
+.nav-right { display: flex; align-items: center; gap: .6rem; flex-shrink: 0; }
+.nav-panel-anchor { position: static; }
+.nav-panel {
+  position: fixed;
+  top: 68px;
+  left: 50%;
+  transform: translateX(-50%) translateY(-8px);
+  background: rgba(11,8,10,0.97);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  box-shadow: 0 24px 64px rgba(0,0,0,0.65), 0 0 0 1px rgba(255,255,255,0.03);
+  padding: 1.5rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .22s var(--ease), transform .22s var(--ease);
+  z-index: 200;
+}
+.nav-panel::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 1.5rem; right: 1.5rem;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(237,90,38,0.40), transparent);
+}
+.nav-panel.open {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+  pointer-events: auto;
+}
+#panel-leistungen { min-width: 620px; }
+.panel-leistungen-inner { display: flex; flex-direction: column; gap: .75rem; }
+.panel-cards-row { display: grid; grid-template-columns: 1fr 1fr; gap: .75rem; }
+.panel-service-card {
+  padding: 1.25rem 1.5rem;
+  text-decoration: none;
+  display: flex; flex-direction: column; gap: .5rem;
+}
+.panel-service-card .kicker { font-size: 10px; margin-bottom: .1rem; }
+.panel-service-card .t-h3 { font-size: 16px; color: var(--t1); margin: 0; }
+.panel-service-card .t-sm { font-size: var(--f-sm); color: var(--t3); line-height: 1.55; margin: 0; }
+.panel-service-link {
+  font-size: var(--f-xs); color: var(--accent);
+  font-weight: var(--w-medium); letter-spacing: .02em;
+  margin-top: auto; padding-top: .6rem; transition: color .2s;
+}
+.panel-service-card:hover .panel-service-link { color: var(--accent-h) }
+.panel-cta-bar {
+  display: flex; align-items: center; justify-content: space-between; gap: 1.5rem;
+  padding: .9rem 1.25rem;
+  border-top: 1px solid var(--border);
+  margin-top: .15rem;
+}
+.panel-cta-bar-text { display: flex; flex-direction: column; gap: .15rem; }
+.panel-cta-bar-text .kicker { font-size: 10px; }
+.panel-cta-bar-text span {
+  font-family: 'Instrument Sans', sans-serif;
+  font-size: 13px; font-weight: var(--w-medium);
+  color: var(--t3); line-height: 1.45;
+}
+.panel-cta-bar-actions { display: flex; align-items: center; gap: .85rem; flex-shrink: 0; }
+.panel-cta-bar-actions .btn-primary { font-size: 13px; padding: .55rem 1.1rem; }
+.panel-cta-bar-actions .btn-text { font-size: 12px; white-space: nowrap; }
+#panel-ressourcen { min-width: 580px; }
+.panel-ressourcen-inner { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+.panel-resource-card {
+  padding: 1.1rem 1.25rem;
+  text-decoration: none;
+  display: flex; flex-direction: column; gap: .5rem;
+}
+.panel-resource-card-icon {
+  width: 34px; height: 34px; border-radius: var(--r-sm);
+  background: var(--secondary); border: 1px solid rgba(var(--glow-rgb),.12);
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: .2rem; flex-shrink: 0;
+}
+.panel-resource-card-icon svg { color: var(--accent); }
+.panel-resource-card .t-h3 { font-size: 14px; margin: 0; }
+.panel-resource-card .t-sm { font-size: 12px; color: var(--t3); line-height: 1.5; margin: 0; flex: 1; }
+.panel-tag {
+  display: inline-flex; align-items: center;
+  font-size: 10px; font-weight: var(--w-medium);
+  color: var(--t4); letter-spacing: .05em;
+  border: 1px solid var(--border); border-radius: var(--r-pill);
+  padding: .2rem .6rem; margin-top: .3rem; width: fit-content;
+}
+.nav-hamburger {
+  display: none;
+  flex-direction: column; justify-content: center; align-items: center;
+  gap: 5px; width: 38px; height: 38px;
+  background: none; border: 1px solid var(--border);
+  border-radius: var(--r-sm); cursor: pointer; padding: 0; z-index: 1;
+  transition: border-color .2s;
+}
+.nav-hamburger:hover { border-color: rgba(var(--glow-rgb),.25) }
+.nav-hamburger span {
+  display: block; width: 16px; height: 1.5px;
+  background: var(--t3); border-radius: 2px;
+  transition: transform .3s var(--ease), opacity .2s, background .2s;
+  transform-origin: center;
+}
+.nav-hamburger[aria-expanded="true"] span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.nav-hamburger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+.nav-hamburger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+.mobile-menu {
+  position: fixed; top: 0; left: 0; right: 0;
+  background: rgba(5,4,5,.98);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+  z-index: 250;
+  transform: translateY(-100%); opacity: 0;
+  transition: transform .35s var(--ease), opacity .28s var(--ease);
+  pointer-events: none;
+  padding-top: 80px; max-height: 100vh; overflow-y: auto;
+}
+.mobile-menu.open { transform: translateY(0); opacity: 1; pointer-events: auto; }
+.mobile-menu-inner { padding: 1.5rem 1.5rem 2rem; display: flex; flex-direction: column; gap: .25rem; }
+.mobile-nav-link {
+  display: block; font-size: 15px; font-weight: var(--w-medium);
+  color: var(--t2); text-decoration: none; padding: .85rem 1rem;
+  border-radius: var(--r-sm); transition: color .2s, background .2s;
+}
+.mobile-nav-link:hover { color: var(--t1); background: rgba(255,255,255,.04) }
+.mobile-accordion-trigger {
+  width: 100%; background: none; border: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: .85rem 1rem; border-radius: var(--r-sm);
+  transition: color .2s, background .2s;
+}
+.mobile-accordion-trigger:hover { background: rgba(255,255,255,.04) }
+.mobile-accordion-trigger-text { font-family: 'Instrument Sans', sans-serif; font-size: 15px; font-weight: var(--w-medium); color: var(--t2); }
+.mobile-accordion-trigger svg { color: var(--t4); transition: transform .25s var(--ease), color .2s; flex-shrink: 0; }
+.mobile-accordion-trigger[aria-expanded="true"] svg { transform: rotate(180deg); color: var(--accent); }
+.mobile-accordion-trigger[aria-expanded="true"] .mobile-accordion-trigger-text { color: var(--t1); }
+.mobile-accordion-body { overflow: hidden; max-height: 0; transition: max-height .35s var(--ease); }
+.mobile-accordion-inner { padding: .5rem 0 .75rem 1rem; display: flex; flex-direction: column; gap: .5rem; }
+.mobile-service-item {
+  display: flex; flex-direction: column; gap: .25rem; padding: .9rem 1rem;
+  background: var(--surface-el); border: 1px solid var(--border);
+  border-radius: var(--r-md); text-decoration: none; transition: border-color .2s;
+}
+.mobile-service-item:hover { border-color: rgba(var(--glow-rgb),.18) }
+.mobile-service-item .kicker { font-size: 10px; }
+.mobile-service-item .t-h3 { font-size: 14px; color: var(--t1); }
+.mobile-service-item .t-sm { font-size: 12px; color: var(--t3); line-height: 1.45; }
+.mobile-resource-item {
+  display: flex; align-items: flex-start; gap: .75rem; padding: .75rem 1rem;
+  background: var(--surface-el); border: 1px solid var(--border);
+  border-radius: var(--r-md); text-decoration: none; transition: border-color .2s;
+}
+.mobile-resource-item:hover { border-color: rgba(var(--glow-rgb),.18) }
+.mobile-resource-icon {
+  width: 30px; height: 30px; flex-shrink: 0; border-radius: var(--r-sm);
+  background: var(--secondary); border: 1px solid rgba(var(--glow-rgb),.12);
+  display: flex; align-items: center; justify-content: center;
+}
+.mobile-resource-icon svg { color: var(--accent); }
+.mobile-resource-text { display: flex; flex-direction: column; gap: .15rem; }
+.mobile-resource-text .t-h3 { font-size: 13px; color: var(--t1); }
+.mobile-resource-text .panel-tag { margin-top: .15rem; }
+.mobile-divider { height: 1px; background: var(--border); margin: .75rem 0; }
+.mobile-cta-block { padding: .5rem 1rem 0; display: flex; flex-direction: column; gap: .65rem; }
+.mobile-cta-block .btn-primary { font-size: 14px; padding: .8rem 1.4rem; text-align: center; justify-content: center; width: 100%; }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+}
+@media (max-width: 768px) {
+  .nav-links, .nav-right { display: none; }
+  .nav-hamburger { display: flex; }
+}
+@media (max-width: 600px) {
+  .nav-inner { padding: 0 1.25rem; }
+}
+
+</style>
 </head>
 <body>
-  <p>Weiterleitung... <a href="chatifa-homepage.html">Hier klicken</a></p>
+
+<!-- ══ NAVBAR ══ -->
+<nav class="nav" id="nav" role="navigation" aria-label="Hauptnavigation">
+  <div class="nav-inner">
+
+    <!-- Logo -->
+    <a href="/" class="nav-logo" aria-label="Chatifa — Startseite"><img src="assets/Chatifa-logo.svg" alt="Chatifa" height="36"></a>
+
+    <!-- Desktop nav links -->
+    <ul class="nav-links" role="list">
+
+      <!-- Leistungen trigger -->
+      <li role="listitem">
+        <button
+          class="nav-trigger"
+          id="trigger-leistungen"
+          data-panel="leistungen"
+          aria-expanded="false"
+          aria-haspopup="true"
+          aria-controls="panel-leistungen"
+        >
+          Leistungen
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+            <path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </li>
+
+      <!-- Ressourcen trigger -->
+      <li role="listitem">
+        <button
+          class="nav-trigger"
+          id="trigger-ressourcen"
+          data-panel="ressourcen"
+          aria-expanded="false"
+          aria-haspopup="true"
+          aria-controls="panel-ressourcen"
+        >
+          Ressourcen
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+            <path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </li>
+
+      <li role="listitem"><a href="#">Über uns</a></li>
+      <li role="listitem"><a href="chatifa-kontakt.html">Kontakt</a></li>
+    </ul>
+
+    <!-- Desktop CTA buttons -->
+    <div class="nav-right">
+      <a href="chatifa-projekt-anfragen.html" class="btn btn-ghost" style="font-size:13px;padding:.5rem 1.1rem">Einschätzung einholen →</a>
+      <a href="chatifa-projekt-anfragen.html" class="btn btn-primary" style="font-size:13px;padding:.5rem 1.1rem">Projekt anfragen</a>
+    </div>
+
+    <!-- Mobile hamburger -->
+    <button
+      class="nav-hamburger"
+      id="nav-hamburger"
+      aria-label="Menü öffnen"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+  </div><!-- /nav-inner -->
+
+  <!-- ── Leistungen panel ── -->
+  <div
+    class="nav-panel"
+    id="panel-leistungen"
+    role="dialog"
+    aria-label="Leistungen"
+    aria-hidden="true"
+  >
+    <div class="panel-leistungen-inner">
+
+      <div class="panel-cards-row">
+        <a href="chatifa-websites.html" class="card panel-service-card" tabindex="-1">
+          <div class="grid-bg"></div>
+          <div class="card-glow"></div>
+          <div style="position:relative;z-index:2;display:flex;flex-direction:column;gap:.5rem;height:100%">
+            <span class="kicker">Websites</span>
+            <h3 class="t-h3">Klarheit für Besucher.</h3>
+            <p class="t-sm">Strukturierte Websites, die Angebot, Relevanz und nächste Schritte klar führen.</p>
+            <span class="panel-service-link" aria-hidden="true">Mehr erfahren →</span>
+          </div>
+        </a>
+
+        <a href="chatifa-automatisierung.html" class="card panel-service-card" tabindex="-1">
+          <div class="grid-bg"></div>
+          <div class="card-glow"></div>
+          <div style="position:relative;z-index:2;display:flex;flex-direction:column;gap:.5rem;height:100%">
+            <span class="kicker">Automatisierung</span>
+            <h3 class="t-h3">Entlastung für Teams.</h3>
+            <p class="t-sm">Workflows und Automatisierungen dort, wo wiederkehrende Arbeit Zeit kostet.</p>
+            <span class="panel-service-link" aria-hidden="true">Mehr erfahren →</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Full-width CTA bar -->
+      <div class="panel-cta-bar">
+        <div class="panel-cta-bar-text">
+          <span class="kicker">Nächster Schritt</span>
+          <span>Eine grobe Idee reicht — wir prüfen, ob und wie wir helfen können.</span>
+        </div>
+        <div class="panel-cta-bar-actions">
+          <a href="chatifa-projekt-anfragen.html" class="btn-text" tabindex="-1">Einschätzung einholen →</a>
+          <a href="chatifa-projekt-anfragen.html" class="btn btn-primary" tabindex="-1">Projekt anfragen</a>
+        </div>
+      </div>
+
+    </div>
+  </div><!-- /panel-leistungen -->
+
+  <!-- ── Ressourcen panel ── -->
+  <div
+    class="nav-panel"
+    id="panel-ressourcen"
+    role="dialog"
+    aria-label="Ressourcen"
+    aria-hidden="true"
+  >
+    <div class="panel-ressourcen-inner">
+
+      <a href="chatifa-glossar.html" class="card panel-resource-card" tabindex="-1">
+        <div class="grid-bg"></div>
+        <div class="card-glow"></div>
+        <div style="position:relative;z-index:2;display:flex;flex-direction:column;gap:.45rem;height:100%">
+          <div class="panel-resource-card-icon" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3 2h8a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1z" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"/>
+              <path d="M5 5.5h6M5 8h6M5 10.5h4" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3 class="t-h3">Glossar</h3>
+          <p class="t-sm" style="flex:1">Begriffe aus Website, UX und Automatisierung — klar erklärt.</p>
+                  </div>
+      </a>
+
+      <a href="#" class="card panel-resource-card" tabindex="-1">
+        <div class="grid-bg"></div>
+        <div class="card-glow"></div>
+        <div style="position:relative;z-index:2;display:flex;flex-direction:column;gap:.45rem;height:100%">
+          <div class="panel-resource-card-icon" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="2" y="1.5" width="12" height="13" rx="1.5" stroke="currentColor" stroke-width="1.25"/>
+              <path d="M5 5h6M5 7.5h6M5 10h4" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"/>
+              <path d="M10 10.5l1 1 2-2" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3 class="t-h3">Ratgeber</h3>
+          <p class="t-sm" style="flex:1">Konkrete Anleitungen und Einschätzungen zu digitalen Projekten.</p>
+          <span class="panel-tag">Bald verfügbar</span>
+        </div>
+      </a>
+
+      <a href="chatifa-preiskalkulator.html" class="card panel-resource-card" tabindex="-1">
+        <div class="grid-bg"></div>
+        <div class="card-glow"></div>
+        <div style="position:relative;z-index:2;display:flex;flex-direction:column;gap:.45rem;height:100%">
+          <div class="panel-resource-card-icon" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="2" y="2" width="12" height="12" rx="2" stroke="currentColor" stroke-width="1.25"/>
+              <path d="M5 8h6" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"/>
+              <path d="M8 5v6" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"/>
+              <circle cx="5" cy="5.5" r=".75" fill="currentColor"/>
+              <circle cx="11" cy="5.5" r=".75" fill="currentColor"/>
+              <circle cx="5" cy="10.5" r=".75" fill="currentColor"/>
+              <circle cx="11" cy="10.5" r=".75" fill="currentColor"/>
+            </svg>
+          </div>
+          <h3 class="t-h3">Preiskalkulator</h3>
+          <p class="t-sm" style="flex:1">Orientierung zum realistischen Budget für Website-Projekte.</p>
+                  </div>
+      </a>
+
+    </div>
+  </div><!-- /panel-ressourcen -->
+
+</nav><!-- /nav -->
+
+<!-- ══ MOBILE MENU ══ -->
+<div
+  class="mobile-menu"
+  id="mobile-menu"
+  role="dialog"
+  aria-label="Navigation"
+  aria-hidden="true"
+  inert
+>
+  <div class="mobile-menu-inner">
+
+    <!-- Leistungen accordion -->
+    <div>
+      <button
+        class="mobile-accordion-trigger"
+        id="mob-trigger-leistungen"
+        aria-expanded="false"
+        aria-controls="mob-body-leistungen"
+      >
+        <span class="mobile-accordion-trigger-text">Leistungen</span>
+        <svg width="14" height="14" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+          <path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <div class="mobile-accordion-body" id="mob-body-leistungen" role="region">
+        <div class="mobile-accordion-inner">
+          <a href="chatifa-websites.html" class="mobile-service-item">
+            <span class="kicker">Websites</span>
+            <span class="t-h3">Klarheit für Besucher.</span>
+            <span class="t-sm">Strukturierte Websites, die Angebot, Relevanz und nächste Schritte klar führen.</span>
+          </a>
+          <a href="chatifa-automatisierung.html" class="mobile-service-item">
+            <span class="kicker">Automatisierung</span>
+            <span class="t-h3">Entlastung für Teams.</span>
+            <span class="t-sm">Workflows und Automatisierungen dort, wo wiederkehrende Arbeit Zeit kostet.</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ressourcen accordion -->
+    <div>
+      <button
+        class="mobile-accordion-trigger"
+        id="mob-trigger-ressourcen"
+        aria-expanded="false"
+        aria-controls="mob-body-ressourcen"
+      >
+        <span class="mobile-accordion-trigger-text">Ressourcen</span>
+        <svg width="14" height="14" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+          <path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <div class="mobile-accordion-body" id="mob-body-ressourcen" role="region">
+        <div class="mobile-accordion-inner">
+          <a href="chatifa-glossar.html" class="mobile-resource-item">
+            <div class="mobile-resource-icon" aria-hidden="true">
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                <path d="M3 2h8a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1z" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"/>
+                <path d="M5 5.5h6M5 8h6M5 10.5h4" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="mobile-resource-text">
+              <span class="t-h3">Glossar</span>
+            </div>
+          </a>
+          <a href="#" class="mobile-resource-item">
+            <div class="mobile-resource-icon" aria-hidden="true">
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                <rect x="2" y="1.5" width="12" height="13" rx="1.5" stroke="currentColor" stroke-width="1.25"/>
+                <path d="M5 5h6M5 7.5h6M5 10h4" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="mobile-resource-text">
+              <span class="t-h3">Ratgeber</span>
+              <span class="panel-tag">Bald verfügbar</span>
+            </div>
+          </a>
+          <a href="chatifa-preiskalkulator.html" class="mobile-resource-item">
+            <div class="mobile-resource-icon" aria-hidden="true">
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                <rect x="2" y="2" width="12" height="12" rx="2" stroke="currentColor" stroke-width="1.25"/>
+                <path d="M5 8h6M8 5v6" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="mobile-resource-text">
+              <span class="t-h3">Preiskalkulator</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Plain links -->
+    <a href="#" class="mobile-nav-link">Über uns</a>
+    <a href="chatifa-kontakt.html" class="mobile-nav-link">Kontakt</a>
+
+    <div class="mobile-divider" aria-hidden="true"></div>
+
+    <!-- CTA block -->
+    <div class="mobile-cta-block">
+      <a href="chatifa-projekt-anfragen.html" class="btn btn-primary">Projekt anfragen</a>
+    </div>
+
+  </div>
+</div><!-- /mobile-menu -->
+<!-- ══ HERO ══ -->
+<section id="hero">
+  <div class="orb orb-hero" aria-hidden="true"></div>
+  <div class="ring ring-1" aria-hidden="true"></div>
+  <div class="ring ring-2" aria-hidden="true"></div>
+
+  <div class="hero-badge kicker reveal">
+    Digitale Klarheit für B2B-Unternehmen
+  </div>
+
+  <h1 class="t-hero hero-hl reveal d1">
+    <span class="l1">Vorne klar auftreten.</span>
+    <span class="l2">Hinten effizienter arbeiten.</span>
+  </h1>
+
+  <p class="hero-sub reveal d2">
+    Wir strukturieren Websites so, dass Besucher Ihr Angebot schneller verstehen, Vertrauen aufbauen und den nächsten Schritt erkennen — ergänzt durch Automatisierungen, die wiederkehrende Arbeit dahinter reduzieren.
+  </p>
+
+  <div class="hero-actions reveal d3">
+    <a href="#cta" class="btn btn-primary" style="font-size:15px;padding:.9rem 2.25rem">Projekt anfragen</a>
+    <a href="#cta" class="btn-text" style="font-size:15px">Einschätzung einholen →</a>
+  </div>
+
+  <p class="t-xs reveal d4" style="margin-top:.5rem">
+    Für Websites, Relaunches, Automatisierungen oder eine Kombination daraus.
+  </p>
+</section>
+
+<!-- ══ PROBLEM ══ -->
+<section id="problem">
+  <div class="orb orb-side" style="top:20%;left:-80px;opacity:.7" aria-hidden="true"></div>
+  <div class="wrap">
+
+    <div class="sec-head reveal">
+      <span class="kicker">Digitale Reibung</span>
+      <h2 class="t-h1">
+        Eine Website verliert, wenn Besucher suchen, raten oder vergleichen müssen.
+      </h2>
+      <p class="lead">
+        Viele Unternehmenswebsites sehen auf den ersten Blick solide aus. Trotzdem müssen Besucher oft zu viel selbst herausfinden — und wenn diese Fragen nicht schnell beantwortet werden, beginnt Reibung.
+      </p>
+    </div>
+
+    <div class="prob-grid">
+      <div class="card prob-card reveal d1">
+        <div class="grid-bg"></div>
+        <div class="card-glow"></div>
+        <div style="position:relative;z-index:2">
+          <span class="prob-num">01</span>
+          <h3 class="t-h3">Besucher müssen suchen</h3>
+          <p class="t-sm" style="margin-top:.6rem;color:var(--t3)">Wichtige Informationen sind vorhanden, aber nicht klar genug geführt. Der erste Eindruck, das Angebot und der nächste Schritt ergeben kein sauberes Gesamtbild.</p>
+        </div>
+      </div>
+      <div class="card prob-card reveal d2">
+        <div class="grid-bg"></div>
+        <div class="card-glow"></div>
+        <div style="position:relative;z-index:2">
+          <span class="prob-num">02</span>
+          <h3 class="t-h3">Besucher müssen raten</h3>
+          <p class="t-sm" style="margin-top:.6rem;color:var(--t3)">Es bleibt zu unklar, ob das Angebot zum eigenen Anliegen passt, worin der konkrete Nutzen liegt oder warum dieser Anbieter die richtige Wahl ist.</p>
+        </div>
+      </div>
+      <div class="card prob-card reveal d3">
+        <div class="grid-bg"></div>
+        <div class="card-glow"></div>
+        <div style="position:relative;z-index:2">
+          <span class="prob-num">03</span>
+          <h3 class="t-h3">Teams müssen nacharbeiten</h3>
+          <p class="t-sm" style="margin-top:.6rem;color:var(--t3)">Wenn Informationen unvollständig ankommen oder Abläufe nicht sauber vorbereitet sind, entstehen Rückfragen, manuelle Übergaben und vermeidbare Abstimmung.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout reveal d1">
+      Das Problem ist selten nur die Optik. Meist fehlt eine digitale Struktur, die Entscheidungsklarheit schafft — vom ersten Eindruck bis zur Kontaktaufnahme und darüber hinaus.
+    </div>
+
+  </div>
+</section>
+
+<!-- ══ CORE ══ -->
+<section id="core">
+  <div class="wrap">
+
+    <div class="sec-head reveal">
+      <span class="kicker">Was Chatifa verbindet</span>
+      <h2 class="t-h1">
+        Klarer auftreten.<br>Einfacher weiterarbeiten.
+      </h2>
+      <p class="lead">
+        Viele digitale Projekte enden bei der Website. Wir denken einen Schritt weiter: Was müssen Besucher verstehen, bevor sie Kontakt aufnehmen? Und was passiert intern, wenn eine Anfrage entsteht?
+      </p>
+    </div>
+
+    <div class="core-grid">
+      <div class="card core-card reveal d1">
+        <div class="grid-bg"></div>
+        <div class="card-glow"></div>
+        <div style="position:relative;z-index:2">
+          <div class="core-card-kicker"><span class="kicker">Website-Ebene</span></div>
+          <h3 class="t-h2">Klarheit für Besucher.</h3>
+          <p class="t-body" style="margin:1rem 0 2rem;color:var(--t3)">Eine gute Website führt durch die wichtigsten Entscheidungen: Was wird angeboten? Für wen ist es relevant? Warum ist dieser Anbieter vertrauenswürdig? Und welcher nächste Schritt passt?<br><br>Wir entwickeln Websites, die genau diese Fragen strukturiert beantworten — ruhig, verständlich und professionell.</p>
+          <ul class="tag-list" aria-label="Website-Leistungen">
+            <li class="tag-item">Websites</li><li class="tag-item">Relaunches</li>
+            <li class="tag-item">Landingpages</li><li class="tag-item">Nutzerführung</li>
+            <li class="tag-item">Content-Struktur</li><li class="tag-item">SEO-Basis</li>
+            <li class="tag-item">UX/UI</li><li class="tag-item">Technische Grundlage</li>
+          </ul>
+          <div style="margin-top:2rem;width:100%;overflow:hidden">
+          <svg width="100%" viewBox="0 0 480 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Besucherreise: Erster Eindruck bis Kontaktaufnahme">
+            <defs>
+              <path id="journey-path" d="M80,100 L180,100 L300,100 L400,100"/>
+            </defs>
+
+            <!-- Connector lines — drawn in, left to right -->
+            <line x1="100" y1="100" x2="162" y2="100"
+              stroke="#2C1820" stroke-width="1.5"
+              stroke-dasharray="64" stroke-dashoffset="64">
+              <animate attributeName="stroke-dashoffset" from="64" to="0" begin="0.35s" dur="0.4s" fill="freeze" calcMode="spline" keySplines=".4 0 .2 1"/>
+            </line>
+            <line x1="198" y1="100" x2="282" y2="100"
+              stroke="#2C1820" stroke-width="1.5"
+              stroke-dasharray="86" stroke-dashoffset="86">
+              <animate attributeName="stroke-dashoffset" from="86" to="0" begin="0.65s" dur="0.4s" fill="freeze" calcMode="spline" keySplines=".4 0 .2 1"/>
+            </line>
+            <line x1="318" y1="100" x2="382" y2="100"
+              stroke="#ED5A26" stroke-width="1.5" opacity="0.4"
+              stroke-dasharray="66" stroke-dashoffset="66">
+              <animate attributeName="stroke-dashoffset" from="66" to="0" begin="0.9s" dur="0.4s" fill="freeze" calcMode="spline" keySplines=".4 0 .2 1"/>
+            </line>
+
+            <!-- Node 1: Erster Eindruck — accent ring + pulse -->
+            <circle cx="80" cy="100" r="26" fill="rgba(237,90,38,0.06)" opacity="0">
+              <animate attributeName="opacity" from="0" to="1" begin="0.1s" dur="0.3s" fill="freeze"/>
+            </circle>
+            <circle cx="80" cy="100" r="18" fill="#1A0C14" stroke="#ED5A26" stroke-width="1.5" opacity="0">
+              <animate attributeName="opacity" from="0" to="1" begin="0.1s" dur="0.3s" fill="freeze"/>
+            </circle>
+            <circle cx="80" cy="100" r="7" fill="#ED5A26" opacity="0">
+              <animate attributeName="opacity" from="0" to="1" begin="0.18s" dur="0.3s" fill="freeze"/>
+            </circle>
+            <!-- pulse ring — SVG-native, doesn't need CSS transform -->
+            <circle cx="80" cy="100" r="18" fill="none" stroke="#ED5A26" stroke-width="1" opacity="0">
+              <animate attributeName="r"       values="18;32;18" dur="2.8s" repeatCount="indefinite" begin="1.4s"/>
+              <animate attributeName="opacity" values="0.35;0;0.35" dur="2.8s" repeatCount="indefinite" begin="1.4s"/>
+            </circle>
+
+            <!-- Node 2: Relevanz -->
+            <circle cx="180" cy="100" r="18" fill="#120B10" stroke="#3A2028" stroke-width="1.5" opacity="0">
+              <animate attributeName="opacity" from="0" to="1" begin="0.4s" dur="0.3s" fill="freeze"/>
+            </circle>
+            <circle cx="180" cy="100" r="6" fill="#3A2028" opacity="0">
+              <animate attributeName="opacity" from="0" to="1" begin="0.48s" dur="0.3s" fill="freeze"/>
+            </circle>
+
+            <!-- Node 3: Vertrauen -->
+            <circle cx="300" cy="100" r="18" fill="#120B10" stroke="#3A2028" stroke-width="1.5" opacity="0">
+              <animate attributeName="opacity" from="0" to="1" begin="0.7s" dur="0.3s" fill="freeze"/>
+            </circle>
+            <circle cx="300" cy="100" r="6" fill="#3A2028" opacity="0">
+              <animate attributeName="opacity" from="0" to="1" begin="0.78s" dur="0.3s" fill="freeze"/>
+            </circle>
+
+            <!-- Node 4: Kontakt — solid accent fill -->
+            <circle cx="400" cy="100" r="20" fill="#ED5A26" opacity="0">
+              <animate attributeName="opacity" from="0" to="1" begin="0.95s" dur="0.35s" fill="freeze"/>
+            </circle>
+            <!-- checkmark — fades in after node appears -->
+            <path d="M392,100 L398,106 L408,93" fill="none" stroke="#fff" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round" opacity="0">
+              <animate attributeName="opacity" from="0" to="1" begin="1.3s" dur="0.25s" fill="freeze"/>
+            </path>
+
+            <!-- Labels above nodes — spaced to avoid clipping -->
+            <text x="80" y="68" text-anchor="middle"
+              font-family="Instrument Sans,sans-serif" font-size="11" font-weight="500" fill="#8F827B" opacity="0">
+              <animate attributeName="opacity" from="0" to="1" begin="0.15s" dur="0.35s" fill="freeze"/>
+              Erster Eindruck
+            </text>
+            <text x="180" y="68" text-anchor="middle"
+              font-family="Instrument Sans,sans-serif" font-size="11" font-weight="500" fill="#6D625D" opacity="0">
+              <animate attributeName="opacity" from="0" to="1" begin="0.45s" dur="0.35s" fill="freeze"/>
+              Relevanz
+            </text>
+            <text x="300" y="68" text-anchor="middle"
+              font-family="Instrument Sans,sans-serif" font-size="11" font-weight="500" fill="#6D625D" opacity="0">
+              <animate attributeName="opacity" from="0" to="1" begin="0.75s" dur="0.35s" fill="freeze"/>
+              Vertrauen
+            </text>
+            <text x="400" y="68" text-anchor="middle"
+              font-family="Instrument Sans,sans-serif" font-size="11" font-weight="600" fill="#ED5A26" opacity="0">
+              <animate attributeName="opacity" from="0" to="1" begin="1.0s" dur="0.35s" fill="freeze"/>
+              Kontakt
+            </text>
+
+            <!-- Question pills — centered under each node, correct alignment -->
+            <rect x="24" y="134" width="114" height="22" rx="11" fill="#1A0E14" stroke="#2C1820" stroke-width="1" opacity="0">
+              <animate attributeName="opacity" from="0" to="1" begin="1.5s" dur="0.3s" fill="freeze"/>
+            </rect>
+            <text x="81" y="149" text-anchor="middle"
+              font-family="Instrument Sans,sans-serif" font-size="11" fill="#6D625D" opacity="0">
+              <animate attributeName="opacity" from="0" to="1" begin="1.55s" dur="0.3s" fill="freeze"/>
+              Was bieten Sie an?
+            </text>
+
+            <rect x="140" y="134" width="80" height="22" rx="11" fill="#1A0E14" stroke="#2C1820" stroke-width="1" opacity="0">
+              <animate attributeName="opacity" from="0" to="1" begin="1.65s" dur="0.3s" fill="freeze"/>
+            </rect>
+            <text x="180" y="149" text-anchor="middle"
+              font-family="Instrument Sans,sans-serif" font-size="11" fill="#6D625D" opacity="0">
+              <animate attributeName="opacity" from="0" to="1" begin="1.7s" dur="0.3s" fill="freeze"/>
+              Für wen?
+            </text>
+
+            <rect x="256" y="134" width="88" height="22" rx="11" fill="#1A0E14" stroke="#2C1820" stroke-width="1" opacity="0">
+              <animate attributeName="opacity" from="0" to="1" begin="1.8s" dur="0.3s" fill="freeze"/>
+            </rect>
+            <text x="300" y="149" text-anchor="middle"
+              font-family="Instrument Sans,sans-serif" font-size="11" fill="#6D625D" opacity="0">
+              <animate attributeName="opacity" from="0" to="1" begin="1.85s" dur="0.3s" fill="freeze"/>
+              Warum Sie?
+            </text>
+
+            <!-- Anfrage pill — anchored to last node -->
+            <rect x="346" y="170" width="108" height="26" rx="8"
+              fill="rgba(237,90,38,0.10)" stroke="rgba(237,90,38,0.28)" stroke-width="1" opacity="0">
+              <animate attributeName="opacity" from="0" to="1" begin="1.95s" dur="0.4s" fill="freeze"/>
+            </rect>
+            <text x="400" y="187" text-anchor="middle"
+              font-family="Instrument Sans,sans-serif" font-size="11" font-weight="600" fill="#ED5A26" opacity="0">
+              <animate attributeName="opacity" from="0" to="1" begin="2.05s" dur="0.4s" fill="freeze"/>
+              → Anfrage
+            </text>
+
+            <!-- Traveling dot — SVG animateMotion, loops along path -->
+            <circle r="5" fill="#ED5A26" opacity="0">
+              <animateMotion dur="3.6s" repeatCount="indefinite" begin="2.4s" calcMode="spline"
+                keyPoints="0;0.32;0.64;1" keyTimes="0;0.32;0.64;1"
+                keySplines=".42 0 .58 1;.42 0 .58 1;.42 0 .58 1">
+                <mpath href="#journey-path"/>
+              </animateMotion>
+              <animate attributeName="opacity" values="0;0.9;0.9;0.9;0" keyTimes="0;0.05;0.35;0.88;1"
+                dur="3.6s" repeatCount="indefinite" begin="2.4s"/>
+            </circle>
+
+          </svg>
+          </div>
+        </div>
+      </div>
+      <div class="card core-card reveal d2">
+        <div class="grid-bg"></div>
+        <div class="card-glow"></div>
+        <div style="position:relative;z-index:2">
+          <div class="core-card-kicker"><span class="kicker">Ablauf-Ebene</span></div>
+          <h3 class="t-h2">Entlastung für Teams.</h3>
+          <p class="t-body" style="margin:1rem 0 2rem;color:var(--t3)">Wenn hinter der Website immer wieder ähnliche Aufgaben entstehen, kann Automatisierung helfen: Informationen erfassen, Rückfragen vorbereiten, Kontakte weiterleiten, Follow-ups auslösen oder Daten sauber übergeben.<br><br>Nicht als Selbstzweck. Sondern dort, wo Arbeit wirklich wiederkehrt.</p>
+          <ul class="tag-list" aria-label="Automatisierungs-Leistungen">
+            <li class="tag-item">Workflows</li><li class="tag-item">Automatisierungen</li>
+            <li class="tag-item">CRM-Anbindung</li><li class="tag-item">Follow-up-Prozesse</li>
+            <li class="tag-item">Interne Übergaben</li><li class="tag-item">Support-Abläufe</li>
+            <li class="tag-item">Datenübergaben</li><li class="tag-item">Einfache Tools</li>
+          </ul>
+          <div style="margin-top:2rem;width:100%;overflow:hidden">
+          <svg width="100%" viewBox="0 0 480 268" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Automatisierungs-Hub: mehrere Eingaben, ein zentraler Verarbeitungspunkt, eine Ausgabe">
+            <defs>
+              <!-- Packet paths — from peripheral node centers to hub edge -->
+              <path id="hp-p-top"   d="M240,42  L240,96"/>
+              <path id="hp-p-left1" d="M76,90   L202,124"/>
+              <path id="hp-p-left2" d="M76,178  L202,136"/>
+              <path id="hp-p-right1" d="M404,90  L278,124"/>
+              <path id="hp-p-right2" d="M404,178 L278,136"/>
+            </defs>
+
+            <!-- Hub ambient glow — pure opacity pulse, no fill animation -->
+            <circle cx="240" cy="130" r="58" fill="rgba(237,90,38,0.06)">
+              <animate attributeName="opacity" values="0.6;1;0.6" dur="3s" repeatCount="indefinite"/>
+            </circle>
+
+            <!-- ── CONNECTOR LINES (draw-in) ── -->
+            <!-- Top -->
+            <line x1="240" y1="42" x2="240" y2="96"
+              stroke="#2C1820" stroke-width="1.5"
+              stroke-dasharray="56" stroke-dashoffset="56">
+              <animate attributeName="stroke-dashoffset" from="56" to="0" begin="0.2s" dur="0.35s" fill="freeze"/>
+            </line>
+            <!-- Left-top -->
+            <line x1="76" y1="90" x2="202" y2="124"
+              stroke="#2C1820" stroke-width="1.5"
+              stroke-dasharray="140" stroke-dashoffset="140">
+              <animate attributeName="stroke-dashoffset" from="140" to="0" begin="0.3s" dur="0.42s" fill="freeze"/>
+            </line>
+            <!-- Left-bottom -->
+            <line x1="76" y1="178" x2="202" y2="136"
+              stroke="#2C1820" stroke-width="1.5"
+              stroke-dasharray="140" stroke-dashoffset="140">
+              <animate attributeName="stroke-dashoffset" from="140" to="0" begin="0.4s" dur="0.42s" fill="freeze"/>
+            </line>
+            <!-- Right-top -->
+            <line x1="404" y1="90" x2="278" y2="124"
+              stroke="#2C1820" stroke-width="1.5"
+              stroke-dasharray="140" stroke-dashoffset="140">
+              <animate attributeName="stroke-dashoffset" from="140" to="0" begin="0.3s" dur="0.42s" fill="freeze"/>
+            </line>
+            <!-- Right-bottom -->
+            <line x1="404" y1="178" x2="278" y2="136"
+              stroke="#2C1820" stroke-width="1.5"
+              stroke-dasharray="140" stroke-dashoffset="140">
+              <animate attributeName="stroke-dashoffset" from="140" to="0" begin="0.4s" dur="0.42s" fill="freeze"/>
+            </line>
+
+            <!-- Output dashed line -->
+            <line x1="240" y1="164" x2="240" y2="220"
+              stroke="#ED5A26" stroke-width="1.5" opacity="0.32"
+              stroke-dasharray="5 5"/>
+
+            <!-- ── ANIMATED PACKETS ── -->
+            <circle r="4.5" fill="#ED5A26" opacity="0">
+              <animateMotion dur="1.9s" repeatCount="indefinite" begin="1.6s" calcMode="spline"
+                keySplines=".4 0 .6 1"><mpath href="#hp-p-top"/></animateMotion>
+              <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.08;0.85;1" dur="1.9s" repeatCount="indefinite" begin="1.6s"/>
+            </circle>
+            <circle r="4.5" fill="#ED5A26" opacity="0">
+              <animateMotion dur="2.2s" repeatCount="indefinite" begin="2.1s" calcMode="spline"
+                keySplines=".4 0 .6 1"><mpath href="#hp-p-left1"/></animateMotion>
+              <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.08;0.85;1" dur="2.2s" repeatCount="indefinite" begin="2.1s"/>
+            </circle>
+            <circle r="4.5" fill="#ED5A26" opacity="0">
+              <animateMotion dur="2.4s" repeatCount="indefinite" begin="2.8s" calcMode="spline"
+                keySplines=".4 0 .6 1"><mpath href="#hp-p-left2"/></animateMotion>
+              <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.08;0.85;1" dur="2.4s" repeatCount="indefinite" begin="2.8s"/>
+            </circle>
+            <circle r="4.5" fill="#ED5A26" opacity="0">
+              <animateMotion dur="2.0s" repeatCount="indefinite" begin="3.3s" calcMode="spline"
+                keySplines=".4 0 .6 1"><mpath href="#hp-p-right1"/></animateMotion>
+              <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.08;0.85;1" dur="2.0s" repeatCount="indefinite" begin="3.3s"/>
+            </circle>
+            <circle r="4.5" fill="#ED5A26" opacity="0">
+              <animateMotion dur="2.3s" repeatCount="indefinite" begin="3.9s" calcMode="spline"
+                keySplines=".4 0 .6 1"><mpath href="#hp-p-right2"/></animateMotion>
+              <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.08;0.85;1" dur="2.3s" repeatCount="indefinite" begin="3.9s"/>
+            </circle>
+
+            <!-- ── HUB CENTER ── -->
+            <!-- Outer ring -->
+            <circle cx="240" cy="130" r="40" fill="#1A0C14" stroke="#ED5A26" stroke-width="1.5" opacity="0">
+              <animate attributeName="opacity" from="0" to="1" begin="0.75s" dur="0.4s" fill="freeze"/>
+            </circle>
+            <!-- Inner fill -->
+            <circle cx="240" cy="130" r="32" fill="#120B10" stroke="rgba(237,90,38,0.2)" stroke-width="1"/>
+            <!-- Hub label — sized to fit inside r=32 circle (~60px usable width) -->
+            <text x="240" y="125" text-anchor="middle"
+              font-family="Instrument Sans,sans-serif" font-size="11" font-weight="600" fill="#ED5A26">
+              Automati-
+            </text>
+            <text x="240" y="139" text-anchor="middle"
+              font-family="Instrument Sans,sans-serif" font-size="11" font-weight="600" fill="#ED5A26">
+              sierung
+            </text>
+
+            <!-- ── PERIPHERAL NODES ── -->
+            <!-- Top: Formular -->
+            <circle cx="240" cy="22" r="20" fill="#130C12" stroke="#2C1820" stroke-width="1.5" opacity="0">
+              <animate attributeName="opacity" from="0" to="1" begin="0.85s" dur="0.35s" fill="freeze"/>
+            </circle>
+            <text x="240" y="26" text-anchor="middle"
+              font-family="Instrument Sans,sans-serif" font-size="11" font-weight="500" fill="#8F827B" opacity="0">
+              <animate attributeName="opacity" from="0" to="1" begin="0.95s" dur="0.35s" fill="freeze"/>
+              Formular
+            </text>
+
+            <!-- Left-top: CRM — cx=76 gives r=20, min x=56 — safe -->
+            <circle cx="76" cy="90" r="20" fill="#130C12" stroke="#2C1820" stroke-width="1.5" opacity="0">
+              <animate attributeName="opacity" from="0" to="1" begin="0.9s" dur="0.35s" fill="freeze"/>
+            </circle>
+            <text x="76" y="94" text-anchor="middle"
+              font-family="Instrument Sans,sans-serif" font-size="11" font-weight="500" fill="#8F827B" opacity="0">
+              <animate attributeName="opacity" from="0" to="1" begin="1.0s" dur="0.35s" fill="freeze"/>
+              CRM
+            </text>
+
+            <!-- Left-bottom: E-Mail -->
+            <circle cx="76" cy="178" r="20" fill="#130C12" stroke="#2C1820" stroke-width="1.5" opacity="0">
+              <animate attributeName="opacity" from="0" to="1" begin="0.95s" dur="0.35s" fill="freeze"/>
+            </circle>
+            <text x="76" y="182" text-anchor="middle"
+              font-family="Instrument Sans,sans-serif" font-size="11" font-weight="500" fill="#8F827B" opacity="0">
+              <animate attributeName="opacity" from="0" to="1" begin="1.05s" dur="0.35s" fill="freeze"/>
+              E-Mail
+            </text>
+
+            <!-- Right-top: Slack — cx=404, max x=424 — safe inside 480 -->
+            <circle cx="404" cy="90" r="20" fill="#130C12" stroke="#2C1820" stroke-width="1.5" opacity="0">
+              <animate attributeName="opacity" from="0" to="1" begin="0.9s" dur="0.35s" fill="freeze"/>
+            </circle>
+            <text x="404" y="94" text-anchor="middle"
+              font-family="Instrument Sans,sans-serif" font-size="11" font-weight="500" fill="#8F827B" opacity="0">
+              <animate attributeName="opacity" from="0" to="1" begin="1.0s" dur="0.35s" fill="freeze"/>
+              Slack
+            </text>
+
+            <!-- Right-bottom: n8n -->
+            <circle cx="404" cy="178" r="20" fill="#130C12" stroke="#2C1820" stroke-width="1.5" opacity="0">
+              <animate attributeName="opacity" from="0" to="1" begin="0.95s" dur="0.35s" fill="freeze"/>
+            </circle>
+            <text x="404" y="182" text-anchor="middle"
+              font-family="Instrument Sans,sans-serif" font-size="11" font-weight="500" fill="#8F827B" opacity="0">
+              <animate attributeName="opacity" from="0" to="1" begin="1.05s" dur="0.35s" fill="freeze"/>
+              n8n
+            </text>
+
+            <!-- ── OUTPUT PILL ── -->
+            <rect x="172" y="226" width="136" height="26" rx="13"
+              fill="rgba(237,90,38,0.10)" stroke="rgba(237,90,38,0.28)" stroke-width="1" opacity="0">
+              <animate attributeName="opacity" from="0" to="1" begin="1.5s" dur="0.45s" fill="freeze"/>
+            </rect>
+            <text x="240" y="243" text-anchor="middle"
+              font-family="Instrument Sans,sans-serif" font-size="11" font-weight="600" fill="#ED5A26" opacity="0">
+              <animate attributeName="opacity" from="0" to="1" begin="1.6s" dur="0.45s" fill="freeze"/>
+              Team entlastet
+            </text>
+
+          </svg>
+          </div>
+        </div>
+      </div>
+      <div class="card core-bar reveal d3">
+        <div class="core-bar-line"></div>
+        <span class="core-bar-text">Die Website schafft Entscheidungsklarheit nach außen. Automatisierung reduziert wiederkehrende Arbeit dahinter.</span>
+        <div class="core-bar-line rev"></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══ WHY ══ -->
+<section id="why">
+  <div class="orb orb-side" style="top:30%;right:-80px;opacity:.6" aria-hidden="true"></div>
+  <div class="wrap">
+
+    <div class="sec-head reveal">
+      <span class="kicker">Warum Chatifa</span>
+      <h2 class="t-h1">
+        Nicht mehr Funktionen.<br>Weniger Reibung.
+      </h2>
+      <p class="lead">
+        Viele digitale Projekte werden zu schnell über Design, Tools oder einzelne Features gedacht. Wir starten früher: bei Ihrem Angebot, Ihrer Zielgruppe, der Nutzerführung und der Frage, was nach einer Anfrage passieren soll.
+      </p>
+    </div>
+
+    <div class="diff-grid">
+      <div class="card diff-card reveal d1">
+        <div class="grid-bg"></div>
+        <div style="position:relative;z-index:2">
+          <span class="diff-num">01</span>
+          <h3 class="t-h3">Struktur vor Design</h3>
+          <p class="t-sm" style="margin-top:.65rem;color:var(--t3)">Bevor eine Website gestaltet wird, muss klar sein, was sie leisten soll: Was bietet das Unternehmen an? Für wen ist es relevant? Welcher nächste Schritt ist sinnvoll?</p>
+        </div>
+      </div>
+      <div class="card diff-card reveal d2">
+        <div class="grid-bg"></div>
+        <div style="position:relative;z-index:2">
+          <span class="diff-num">02</span>
+          <h3 class="t-h3">Klartext statt Buzzwords</h3>
+          <p class="t-sm" style="margin-top:.65rem;color:var(--t3)">Gute Website-Texte müssen nicht beeindruckend klingen. Sie müssen verständlich machen, was ein Unternehmen anbietet und warum Besucher Vertrauen aufbauen können.</p>
+        </div>
+      </div>
+      <div class="card diff-card reveal d3">
+        <div class="grid-bg"></div>
+        <div style="position:relative;z-index:2">
+          <span class="diff-num">03</span>
+          <h3 class="t-h3">Entscheidungsklarheit statt Kontaktflächen</h3>
+          <p class="t-sm" style="margin-top:.65rem;color:var(--t3)">Kontaktformulare und Buttons allein lösen kein Problem. Entscheidend ist die Entscheidungskette davor: erster Eindruck, Relevanz, Vertrauen und klare nächste Schritte.</p>
+        </div>
+      </div>
+      <div class="card diff-card reveal d1">
+        <div class="grid-bg"></div>
+        <div style="position:relative;z-index:2">
+          <span class="diff-num">04</span>
+          <h3 class="t-h3">Website und Alltag zusammendenken</h3>
+          <p class="t-sm" style="margin-top:.65rem;color:var(--t3)">Eine Anfrage ist nicht das Ende der Website. Sie ist der Anfang eines internen Ablaufs. Deshalb betrachten wir auch, wie Informationen weiterlaufen und wo Arbeit entsteht.</p>
+        </div>
+      </div>
+      <div class="card diff-card reveal d2">
+        <div class="grid-bg"></div>
+        <div style="position:relative;z-index:2">
+          <span class="diff-num">05</span>
+          <h3 class="t-h3">Automatisierung nur mit Nutzen</h3>
+          <p class="t-sm" style="margin-top:.65rem;color:var(--t3)">Nicht jeder Prozess braucht KI. Manchmal reicht ein klarer Workflow, ein gutes Formular oder eine saubere Übergabe.</p>
+        </div>
+      </div>
+      <div class="card diff-card-quote reveal d3">
+        <div class="grid-bg"></div>
+        <div style="position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:space-between;padding:2.25rem">
+          <p class="diff-quote-text">Gute digitale Lösungen machen nicht alles größer. Sie machen wichtige Dinge klarer, einfacher und verlässlicher.</p>
+          <a href="#cta" class="btn btn-primary" style="font-size:13px;padding:.6rem 1.4rem;align-self:flex-start">Projekt anfragen</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══ PROCESS ══ -->
+<section id="process">
+  <div class="wrap">
+
+    <div class="sec-head reveal">
+      <span class="kicker">Unser Ablauf</span>
+      <h2 class="t-h1">
+        Erst verstehen.<br>Dann sauber umsetzen.
+      </h2>
+      <p class="lead">
+        Gute digitale Projekte entstehen nicht durch schnelle Oberflächen, sondern durch klare Entscheidungen. Wir beginnen mit Struktur, bevor Design, Texte oder Automatisierung umgesetzt werden.
+      </p>
+    </div>
+
+    <div class="steps" role="list">
+      <div class="step reveal d1" role="listitem">
+        <div class="step-dot" aria-hidden="true">1</div>
+        <h3 class="t-h3">Ausgangslage klären</h3>
+        <p class="t-sm" style="margin-top:.55rem;color:var(--t3)">Wir schauen uns an, was bereits vorhanden ist: Website, Inhalte, Zielgruppen, Leistungen, Nutzerführung und die Abläufe dahinter.</p>
+      </div>
+      <div class="step reveal d2" role="listitem">
+        <div class="step-dot" aria-hidden="true">2</div>
+        <h3 class="t-h3">Richtung festlegen</h3>
+        <p class="t-sm" style="margin-top:.55rem;color:var(--t3)">Aus der Ausgangslage entwickeln wir eine klare Projektlogik: Welche Seiten werden gebraucht? Welche Inhalte müssen geschärft werden?</p>
+      </div>
+      <div class="step reveal d3" role="listitem">
+        <div class="step-dot" aria-hidden="true">3</div>
+        <h3 class="t-h3">Umsetzung entwickeln</h3>
+        <p class="t-sm" style="margin-top:.55rem;color:var(--t3)">Die Website oder Automatisierung wird umgesetzt — mit Fokus auf klare Nutzerführung, professionelle Gestaltung und technische Sauberkeit.</p>
+      </div>
+      <div class="step reveal d4" role="listitem">
+        <div class="step-dot" aria-hidden="true">4</div>
+        <h3 class="t-h3">Grundlage ausbauen</h3>
+        <p class="t-sm" style="margin-top:.55rem;color:var(--t3)">Nach dem Start kann die Grundlage weiterentwickelt werden: bessere Inhalte, SEO, Tracking, Automatisierung oder neue interne Abläufe.</p>
+      </div>
+    </div>
+
+    <div class="process-cta reveal">
+      <a href="#cta" class="btn btn-primary" style="font-size:15px;padding:.9rem 2.25rem">Projekt anfragen</a>
+      <p class="process-note">So entsteht kein einmaliger Auftritt, sondern eine Grundlage, die mit Ihrem Unternehmen weiterwachsen kann.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══ FAQ ══ -->
+<section id="faq">
+  <div class="wrap">
+
+    <div class="sec-head reveal">
+      <span class="kicker">FAQ</span>
+      <h2 class="t-h1">Häufige Fragen.</h2>
+      <p class="lead">
+        Falls Ihre Frage nicht dabei ist, melden Sie sich direkt — wir geben eine ehrliche Einschätzung zum nächsten Schritt.
+      </p>
+    </div>
+
+    <div class="faq-list reveal d1" role="list">
+
+      <div class="faq-item" role="listitem">
+        <button class="faq-btn" aria-expanded="false">
+          <span class="faq-btn-text">Brauchen wir direkt Website und Automatisierung?</span>
+          <span class="faq-ico" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </button>
+        <div class="faq-body" role="region"><p class="faq-inner">Nein. Entscheidend ist, was aktuell sinnvoll ist. Wenn zuerst die Außenwirkung, Struktur und Nutzerführung verbessert werden muss, starten wir mit der Website. Wenn dahinter bereits wiederkehrende Arbeit entsteht, kann Automatisierung direkt mitgedacht oder später ergänzt werden.</p></div>
+      </div>
+
+      <div class="faq-item" role="listitem">
+        <button class="faq-btn" aria-expanded="false">
+          <span class="faq-btn-text">Macht Chatifa auch klassische Unternehmenswebsites?</span>
+          <span class="faq-ico" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </button>
+        <div class="faq-body" role="region"><p class="faq-inner">Ja. Wir entwickeln professionelle Websites, Relaunches und Landingpages für B2B-Unternehmen. Der Fokus liegt nicht nur auf Gestaltung, sondern auf klarer Struktur: Besucher sollen schneller verstehen, was angeboten wird, ob es relevant ist und welcher nächste Schritt sinnvoll ist.</p></div>
+      </div>
+
+      <div class="faq-item" role="listitem">
+        <button class="faq-btn" aria-expanded="false">
+          <span class="faq-btn-text">Was unterscheidet eure Websites von normalen Agentur-Websites?</span>
+          <span class="faq-ico" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </button>
+        <div class="faq-body" role="region"><p class="faq-inner">Wir denken Websites nicht als reine digitale Broschüren. Eine gute Website muss Angebot, Relevanz, Vertrauen und nächste Schritte sauber führen. Erst dadurch entsteht die Klarheit, die eine Anfrage wahrscheinlicher macht.</p></div>
+      </div>
+
+      <div class="faq-item" role="listitem">
+        <button class="faq-btn" aria-expanded="false">
+          <span class="faq-btn-text">Wann ist Automatisierung sinnvoll?</span>
+          <span class="faq-ico" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </button>
+        <div class="faq-body" role="region"><p class="faq-inner">Wenn wiederkehrende Aufgaben Zeit kosten oder Abläufe unnötig manuell bleiben. Das können Rückfragen, Follow-ups, interne Übergaben, CRM-Einträge, Terminlogik oder einfache Support-Prozesse sein. Wenn ein einfacher Workflow reicht, braucht es keine komplexe Lösung.</p></div>
+      </div>
+
+      <div class="faq-item" role="listitem">
+        <button class="faq-btn" aria-expanded="false">
+          <span class="faq-btn-text">Können bestehende Systeme eingebunden werden?</span>
+          <span class="faq-ico" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </button>
+        <div class="faq-body" role="region"><p class="faq-inner">In vielen Fällen ja. Bestehende Websites, Formulare, Tabellen, CRM-Systeme oder Tools können oft weiter genutzt und sinnvoll verbunden werden. Vorab prüfen wir, was bereits vorhanden ist und wo eine saubere Übergabe oder Automatisierung wirklich Nutzen bringt.</p></div>
+      </div>
+
+      <div class="faq-item" role="listitem">
+        <button class="faq-btn" aria-expanded="false">
+          <span class="faq-btn-text">Was kostet ein Projekt?</span>
+          <span class="faq-ico" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </button>
+        <div class="faq-body" role="region"><p class="faq-inner">Das hängt vom Umfang, der Ausgangslage und den Anforderungen ab. Nach einer kurzen Einschätzung lässt sich meist realistisch einordnen, welcher Rahmen sinnvoll ist — und ob Website, Relaunch, Automatisierung oder eine Kombination der passende nächste Schritt wäre.</p></div>
+      </div>
+
+      <div class="faq-item" role="listitem">
+        <button class="faq-btn" aria-expanded="false">
+          <span class="faq-btn-text">Wie läuft der Start ab?</span>
+          <span class="faq-ico" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </button>
+        <div class="faq-body" role="region"><p class="faq-inner">Sie beschreiben kurz Ihre Ausgangslage, Ihr Ziel und den groben Projekttyp. Danach prüfen wir, ob eine Website, ein Relaunch, eine Automatisierung oder eine Kombination sinnvoll ist — und geben eine erste Einschätzung zum nächsten Schritt.</p></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ CTA ══ -->
+<section id="cta">
+  <div class="orb orb-cta" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="card cta-card reveal">
+      <div class="grid-bg"></div>
+      <div class="card-glow" style="--gx:50%;--gy:18%"></div>
+      <div style="position:relative;z-index:2">
+        <span class="kicker cta-kicker">Jetzt starten</span>
+        <h2 class="t-h1 cta-hl">
+          Wenn Website oder Abläufe nicht mehr zu Ihrem Anspruch passen, ist das der richtige Startpunkt.
+        </h2>
+        <p class="cta-sub">
+          Starten Sie mit einer kurzen Projektanfrage und erhalten Sie eine ehrliche Einschätzung, welcher nächste Schritt sinnvoll ist: Website, Relaunch, Automatisierung oder eine Kombination daraus.
+        </p>
+        <div class="cta-actions">
+          <a href="mailto:hallo@chatifa.de" class="btn btn-primary" style="font-size:15px;padding:.9rem 2.25rem">Projekt anfragen</a>
+          <a href="mailto:hallo@chatifa.de" class="btn-text" style="font-size:15px">Einschätzung einholen →</a>
+        </div>
+        <p class="t-xs" style="margin-top:.5rem">Unverbindlich, realistisch und ohne unnötige Komplexität.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo"><img src="assets/Chatifa-logo.svg" alt="Chatifa" height="44"></div>
+        <p class="footer-desc">Professionelle Websites und sinnvolle Automatisierungen für B2B-Unternehmen — für klare Außenwirkung, bessere Nutzerführung und weniger manuelle Arbeit im Alltag.</p>
+      </div>
+      <div>
+        <p class="footer-col-h">Leistungen</p>
+        <ul class="footer-links" role="list">
+          <li><a href="#core">Websites</a></li>
+          <li><a href="#core">Automatisierung</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-h">Unternehmen</p>
+        <ul class="footer-links" role="list">
+          <li><a href="#">Über uns</a></li>
+          <li><a href="#process">Prozess</a></li>
+          <li><a href="#cta">Projekt anfragen</a></li>
+          <li><a href="#">Kontakt</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-h">Ressourcen</p>
+        <ul class="footer-links" role="list">
+          <li><a href="#">Glossar</a></li>
+          <li><a href="#">Ratgeber</a></li>
+          <li><a href="#">Website-Preiskalkulator</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bar">
+      <span class="footer-copy">© 2026 Chatifa. Alle Rechte vorbehalten.</span>
+      <nav class="footer-legal" aria-label="Rechtliche Links">
+        <a href="chatifa-impressum.html">Impressum</a>
+        <a href="chatifa-datenschutz.html">Datenschutz</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<script>
+
+/* ─────────────────────────────────────────────
+   NAVBAR SCROLL STATE
+───────────────────────────────────────────── */
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', scrollY > 40);
+}, { passive: true });
+
+/* ─────────────────────────────────────────────
+   DROPDOWN PANEL LOGIC
+   Desktop ≥ 769px: hover with 80ms leave delay
+   Mobile  ≤ 768px: click toggle
+───────────────────────────────────────────── */
+const MOBILE = () => window.innerWidth <= 768;
+
+const triggers = {
+  leistungen: document.getElementById('trigger-leistungen'),
+  ressourcen:  document.getElementById('trigger-ressourcen'),
+};
+const panels = {
+  leistungen: document.getElementById('panel-leistungen'),
+  ressourcen:  document.getElementById('panel-ressourcen'),
+};
+
+function getPanelLinks(panel) {
+  return Array.from(panel.querySelectorAll('a, button:not([disabled])'));
+}
+
+let activePanel = null;
+let closeTimer  = null;
+
+function openPanel(key) {
+  if (MOBILE()) return;
+  if (activePanel && activePanel !== key) closePanel(activePanel, true);
+  activePanel = key;
+  clearTimeout(closeTimer);
+  const panel   = panels[key];
+  const trigger = triggers[key];
+  panel.classList.add('open');
+  panel.setAttribute('aria-hidden', 'false');
+  trigger.setAttribute('aria-expanded', 'true');
+  getPanelLinks(panel).forEach(el => el.removeAttribute('tabindex'));
+}
+
+function closePanel(key, immediate = false) {
+  const doClose = () => {
+    if (activePanel === key) activePanel = null;
+    const panel   = panels[key];
+    const trigger = triggers[key];
+    panel.classList.remove('open');
+    panel.setAttribute('aria-hidden', 'true');
+    trigger.setAttribute('aria-expanded', 'false');
+    getPanelLinks(panel).forEach(el => el.setAttribute('tabindex', '-1'));
+  };
+  if (immediate) { clearTimeout(closeTimer); doClose(); }
+  else { clearTimeout(closeTimer); closeTimer = setTimeout(doClose, 80); }
+}
+
+function closeAllPanels(immediate = false) {
+  Object.keys(panels).forEach(k => closePanel(k, immediate));
+}
+
+Object.keys(triggers).forEach(key => {
+  const trigger = triggers[key];
+  const panel   = panels[key];
+  trigger.addEventListener('mouseenter', () => { if (!MOBILE()) openPanel(key); });
+  trigger.addEventListener('mouseleave', () => { if (!MOBILE()) closePanel(key); });
+  panel.addEventListener('mouseenter', () => { if (!MOBILE()) { clearTimeout(closeTimer); } });
+  panel.addEventListener('mouseleave', () => { if (!MOBILE()) closePanel(key); });
+  trigger.addEventListener('click', () => {
+    if (MOBILE()) return;
+    if (panel.classList.contains('open')) { closePanel(key, true); } else { openPanel(key); }
+  });
+  getPanelLinks(panel).forEach(link => {
+    link.addEventListener('click', () => closeAllPanels(true));
+  });
+});
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    closeAllPanels(true);
+    Object.keys(triggers).forEach(k => {
+      if (triggers[k].getAttribute('aria-expanded') === 'true') { triggers[k].focus(); }
+    });
+  }
+});
+
+Object.keys(panels).forEach(key => {
+  const panel = panels[key];
+  panel.addEventListener('keydown', e => {
+    if (e.key !== 'Tab') return;
+    const links = getPanelLinks(panel).filter(el => el.getAttribute('tabindex') !== '-1');
+    if (!links.length) return;
+    const first = links[0]; const last = links[links.length - 1];
+    if (e.shiftKey && document.activeElement === first) { closePanel(key, true); }
+    else if (!e.shiftKey && document.activeElement === last) { closePanel(key, true); }
+  });
+});
+
+document.addEventListener('click', e => {
+  const inside = Object.keys(triggers).some(k =>
+    triggers[k].contains(e.target) || panels[k].contains(e.target)
+  );
+  if (!inside) closeAllPanels(true);
+});
+
+let wasM = MOBILE();
+window.addEventListener('resize', () => {
+  const isM = MOBILE(); if (wasM !== isM) { closeAllPanels(true); wasM = isM; }
+}, { passive: true });
+
+/* ─────────────────────────────────────────────
+   MOBILE MENU
+───────────────────────────────────────────── */
+const hamburger   = document.getElementById('nav-hamburger');
+const mobileMenu  = document.getElementById('mobile-menu');
+
+hamburger.addEventListener('click', () => {
+  mobileMenu.classList.contains('open') ? closeMobileMenu() : openMobileMenu();
+});
+
+function openMobileMenu() {
+  mobileMenu.classList.add('open');
+  mobileMenu.setAttribute('aria-hidden', 'false');
+  mobileMenu.removeAttribute('inert');
+  hamburger.setAttribute('aria-expanded', 'true');
+  hamburger.setAttribute('aria-label', 'Menü schließen');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeMobileMenu() {
+  mobileMenu.classList.remove('open');
+  mobileMenu.setAttribute('aria-hidden', 'true');
+  mobileMenu.setAttribute('inert', '');
+  hamburger.setAttribute('aria-expanded', 'false');
+  hamburger.setAttribute('aria-label', 'Menü öffnen');
+  document.body.style.overflow = '';
+  closeAllMobileAccordions();
+}
+
+document.addEventListener('click', e => {
+  if (mobileMenu.classList.contains('open') && !mobileMenu.contains(e.target) && !hamburger.contains(e.target)) {
+    closeMobileMenu();
+  }
+});
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape' && mobileMenu.classList.contains('open')) { closeMobileMenu(); hamburger.focus(); }
+});
+
+const mobileAccordions = [
+  { trigger: 'mob-trigger-leistungen', body: 'mob-body-leistungen' },
+  { trigger: 'mob-trigger-ressourcen', body: 'mob-body-ressourcen' },
+];
+
+mobileAccordions.forEach(({ trigger: tid, body: bid }) => {
+  const btn  = document.getElementById(tid);
+  const body = document.getElementById(bid);
+  btn.addEventListener('click', () => {
+    const open = btn.getAttribute('aria-expanded') === 'true';
+    if (open) { closeMobileAccordion(btn, body); }
+    else {
+      mobileAccordions.forEach(({ trigger: otid, body: obid }) => {
+        if (otid !== tid) {
+          const ob = document.getElementById(otid); const obb = document.getElementById(obid);
+          if (ob.getAttribute('aria-expanded') === 'true') { closeMobileAccordion(ob, obb); }
+        }
+      });
+      openMobileAccordion(btn, body);
+    }
+  });
+});
+
+function openMobileAccordion(btn, body) { btn.setAttribute('aria-expanded', 'true'); body.style.maxHeight = body.scrollHeight + 'px'; }
+function closeMobileAccordion(btn, body) { btn.setAttribute('aria-expanded', 'false'); body.style.maxHeight = '0'; }
+function closeAllMobileAccordions() {
+  mobileAccordions.forEach(({ trigger: tid, body: bid }) => {
+    closeMobileAccordion(document.getElementById(tid), document.getElementById(bid));
+  });
+}
+
+
+// ── Scroll reveal ──
+const ro = new IntersectionObserver(
+  entries => entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); ro.unobserve(e.target) } }),
+  {threshold:.1, rootMargin:'0px 0px -40px 0px'}
+);
+document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
+
+// ── Card mouse glow ──
+document.querySelectorAll('.card').forEach(card => {
+  const g = card.querySelector('.card-glow');
+  if(!g) return;
+  card.addEventListener('mousemove', e => {
+    const r = card.getBoundingClientRect();
+    const x = ((e.clientX - r.left) / r.width) * 100;
+    const y = ((e.clientY - r.top) / r.height) * 100;
+    g.style.background = `radial-gradient(circle 240px at ${x}% ${y}%,rgba(237,90,38,.26) 0%,rgba(237,90,38,.08) 40%,transparent 64%)`;
+  });
+  card.addEventListener('mouseleave', () => g.style.background = '');
+});
+
+// ── FAQ ──
+document.querySelectorAll('.faq-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.closest('.faq-item');
+    const body = item.querySelector('.faq-body');
+    const open = item.classList.contains('open');
+    // close all
+    document.querySelectorAll('.faq-item.open').forEach(o => {
+      o.classList.remove('open');
+      o.querySelector('.faq-body').style.maxHeight = '0';
+      o.querySelector('.faq-btn').setAttribute('aria-expanded','false');
+    });
+    if(!open){
+      item.classList.add('open');
+      body.style.maxHeight = body.scrollHeight + 'px';
+      btn.setAttribute('aria-expanded','true');
+    }
+  });
+});
+</script>
 </body>
 </html>

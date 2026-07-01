@@ -4,8 +4,8 @@
   "outputDirectory": "dist",
   "cleanUrls": true,
   "trailingSlash": false,
-  "rewrites": [
-    { "source": "/", "destination": "/chatifa-homepage.html" }
+  "redirects": [
+    { "source": "/chatifa-homepage", "destination": "/", "permanent": true }
   ],
   "headers": [
     {

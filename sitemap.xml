@@ -123,6 +123,14 @@
     <priority>0.6</priority>
   </url>
 
+  <!-- About page -->
+  <url>
+    <loc>https://chatifa.de/chatifa-ueber-uns</loc>
+    <lastmod>2026-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
   <!-- Supporting pages -->
   <url>
     <loc>https://chatifa.de/chatifa-kontakt</loc>

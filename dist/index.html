@@ -199,6 +199,43 @@ section  { position:relative; overflow:hidden }
   position:absolute; border-radius:50%; pointer-events:none;
   border:1px solid rgba(var(--glow-rgb),.10);
 }
+/* Layered smoke + grain — depth behind hero and CTA */
+.smoke {
+  position:absolute; pointer-events:none; z-index:0;
+  border-radius:50%;
+}
+.smoke-1 {
+  width:1100px; height:640px; top:-220px; left:calc(50% - 780px);
+  background:radial-gradient(ellipse at center, rgba(var(--glow-rgb),.09) 0%, rgba(var(--glow-rgb),.03) 45%, transparent 70%);
+  animation:drift-a 26s ease-in-out infinite alternate;
+}
+.smoke-2 {
+  width:900px; height:560px; top:-120px; right:calc(50% - 740px);
+  background:radial-gradient(ellipse at center, rgba(var(--glow-rgb),.06) 0%, transparent 65%);
+  animation:drift-b 34s ease-in-out infinite alternate;
+}
+.smoke-3 {
+  width:1200px; height:420px; bottom:-160px; left:50%; transform:translateX(-50%);
+  background:radial-gradient(ellipse at center, rgba(255,255,255,.03) 0%, transparent 70%);
+  animation:drift-c 30s ease-in-out infinite alternate;
+}
+.smoke-cta {
+  width:900px; height:480px; top:-120px; left:calc(50% - 450px);
+  background:radial-gradient(ellipse at center, rgba(var(--glow-rgb),.06) 0%, transparent 65%);
+  animation:drift-b 36s ease-in-out infinite alternate;
+}
+@keyframes drift-a { from{transform:translate3d(0,0,0) scale(1)} to{transform:translate3d(70px,26px,0) scale(1.06)} }
+@keyframes drift-b { from{transform:translate3d(0,0,0) scale(1)} to{transform:translate3d(-60px,-20px,0) scale(1.05)} }
+@keyframes drift-c { from{transform:translateX(-50%) scale(1)} to{transform:translateX(calc(-50% + 40px)) scale(1.04)} }
+.grain {
+  position:absolute; inset:0; pointer-events:none; z-index:0;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");
+  background-size:160px 160px;
+  opacity:.12; mix-blend-mode:screen;
+}
+@media (prefers-reduced-motion: reduce){
+  .smoke-1,.smoke-2,.smoke-3,.smoke-cta { animation:none }
+}
 
 /* ═══════════════════════════════════════
    TYPOGRAPHY SYSTEM
@@ -298,6 +335,21 @@ section  { position:relative; overflow:hidden }
 }
 .sec-head .kicker {
   margin-bottom: 1.25rem;
+}
+/* Pill treatment for section kickers — mirrors .hero-badge, without pulse */
+.sec-head .kicker,
+.cta-kicker {
+  display: inline-flex; align-items: center; gap: 8px;
+  border: 1px solid rgba(var(--glow-rgb),.18);
+  background: var(--accent-soft);
+  border-radius: var(--r-pill);
+  padding: .35rem 1rem;
+}
+.sec-head .kicker::before,
+.cta-kicker::before {
+  content: ''; width: 6px; height: 6px; flex-shrink: 0;
+  background: var(--accent); border-radius: 50%;
+  box-shadow: 0 0 8px rgba(var(--glow-rgb),.9);
 }
 .sec-head .t-h1 {
   max-width: 680px;
@@ -465,11 +517,19 @@ section  { position:relative; overflow:hidden }
 ═══════════════════════════════════════ */
 #problem { padding:9rem 0; border-top:1px solid var(--border) }
 
+/* Bento: cell 01 spans 2×2, 02/03 stack right, callout runs full width */
 .prob-grid {
   display:grid; grid-template-columns:repeat(3,1fr); gap:1.25rem;
-  margin-bottom:2.25rem;
 }
 .prob-card { padding:2.25rem }
+.prob-card-lg { grid-column:1/3; grid-row:1/3 }
+.prob-card-inner {
+  position:relative; z-index:2;
+  display:flex; flex-direction:column; height:100%;
+}
+.prob-visual { margin-top:auto; padding-top:2rem }
+.prob-visual svg { display:block; width:100%; max-width:460px }
+.prob-grid .callout { grid-column:1/-1; max-width:none; margin:0 }
 .prob-num {
   font-size:var(--f-2xs); font-weight:var(--w-bold);
   letter-spacing:var(--ls-wider); color:var(--accent);
@@ -548,8 +608,10 @@ section  { position:relative; overflow:hidden }
 ═══════════════════════════════════════ */
 #why { padding:9rem 0; border-top:1px solid var(--border) }
 
+/* Bento: quote as 2×2 hero cell, 01/02 stacked rechts, 03–05 unten */
 .diff-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.25rem }
 .diff-card  { padding:2.25rem }
+.diff-card-feature { border-color:rgba(var(--glow-rgb),.20) }
 .diff-num   {
   font-size:var(--f-2xs); font-weight:var(--w-bold);
   letter-spacing:var(--ls-wider); color:var(--accent);
@@ -558,35 +620,75 @@ section  { position:relative; overflow:hidden }
 .diff-card .t-h3 { margin-bottom:.65rem }
 .diff-card .t-sm { color:var(--t3) }
 
-/* The quote/closing card */
+/* The quote/closing card — hero cell of the bento */
 .diff-card-quote {
+  grid-column:1/3; grid-row:1/3;
   display:flex; flex-direction:column;
   align-items:flex-start; justify-content:space-between;
   padding:2.25rem;
 }
 .diff-quote-text {
   font-family:'Bricolage Grotesque',sans-serif;
-  font-size:20px; font-weight:var(--w-light);
-  line-height:1.45; letter-spacing:-.01em;
+  font-size:clamp(24px,2.6vw,32px); font-weight:var(--w-light);
+  line-height:1.4; letter-spacing:-.01em;
   color:var(--t2); font-style:italic;
   margin-bottom:1.75rem;
+  max-width:520px;
 }
+
+/* Vergleich — zwei Spalten, Copy ist Entwurf (Review ausstehend) */
+.compare-block { margin-top:4.5rem }
+.compare-head { text-align:center; margin-bottom:2.25rem }
+.compare-grid { display:grid; grid-template-columns:1fr 1fr; gap:1.25rem; max-width:980px; margin:0 auto }
+.compare-card { padding:2.25rem 2.5rem }
+.compare-us { border-color:rgba(var(--glow-rgb),.20) }
+.compare-label {
+  display:inline-flex; align-items:center;
+  font-size:var(--f-2xs); font-weight:var(--w-semi);
+  letter-spacing:var(--ls-widest); text-transform:uppercase;
+  color:var(--t3);
+  border:1px solid var(--border); border-radius:var(--r-pill);
+  padding:.3rem .9rem; margin-bottom:1rem;
+}
+.compare-label-us {
+  color:var(--accent);
+  border-color:rgba(var(--glow-rgb),.18);
+  background:var(--accent-soft);
+}
+.compare-list { list-style:none }
+.compare-list li {
+  display:flex; align-items:baseline; gap:.9rem;
+  padding:1.05rem 0; border-bottom:1px solid var(--border);
+  font-size:var(--f-sm); line-height:1.55;
+}
+.compare-list li:last-child { border-bottom:none; padding-bottom:0 }
+.compare-us .compare-list li { color:var(--t2) }
+.compare-them .compare-list li { color:var(--t4) }
+.compare-ico { flex-shrink:0; font-weight:var(--w-semi) }
+.compare-us .compare-ico { color:var(--accent) }
+.compare-them .compare-ico { color:var(--t4) }
 
 /* ═══════════════════════════════════════
    PROCESS
 ═══════════════════════════════════════ */
 #process { padding:9rem 0; border-top:1px solid var(--border) }
 
+/* Vertikale Schritte: Nummern-Spur links, Text mittig, Visual rechts */
 .steps {
-  display:grid; grid-template-columns:repeat(4,1fr);
-  gap:0; position:relative;
+  display:flex; flex-direction:column;
+  max-width:960px; margin:0 auto;
 }
-.steps::before {
-  content:''; position:absolute;
-  top:26px; left:10%; right:10%; height:1px;
-  background:linear-gradient(90deg,transparent,rgba(var(--glow-rgb),.18) 20%,rgba(var(--glow-rgb),.18) 80%,transparent);
+.step {
+  display:grid; grid-template-columns:52px 1fr 280px;
+  gap:0 2.75rem; align-items:start;
+  position:relative; padding-bottom:3.5rem;
 }
-.step { padding:0 1.5rem; position:relative; z-index:1 }
+.step:last-child { padding-bottom:0 }
+.step::before {
+  content:''; position:absolute; left:26px; top:60px; bottom:8px; width:1px;
+  background:linear-gradient(180deg, rgba(var(--glow-rgb),.20), rgba(var(--glow-rgb),.03));
+}
+.step:last-child::before { display:none }
 .step-dot {
   width:52px; height:52px; border-radius:50%;
   background:var(--surface-el);
@@ -594,9 +696,16 @@ section  { position:relative; overflow:hidden }
   display:flex; align-items:center; justify-content:center;
   font-family:'Bricolage Grotesque',sans-serif;
   font-size:18px; font-weight:var(--w-bold);
-  color:var(--t4); margin-bottom:1.75rem;
+  color:var(--t4);
   transition:border-color .3s, color .3s, box-shadow .3s;
 }
+.step-body { padding-top:.55rem }
+.step-visual {
+  border:1px solid var(--border); border-radius:var(--r-md);
+  background:linear-gradient(170deg, var(--surface-el) 0%, var(--surface) 100%);
+  padding:1.1rem 1.25rem; overflow:hidden;
+}
+.step-visual svg { display:block; width:100% }
 .step:hover .step-dot {
   border-color:rgba(var(--glow-rgb),.40);
   color:var(--accent);
@@ -717,15 +826,20 @@ footer { border-top:1px solid var(--border); padding:4.5rem 0 2.5rem }
 ═══════════════════════════════════════ */
 @media(max-width:940px){
   .prob-grid, .diff-grid { grid-template-columns:1fr 1fr }
+  .prob-card-lg { grid-column:1/-1; grid-row:auto }
+  .diff-card-quote { grid-column:1/-1; grid-row:auto }
   .core-grid { grid-template-columns:1fr }
-  .steps { grid-template-columns:1fr 1fr; gap:2.5rem 1rem }
-  .steps::before { display:none }
+  .compare-grid { grid-template-columns:1fr }
+  .step { grid-template-columns:52px 1fr; gap:0 1.75rem }
+  .step-visual { grid-column:2; margin-top:1.5rem; max-width:420px }
   .footer-grid { grid-template-columns:1fr 1fr }
 }
 @media(max-width:600px){
   .wrap,.wrap-md,.wrap-sm { padding:0 1.25rem }
   .prob-grid,.diff-grid { grid-template-columns:1fr }
-  .steps { grid-template-columns:1fr }
+  .step { grid-template-columns:44px 1fr; gap:0 1.25rem }
+  .step::before { left:22px; top:52px }
+  .step-dot { width:44px; height:44px; font-size:16px }
   .footer-grid { grid-template-columns:1fr; gap:2rem }
   .footer-bar { flex-direction:column; align-items:flex-start }
 :root { --f-hero: 46px }
@@ -1261,9 +1375,13 @@ footer { border-top:1px solid var(--border); padding:4.5rem 0 2.5rem }
 </div><!-- /mobile-menu -->
 <!-- ══ HERO ══ -->
 <section id="hero">
+  <div class="smoke smoke-1" aria-hidden="true"></div>
+  <div class="smoke smoke-2" aria-hidden="true"></div>
+  <div class="smoke smoke-3" aria-hidden="true"></div>
   <div class="orb orb-hero" aria-hidden="true"></div>
   <div class="ring ring-1" aria-hidden="true"></div>
   <div class="ring ring-2" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
 
   <div class="hero-badge kicker reveal">
     Digitale Klarheit für B2B-Unternehmen
@@ -1304,13 +1422,34 @@ footer { border-top:1px solid var(--border); padding:4.5rem 0 2.5rem }
     </div>
 
     <div class="prob-grid">
-      <div class="card prob-card reveal d1">
+      <div class="card prob-card prob-card-lg reveal d1">
         <div class="grid-bg"></div>
         <div class="card-glow"></div>
-        <div style="position:relative;z-index:2">
+        <div class="prob-card-inner">
           <span class="prob-num">01</span>
           <h3 class="t-h3">Besucher müssen suchen</h3>
           <p class="t-sm" style="margin-top:.6rem;color:var(--t3)">Wichtige Informationen sind vorhanden, aber nicht klar genug geführt. Der erste Eindruck, das Angebot und der nächste Schritt ergeben kein sauberes Gesamtbild.</p>
+          <div class="prob-visual" aria-hidden="true">
+            <svg viewBox="0 0 460 200" xmlns="http://www.w3.org/2000/svg">
+              <!-- Umherirrender Pfad durch verstreute Inhaltsblöcke -->
+              <circle cx="24" cy="40" r="5" fill="#ED5A26"/>
+              <path d="M30,40 C90,40 90,84 150,84 S220,36 268,40 S340,120 378,120"
+                fill="none" stroke="#3A2028" stroke-width="1.5" stroke-dasharray="5 7" stroke-linecap="round"/>
+              <rect x="120" y="64" width="110" height="40" rx="10" fill="#120B10" stroke="#2C1820" stroke-width="1"/>
+              <rect x="134" y="78" width="60" height="4" rx="2" fill="#2C1820"/>
+              <rect x="134" y="88" width="40" height="4" rx="2" fill="#2C1820" opacity=".6"/>
+              <rect x="252" y="18" width="110" height="40" rx="10" fill="#120B10" stroke="#2C1820" stroke-width="1"/>
+              <rect x="266" y="32" width="60" height="4" rx="2" fill="#2C1820"/>
+              <rect x="266" y="42" width="40" height="4" rx="2" fill="#2C1820" opacity=".6"/>
+              <rect x="80" y="130" width="110" height="40" rx="10" fill="#120B10" stroke="#2C1820" stroke-width="1"/>
+              <rect x="94" y="144" width="60" height="4" rx="2" fill="#2C1820"/>
+              <rect x="94" y="154" width="40" height="4" rx="2" fill="#2C1820" opacity=".6"/>
+              <circle cx="396" cy="120" r="18" fill="#120B10" stroke="#3A2028" stroke-width="1.5"/>
+              <text x="396" y="126" text-anchor="middle" font-family="Instrument Sans,sans-serif" font-size="14" font-weight="600" fill="#6D625D">?</text>
+              <rect x="272" y="160" width="168" height="24" rx="12" fill="#1A0E14" stroke="#2C1820" stroke-width="1"/>
+              <text x="356" y="176" text-anchor="middle" font-family="Instrument Sans,sans-serif" font-size="11" fill="#6D625D">Wo ist der nächste Schritt?</text>
+            </svg>
+          </div>
         </div>
       </div>
       <div class="card prob-card reveal d2">
@@ -1331,10 +1470,10 @@ footer { border-top:1px solid var(--border); padding:4.5rem 0 2.5rem }
           <p class="t-sm" style="margin-top:.6rem;color:var(--t3)">Wenn Informationen unvollständig ankommen oder Abläufe nicht sauber vorbereitet sind, entstehen Rückfragen, manuelle Übergaben und vermeidbare Abstimmung.</p>
         </div>
       </div>
-    </div>
 
-    <div class="callout reveal d1">
-      Das Problem ist selten nur die Optik. Meist fehlt eine digitale Struktur, die Entscheidungsklarheit schafft — vom ersten Eindruck bis zur Kontaktaufnahme und darüber hinaus.
+      <div class="callout reveal d4">
+        Das Problem ist selten nur die Optik. Meist fehlt eine digitale Struktur, die Entscheidungsklarheit schafft — vom ersten Eindruck bis zur Kontaktaufnahme und darüber hinaus.
+      </div>
     </div>
 
   </div>
@@ -1711,51 +1850,94 @@ footer { border-top:1px solid var(--border); padding:4.5rem 0 2.5rem }
     </div>
 
     <div class="diff-grid">
-      <div class="card diff-card reveal d1">
+      <div class="card diff-card-quote reveal d1">
         <div class="grid-bg"></div>
+        <div class="card-glow"></div>
+        <div style="position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:space-between;padding:2.75rem">
+          <p class="diff-quote-text">Gute digitale Lösungen machen nicht alles größer. Sie machen wichtige Dinge klarer, einfacher und verlässlicher.</p>
+          <a href="#cta" class="btn btn-primary" style="font-size:13px;padding:.6rem 1.4rem;align-self:flex-start">Projekt anfragen</a>
+        </div>
+      </div>
+      <div class="card diff-card diff-card-feature reveal d2">
+        <div class="grid-bg"></div>
+        <div class="card-glow"></div>
         <div style="position:relative;z-index:2">
           <span class="diff-num">01</span>
           <h3 class="t-h3">Struktur vor Design</h3>
           <p class="t-sm" style="margin-top:.65rem;color:var(--t3)">Bevor eine Website gestaltet wird, muss klar sein, was sie leisten soll: Was bietet das Unternehmen an? Für wen ist es relevant? Welcher nächste Schritt ist sinnvoll?</p>
         </div>
       </div>
-      <div class="card diff-card reveal d2">
+      <div class="card diff-card reveal d3">
         <div class="grid-bg"></div>
+        <div class="card-glow"></div>
         <div style="position:relative;z-index:2">
           <span class="diff-num">02</span>
           <h3 class="t-h3">Klartext statt Buzzwords</h3>
           <p class="t-sm" style="margin-top:.65rem;color:var(--t3)">Gute Website-Texte müssen nicht beeindruckend klingen. Sie müssen verständlich machen, was ein Unternehmen anbietet und warum Besucher Vertrauen aufbauen können.</p>
         </div>
       </div>
-      <div class="card diff-card reveal d3">
+      <div class="card diff-card reveal d1">
         <div class="grid-bg"></div>
+        <div class="card-glow"></div>
         <div style="position:relative;z-index:2">
           <span class="diff-num">03</span>
           <h3 class="t-h3">Entscheidungsklarheit statt Kontaktflächen</h3>
           <p class="t-sm" style="margin-top:.65rem;color:var(--t3)">Kontaktformulare und Buttons allein lösen kein Problem. Entscheidend ist die Entscheidungskette davor: erster Eindruck, Relevanz, Vertrauen und klare nächste Schritte.</p>
         </div>
       </div>
-      <div class="card diff-card reveal d1">
+      <div class="card diff-card reveal d2">
         <div class="grid-bg"></div>
+        <div class="card-glow"></div>
         <div style="position:relative;z-index:2">
           <span class="diff-num">04</span>
           <h3 class="t-h3">Website und Alltag zusammendenken</h3>
           <p class="t-sm" style="margin-top:.65rem;color:var(--t3)">Eine Anfrage ist nicht das Ende der Website. Sie ist der Anfang eines internen Ablaufs. Deshalb betrachten wir auch, wie Informationen weiterlaufen und wo Arbeit entsteht.</p>
         </div>
       </div>
-      <div class="card diff-card reveal d2">
+      <div class="card diff-card reveal d3">
         <div class="grid-bg"></div>
+        <div class="card-glow"></div>
         <div style="position:relative;z-index:2">
           <span class="diff-num">05</span>
           <h3 class="t-h3">Automatisierung nur mit Nutzen</h3>
           <p class="t-sm" style="margin-top:.65rem;color:var(--t3)">Nicht jeder Prozess braucht KI. Manchmal reicht ein klarer Workflow, ein gutes Formular oder eine saubere Übergabe.</p>
         </div>
       </div>
-      <div class="card diff-card-quote reveal d3">
-        <div class="grid-bg"></div>
-        <div style="position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:space-between;padding:2.25rem">
-          <p class="diff-quote-text">Gute digitale Lösungen machen nicht alles größer. Sie machen wichtige Dinge klarer, einfacher und verlässlicher.</p>
-          <a href="#cta" class="btn btn-primary" style="font-size:13px;padding:.6rem 1.4rem;align-self:flex-start">Projekt anfragen</a>
+    </div>
+
+    <!-- ENTWURF: Positionierungs-Copy im Vergleich unten ist neu und nicht Teil der
+         bestätigten Startseiten-Copy. Review durch Francesco ausstehend. -->
+    <div class="compare-block">
+      <div class="compare-head reveal">
+        <h3 class="t-h2">Der Unterschied in der Praxis</h3>
+      </div>
+      <div class="compare-grid">
+        <div class="card compare-card compare-us reveal d1">
+          <div class="grid-bg"></div>
+          <div class="card-glow"></div>
+          <div style="position:relative;z-index:2">
+            <span class="compare-label compare-label-us">Mit Chatifa</span>
+            <ul class="compare-list">
+              <li><span class="compare-ico" aria-hidden="true">→</span>Struktur zuerst. Design folgt aus Inhalt und Nutzerführung.</li>
+              <li><span class="compare-ico" aria-hidden="true">→</span>Klartext, den Besucher beim ersten Lesen verstehen.</li>
+              <li><span class="compare-ico" aria-hidden="true">→</span>Website und interne Abläufe werden zusammen gedacht.</li>
+              <li><span class="compare-ico" aria-hidden="true">→</span>Automatisierung nur dort, wo sie Arbeit reduziert.</li>
+              <li><span class="compare-ico" aria-hidden="true">→</span>Ein klarer nächster Schritt auf jeder Seite.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="card compare-card compare-them reveal d2">
+          <div class="grid-bg"></div>
+          <div style="position:relative;z-index:2">
+            <span class="compare-label">Klassische Webprojekte</span>
+            <ul class="compare-list">
+              <li><span class="compare-ico" aria-hidden="true">×</span>Design zuerst. Die Struktur entsteht nebenbei.</li>
+              <li><span class="compare-ico" aria-hidden="true">×</span>Texte, die gut klingen, aber wenig erklären.</li>
+              <li><span class="compare-ico" aria-hidden="true">×</span>Das Projekt endet mit dem Livegang der Website.</li>
+              <li><span class="compare-ico" aria-hidden="true">×</span>Tools und Funktionen ohne klaren Nutzen im Alltag.</li>
+              <li><span class="compare-ico" aria-hidden="true">×</span>Besucher müssen den nächsten Schritt selbst finden.</li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
@@ -1780,23 +1962,89 @@ footer { border-top:1px solid var(--border); padding:4.5rem 0 2.5rem }
     <div class="steps" role="list">
       <div class="step reveal d1" role="listitem">
         <div class="step-dot" aria-hidden="true">1</div>
-        <h3 class="t-h3">Ausgangslage klären</h3>
-        <p class="t-sm" style="margin-top:.55rem;color:var(--t3)">Wir schauen uns an, was bereits vorhanden ist: Website, Inhalte, Zielgruppen, Leistungen, Nutzerführung und die Abläufe dahinter.</p>
+        <div class="step-body">
+          <h3 class="t-h3">Ausgangslage klären</h3>
+          <p class="t-sm" style="margin-top:.55rem;color:var(--t3)">Wir schauen uns an, was bereits vorhanden ist: Website, Inhalte, Zielgruppen, Leistungen, Nutzerführung und die Abläufe dahinter.</p>
+        </div>
+        <div class="step-visual" aria-hidden="true">
+          <svg viewBox="0 0 260 120" xmlns="http://www.w3.org/2000/svg">
+            <rect x="8" y="8" width="244" height="104" rx="10" fill="#0B080A" stroke="#2C1820" stroke-width="1"/>
+            <rect x="20" y="20" width="80" height="8" rx="4" fill="#2C1820"/>
+            <rect x="20" y="40" width="220" height="16" rx="6" fill="#120B10" stroke="#2C1820" stroke-width="1"/>
+            <rect x="28" y="46" width="64" height="4" rx="2" fill="#2C1820"/>
+            <rect x="20" y="62" width="220" height="16" rx="6" fill="#120B10" stroke="#2C1820" stroke-width="1"/>
+            <rect x="28" y="68" width="88" height="4" rx="2" fill="#2C1820"/>
+            <rect x="20" y="84" width="220" height="16" rx="6" fill="#120B10" stroke="#2C1820" stroke-width="1"/>
+            <rect x="28" y="90" width="52" height="4" rx="2" fill="#2C1820"/>
+            <circle cx="200" cy="70" r="16" fill="none" stroke="#ED5A26" stroke-width="1.5" opacity=".8"/>
+            <circle cx="200" cy="70" r="3.5" fill="#ED5A26"/>
+          </svg>
+        </div>
       </div>
       <div class="step reveal d2" role="listitem">
         <div class="step-dot" aria-hidden="true">2</div>
-        <h3 class="t-h3">Richtung festlegen</h3>
-        <p class="t-sm" style="margin-top:.55rem;color:var(--t3)">Aus der Ausgangslage entwickeln wir eine klare Projektlogik: Welche Seiten werden gebraucht? Welche Inhalte müssen geschärft werden?</p>
+        <div class="step-body">
+          <h3 class="t-h3">Richtung festlegen</h3>
+          <p class="t-sm" style="margin-top:.55rem;color:var(--t3)">Aus der Ausgangslage entwickeln wir eine klare Projektlogik: Welche Seiten werden gebraucht? Welche Inhalte müssen geschärft werden?</p>
+        </div>
+        <div class="step-visual" aria-hidden="true">
+          <svg viewBox="0 0 260 120" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="30" cy="60" r="10" fill="#120B10" stroke="#3A2028" stroke-width="1.5"/>
+            <circle cx="30" cy="60" r="3" fill="#3A2028"/>
+            <path d="M40,60 C90,60 120,24 170,24" fill="none" stroke="#2C1820" stroke-width="1.5" stroke-dasharray="4 6" stroke-linecap="round"/>
+            <line x1="40" y1="60" x2="166" y2="60" stroke="#ED5A26" stroke-width="1.5" opacity=".7"/>
+            <path d="M40,60 C90,60 120,96 170,96" fill="none" stroke="#2C1820" stroke-width="1.5" stroke-dasharray="4 6" stroke-linecap="round"/>
+            <circle cx="180" cy="24" r="8" fill="#120B10" stroke="#2C1820" stroke-width="1.5"/>
+            <circle cx="180" cy="96" r="8" fill="#120B10" stroke="#2C1820" stroke-width="1.5"/>
+            <circle cx="180" cy="60" r="10" fill="rgba(237,90,38,0.10)" stroke="#ED5A26" stroke-width="1.5"/>
+            <circle cx="180" cy="60" r="3.5" fill="#ED5A26"/>
+            <line x1="194" y1="60" x2="236" y2="60" stroke="#ED5A26" stroke-width="1.5" opacity=".4"/>
+            <path d="M232,55 L240,60 L232,65" fill="none" stroke="#ED5A26" stroke-width="1.5" opacity=".4" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
       </div>
       <div class="step reveal d3" role="listitem">
         <div class="step-dot" aria-hidden="true">3</div>
-        <h3 class="t-h3">Umsetzung entwickeln</h3>
-        <p class="t-sm" style="margin-top:.55rem;color:var(--t3)">Die Website oder Automatisierung wird umgesetzt — mit Fokus auf klare Nutzerführung, professionelle Gestaltung und technische Sauberkeit.</p>
+        <div class="step-body">
+          <h3 class="t-h3">Umsetzung entwickeln</h3>
+          <p class="t-sm" style="margin-top:.55rem;color:var(--t3)">Die Website oder Automatisierung wird umgesetzt — mit Fokus auf klare Nutzerführung, professionelle Gestaltung und technische Sauberkeit.</p>
+        </div>
+        <div class="step-visual" aria-hidden="true">
+          <svg viewBox="0 0 260 120" xmlns="http://www.w3.org/2000/svg">
+            <rect x="8" y="8" width="244" height="104" rx="10" fill="#0B080A" stroke="#2C1820" stroke-width="1"/>
+            <line x1="8" y1="28" x2="252" y2="28" stroke="#2C1820" stroke-width="1"/>
+            <circle cx="21" cy="18" r="2.5" fill="#2C1820"/>
+            <circle cx="31" cy="18" r="2.5" fill="#2C1820"/>
+            <circle cx="41" cy="18" r="2.5" fill="#2C1820"/>
+            <rect x="20" y="38" width="140" height="28" rx="6" fill="#120B10" stroke="#2C1820" stroke-width="1"/>
+            <rect x="28" y="46" width="48" height="12" rx="6" fill="rgba(237,90,38,0.10)" stroke="rgba(237,90,38,0.28)" stroke-width="1"/>
+            <rect x="20" y="74" width="66" height="26" rx="6" fill="#120B10" stroke="#2C1820" stroke-width="1"/>
+            <rect x="94" y="74" width="66" height="26" rx="6" fill="#120B10" stroke="#2C1820" stroke-width="1"/>
+            <rect x="168" y="38" width="72" height="62" rx="6" fill="#120B10" stroke="#2C1820" stroke-width="1"/>
+            <rect x="176" y="48" width="48" height="4" rx="2" fill="#2C1820"/>
+            <rect x="176" y="58" width="36" height="4" rx="2" fill="#2C1820"/>
+            <rect x="176" y="86" width="40" height="5" rx="2.5" fill="#ED5A26" opacity=".7"/>
+          </svg>
+        </div>
       </div>
       <div class="step reveal d4" role="listitem">
         <div class="step-dot" aria-hidden="true">4</div>
-        <h3 class="t-h3">Grundlage ausbauen</h3>
-        <p class="t-sm" style="margin-top:.55rem;color:var(--t3)">Nach dem Start kann die Grundlage weiterentwickelt werden: bessere Inhalte, SEO, Tracking, Automatisierung oder neue interne Abläufe.</p>
+        <div class="step-body">
+          <h3 class="t-h3">Grundlage ausbauen</h3>
+          <p class="t-sm" style="margin-top:.55rem;color:var(--t3)">Nach dem Start kann die Grundlage weiterentwickelt werden: bessere Inhalte, SEO, Tracking, Automatisierung oder neue interne Abläufe.</p>
+        </div>
+        <div class="step-visual" aria-hidden="true">
+          <svg viewBox="0 0 260 120" xmlns="http://www.w3.org/2000/svg">
+            <line x1="16" y1="100" x2="244" y2="100" stroke="#2C1820" stroke-width="1.5"/>
+            <rect x="30" y="76" width="24" height="24" rx="4" fill="#120B10" stroke="#2C1820" stroke-width="1"/>
+            <rect x="70" y="62" width="24" height="38" rx="4" fill="#120B10" stroke="#2C1820" stroke-width="1"/>
+            <rect x="110" y="48" width="24" height="52" rx="4" fill="#120B10" stroke="#2C1820" stroke-width="1"/>
+            <rect x="150" y="34" width="24" height="66" rx="4" fill="rgba(237,90,38,0.10)" stroke="rgba(237,90,38,0.5)" stroke-width="1"/>
+            <path d="M180,36 C190,30 196,34 200,38" fill="none" stroke="#2C1820" stroke-width="1.5" stroke-dasharray="4 5" stroke-linecap="round"/>
+            <circle cx="212" cy="44" r="14" fill="#120B10" stroke="#3A2028" stroke-width="1.5"/>
+            <path d="M206,44 L218,44 M212,38 L212,50" stroke="#ED5A26" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </div>
       </div>
     </div>
 
@@ -1884,6 +2132,7 @@ footer { border-top:1px solid var(--border); padding:4.5rem 0 2.5rem }
 
 <!-- ══ CTA ══ -->
 <section id="cta">
+  <div class="smoke smoke-cta" aria-hidden="true"></div>
   <div class="orb orb-cta" aria-hidden="true"></div>
   <div class="wrap">
     <div class="card cta-card reveal">

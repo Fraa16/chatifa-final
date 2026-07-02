@@ -646,37 +646,86 @@ footer { border-top:1px solid var(--border); padding:4.5rem 0 2.5rem }
 <!-- ══ NAVBAR ══ -->
 <nav class="nav" id="nav" role="navigation" aria-label="Hauptnavigation">
   <div class="nav-inner">
+
+    <!-- Logo -->
     <a href="/" class="nav-logo" aria-label="Chatifa — Startseite"><img src="assets/Chatifa-logo.svg" alt="Chatifa" height="36"></a>
+
+    <!-- Desktop nav links -->
     <ul class="nav-links" role="list">
+
+      <!-- Leistungen trigger -->
       <li role="listitem">
-        <button class="nav-trigger" id="trigger-leistungen" data-panel="leistungen" aria-expanded="false" aria-haspopup="true" aria-controls="panel-leistungen">
+        <button
+          class="nav-trigger"
+          id="trigger-leistungen"
+          data-panel="leistungen"
+          aria-expanded="false"
+          aria-haspopup="true"
+          aria-controls="panel-leistungen"
+        >
           Leistungen
-          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+            <path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
         </button>
       </li>
+
+      <!-- Ressourcen trigger -->
       <li role="listitem">
-        <button class="nav-trigger" id="trigger-ressourcen" data-panel="ressourcen" aria-expanded="false" aria-haspopup="true" aria-controls="panel-ressourcen">
+        <button
+          class="nav-trigger"
+          id="trigger-ressourcen"
+          data-panel="ressourcen"
+          aria-expanded="false"
+          aria-haspopup="true"
+          aria-controls="panel-ressourcen"
+        >
           Ressourcen
-          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+            <path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
         </button>
       </li>
+
       <li role="listitem"><a href="/chatifa-ueber-uns">Über uns</a></li>
       <li role="listitem"><a href="/chatifa-kontakt">Kontakt</a></li>
     </ul>
+
+    <!-- Desktop CTA buttons -->
     <div class="nav-right">
       <a href="/chatifa-projekt-anfragen" class="btn btn-ghost" style="font-size:13px;padding:.5rem 1.1rem">Einschätzung einholen →</a>
       <a href="/chatifa-projekt-anfragen" class="btn btn-primary" style="font-size:13px;padding:.5rem 1.1rem">Projekt anfragen</a>
     </div>
-    <button class="nav-hamburger" id="nav-hamburger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobile-menu">
-      <span></span><span></span><span></span>
+
+    <!-- Mobile hamburger -->
+    <button
+      class="nav-hamburger"
+      id="nav-hamburger"
+      aria-label="Menü öffnen"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
     </button>
-  </div>
-  <!-- Leistungen panel -->
-  <div class="nav-panel" id="panel-leistungen" role="dialog" aria-label="Leistungen" aria-hidden="true">
+
+  </div><!-- /nav-inner -->
+
+  <!-- ── Leistungen panel ── -->
+  <div
+    class="nav-panel"
+    id="panel-leistungen"
+    role="dialog"
+    aria-label="Leistungen"
+    aria-hidden="true"
+  >
     <div class="panel-leistungen-inner">
+
       <div class="panel-cards-row">
         <a href="/chatifa-websites" class="card panel-service-card" tabindex="-1">
-          <div class="grid-bg"></div><div class="card-glow"></div>
+          <div class="grid-bg"></div>
+          <div class="card-glow"></div>
           <div style="position:relative;z-index:2;display:flex;flex-direction:column;gap:.5rem;height:100%">
             <span class="kicker">Websites</span>
             <p class="t-h3">Klarheit für Besucher.</p>
@@ -684,8 +733,10 @@ footer { border-top:1px solid var(--border); padding:4.5rem 0 2.5rem }
             <span class="panel-service-link" aria-hidden="true">Mehr erfahren →</span>
           </div>
         </a>
+
         <a href="/chatifa-automatisierung" class="card panel-service-card" tabindex="-1">
-          <div class="grid-bg"></div><div class="card-glow"></div>
+          <div class="grid-bg"></div>
+          <div class="card-glow"></div>
           <div style="position:relative;z-index:2;display:flex;flex-direction:column;gap:.5rem;height:100%">
             <span class="kicker">Automatisierung</span>
             <p class="t-h3">Entlastung für Teams.</p>
@@ -694,6 +745,8 @@ footer { border-top:1px solid var(--border); padding:4.5rem 0 2.5rem }
           </div>
         </a>
       </div>
+
+      <!-- Full-width CTA bar -->
       <div class="panel-cta-bar">
         <div class="panel-cta-bar-text">
           <span class="kicker">Nächster Schritt</span>
@@ -704,13 +757,23 @@ footer { border-top:1px solid var(--border); padding:4.5rem 0 2.5rem }
           <a href="/chatifa-projekt-anfragen" class="btn btn-primary" tabindex="-1">Projekt anfragen</a>
         </div>
       </div>
+
     </div>
-  </div>
-  <!-- Ressourcen panel -->
-  <div class="nav-panel" id="panel-ressourcen" role="dialog" aria-label="Ressourcen" aria-hidden="true">
+  </div><!-- /panel-leistungen -->
+
+  <!-- ── Ressourcen panel ── -->
+  <div
+    class="nav-panel"
+    id="panel-ressourcen"
+    role="dialog"
+    aria-label="Ressourcen"
+    aria-hidden="true"
+  >
     <div class="panel-ressourcen-inner">
+
       <a href="/chatifa-glossar" class="card panel-resource-card" tabindex="-1">
-        <div class="grid-bg"></div><div class="card-glow"></div>
+        <div class="grid-bg"></div>
+        <div class="card-glow"></div>
         <div style="position:relative;z-index:2;display:flex;flex-direction:column;gap:.45rem;height:100%">
           <div class="panel-resource-card-icon" aria-hidden="true">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -720,15 +783,18 @@ footer { border-top:1px solid var(--border); padding:4.5rem 0 2.5rem }
           </div>
           <p class="t-h3">Glossar</p>
           <p class="t-sm" style="flex:1">Begriffe aus Website, UX und Automatisierung — klar erklärt.</p>
-        </div>
+                  </div>
       </a>
+
       <a href="#" class="card panel-resource-card" tabindex="-1">
-        <div class="grid-bg"></div><div class="card-glow"></div>
+        <div class="grid-bg"></div>
+        <div class="card-glow"></div>
         <div style="position:relative;z-index:2;display:flex;flex-direction:column;gap:.45rem;height:100%">
           <div class="panel-resource-card-icon" aria-hidden="true">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
               <rect x="2" y="1.5" width="12" height="13" rx="1.5" stroke="currentColor" stroke-width="1.25"/>
               <path d="M5 5h6M5 7.5h6M5 10h4" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"/>
+              <path d="M10 10.5l1 1 2-2" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </div>
           <p class="t-h3">Ratgeber</p>
@@ -736,8 +802,10 @@ footer { border-top:1px solid var(--border); padding:4.5rem 0 2.5rem }
           <span class="panel-tag">Bald verfügbar</span>
         </div>
       </a>
+
       <a href="/chatifa-preiskalkulator" class="card panel-resource-card" tabindex="-1">
-        <div class="grid-bg"></div><div class="card-glow"></div>
+        <div class="grid-bg"></div>
+        <div class="card-glow"></div>
         <div style="position:relative;z-index:2;display:flex;flex-direction:column;gap:.45rem;height:100%">
           <div class="panel-resource-card-icon" aria-hidden="true">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -752,18 +820,37 @@ footer { border-top:1px solid var(--border); padding:4.5rem 0 2.5rem }
           </div>
           <p class="t-h3">Preiskalkulator</p>
           <p class="t-sm" style="flex:1">Orientierung zum realistischen Budget für Website-Projekte.</p>
-        </div>
+                  </div>
       </a>
+
     </div>
-  </div>
-</nav>
+  </div><!-- /panel-ressourcen -->
+
+</nav><!-- /nav -->
+
 <!-- ══ MOBILE MENU ══ -->
-<div class="mobile-menu" id="mobile-menu" role="dialog" aria-label="Navigation" aria-hidden="true" inert>
+<div
+  class="mobile-menu"
+  id="mobile-menu"
+  role="dialog"
+  aria-label="Navigation"
+  aria-hidden="true"
+  inert
+>
   <div class="mobile-menu-inner">
+
+    <!-- Leistungen accordion -->
     <div>
-      <button class="mobile-accordion-trigger" id="mob-trigger-leistungen" aria-expanded="false" aria-controls="mob-body-leistungen">
+      <button
+        class="mobile-accordion-trigger"
+        id="mob-trigger-leistungen"
+        aria-expanded="false"
+        aria-controls="mob-body-leistungen"
+      >
         <span class="mobile-accordion-trigger-text">Leistungen</span>
-        <svg width="14" height="14" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <svg width="14" height="14" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+          <path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
       </button>
       <div class="mobile-accordion-body" id="mob-body-leistungen" role="region">
         <div class="mobile-accordion-inner">
@@ -780,42 +867,73 @@ footer { border-top:1px solid var(--border); padding:4.5rem 0 2.5rem }
         </div>
       </div>
     </div>
+
+    <!-- Ressourcen accordion -->
     <div>
-      <button class="mobile-accordion-trigger" id="mob-trigger-ressourcen" aria-expanded="false" aria-controls="mob-body-ressourcen">
+      <button
+        class="mobile-accordion-trigger"
+        id="mob-trigger-ressourcen"
+        aria-expanded="false"
+        aria-controls="mob-body-ressourcen"
+      >
         <span class="mobile-accordion-trigger-text">Ressourcen</span>
-        <svg width="14" height="14" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <svg width="14" height="14" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+          <path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
       </button>
       <div class="mobile-accordion-body" id="mob-body-ressourcen" role="region">
         <div class="mobile-accordion-inner">
           <a href="/chatifa-glossar" class="mobile-resource-item">
             <div class="mobile-resource-icon" aria-hidden="true">
-              <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 2h8a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1z" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"/><path d="M5 5.5h6M5 8h6M5 10.5h4" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"/></svg>
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                <path d="M3 2h8a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1z" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"/>
+                <path d="M5 5.5h6M5 8h6M5 10.5h4" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"/>
+              </svg>
             </div>
-            <div class="mobile-resource-text"><span class="t-h3">Glossar</span></div>
+            <div class="mobile-resource-text">
+              <span class="t-h3">Glossar</span>
+            </div>
           </a>
           <a href="#" class="mobile-resource-item">
             <div class="mobile-resource-icon" aria-hidden="true">
-              <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><rect x="2" y="1.5" width="12" height="13" rx="1.5" stroke="currentColor" stroke-width="1.25"/><path d="M5 5h6M5 7.5h6M5 10h4" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"/></svg>
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                <rect x="2" y="1.5" width="12" height="13" rx="1.5" stroke="currentColor" stroke-width="1.25"/>
+                <path d="M5 5h6M5 7.5h6M5 10h4" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"/>
+              </svg>
             </div>
-            <div class="mobile-resource-text"><span class="t-h3">Ratgeber</span><span class="panel-tag">Bald verfügbar</span></div>
+            <div class="mobile-resource-text">
+              <span class="t-h3">Ratgeber</span>
+              <span class="panel-tag">Bald verfügbar</span>
+            </div>
           </a>
           <a href="/chatifa-preiskalkulator" class="mobile-resource-item">
             <div class="mobile-resource-icon" aria-hidden="true">
-              <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><rect x="2" y="2" width="12" height="12" rx="2" stroke="currentColor" stroke-width="1.25"/><path d="M5 8h6M8 5v6" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"/></svg>
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                <rect x="2" y="2" width="12" height="12" rx="2" stroke="currentColor" stroke-width="1.25"/>
+                <path d="M5 8h6M8 5v6" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"/>
+              </svg>
             </div>
-            <div class="mobile-resource-text"><span class="t-h3">Preiskalkulator</span></div>
+            <div class="mobile-resource-text">
+              <span class="t-h3">Preiskalkulator</span>
+            </div>
           </a>
         </div>
       </div>
     </div>
+
+    <!-- Plain links -->
     <a href="/chatifa-ueber-uns" class="mobile-nav-link">Über uns</a>
     <a href="/chatifa-kontakt" class="mobile-nav-link">Kontakt</a>
+
     <div class="mobile-divider" aria-hidden="true"></div>
+
+    <!-- CTA block -->
     <div class="mobile-cta-block">
       <a href="/chatifa-projekt-anfragen" class="btn btn-primary">Projekt anfragen</a>
     </div>
+
   </div>
-</div>
+</div><!-- /mobile-menu -->
 <!-- ══ HERO ══ -->
 <section class="glossar-detail-hero">
   <div class="orb orb-hero" aria-hidden="true"></div>
@@ -934,6 +1052,7 @@ footer { border-top:1px solid var(--border); padding:4.5rem 0 2.5rem }
         <p class="footer-col-h">Unternehmen</p>
         <ul class="footer-links" role="list">
           <li><a href="/chatifa-ueber-uns">Über uns</a></li>
+          <li><a href="/#process">Prozess</a></li>
           <li><a href="/chatifa-projekt-anfragen">Projekt anfragen</a></li>
           <li><a href="/chatifa-kontakt">Kontakt</a></li>
         </ul>

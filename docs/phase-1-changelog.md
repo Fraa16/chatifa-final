@@ -52,6 +52,16 @@ Scope: rein technisch. Keine visuellen Änderungen, keine Copy-Änderungen (pixe
 | `b3f85f7` | Nav-Panel-`<h3>` → `<p class="t-h3">` (identisches Rendering durch globalen Reset; mobile nutzte bereits `<span>`) | alle 26 HTML-Dateien |
 | `e7ad94c` | Build-Skript (clean + llms.txt + fonts), Security-Header, README-Fix, dist neu gebaut | package.json, vercel.json, README.md, dist/* |
 
+## Nachtrag 2026-07-02: Footer-Fix + geteilte Navbar/Footer
+
+Gemeldeter Bug: Im Homepage-Footer führten "Websites" und "Automatisierung" auf den Seitenanker `#core` statt auf die Unterseiten. Weiterer Befund: "Projekt anfragen" zeigte auf vier Seiten auf den `#cta`-Anker statt auf `/chatifa-projekt-anfragen`; den 17 Glossar-Seiten fehlte der Footer-Eintrag "Prozess"; insgesamt vier Footer-Varianten im Umlauf.
+
+Lösung: Navbar und Footer liegen jetzt einmal zentral in `partials/navbar.html` und `partials/footer.html`. Das neue Skript `scripts/sync-partials.js` schreibt sie in alle Quellseiten (läuft automatisch vor jedem Build via `npm run build`, manuell via `npm run sync`) und setzt `aria-current="page"` automatisch auf Links zur jeweils aktuellen Seite. Damit ist Navbar-/Footer-Drift dauerhaft ausgeschlossen. Ausgenommen: `chatifa-homepage.html` (Redirect-Stub) und `chatifa-navbar.html` (Referenzdatei, durch `partials/` abgelöst).
+
+Bewusste Verhaltensänderungen: Homepage-Footer "Websites"/"Automatisierung" navigieren zu den Unterseiten; "Projekt anfragen" führt überall zur Anfrage-Seite; Glossar-Footer erhalten "Prozess". Das Mobile-Menü liegt jetzt auf allen Seiten einheitlich als Geschwister-Element hinter der Navbar (vorher teils verschachtelt; CSS/JS adressieren es über Klasse/ID, kein Verhaltensunterschied). Nav-/Footer-CSS und -JS bleiben vorerst inline pro Seite; Zusammenführung wäre Phase-2-Arbeit.
+
+Verifikation: Navbar-Markup byte-identisch über alle 25 Seiten, Footer ebenso (modulo `aria-current`); Sync idempotent; alle 25 Seiten ohne Konsolen-/JS-Fehler; Footer-Klicks auf der Homepage (Websites, Automatisierung, Projekt anfragen, Kontakt, Glossar) führen auf die richtigen Seiten; Mega-Menü und Hamburger funktionieren auch auf den umstrukturierten Glossar- und Rechtsseiten; Link-Check und JSON-LD-Parse ohne Befund.
+
 ## Verifikation
 
 - **Alle 26 Seiten headless geladen (Chromium):** 0 Konsolen-Fehler, 0 Page-Errors, 0 fehlgeschlagene Requests, 0 Requests an googleapis/gstatic. Beide Schriftfamilien laden auf jeder Seite aus `/fonts/`.

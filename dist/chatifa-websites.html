@@ -6,14 +6,17 @@
   <meta name="description" content="Professionelle Websites für B2B-Unternehmen — strukturiert, mobil optimiert und auf Anfragen ausgerichtet. Chatifa, Webdesign-Agentur aus der Region Stuttgart.">
   <title>Websites für B2B-Unternehmen — Chatifa</title>
   <link rel="canonical" href="https://chatifa.de/chatifa-websites">
-  <link rel="stylesheet" href="fonts.css">
+  <link rel="preload" href="/fonts/bricolage-grotesque-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/instrument-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/fonts.css">
   <link rel="icon" href="assets/chatifa-favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="assets/chatifa-favicon.svg">
-  <meta property="og:image" content="https://chatifa.de/assets/og-image_copy.png">
+  <meta property="og:image" content="https://chatifa.de/assets/og-image.png">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Websites für B2B-Unternehmen — Chatifa">
   <meta property="og:description" content="Professionelle Websites für B2B-Unternehmen — strukturiert, mobil optimiert und auf Anfragen ausgerichtet. Chatifa, Webdesign-Agentur aus der Region Stuttgart.">
   <meta property="og:url" content="https://chatifa.de/chatifa-websites">
+  <meta name="twitter:card" content="summary_large_image">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -43,6 +46,45 @@
       {"@type": "State", "name": "Baden-Württemberg"},
       {"@type": "Country", "name": "Deutschland"},
       {"@type": "AdministrativeArea", "name": "DACH"}
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "So läuft ein Website-Projekt mit Chatifa ab",
+    "step": [
+      {
+        "@type": "HowToStep",
+        "position": 1,
+        "name": "Kennenlernen",
+        "text": "Ein kurzes Gespräch, um zu verstehen, was gebraucht wird — und ob Chatifa der richtige Partner dafür ist. Offen, ohne Verkaufsdruck."
+      },
+      {
+        "@type": "HowToStep",
+        "position": 2,
+        "name": "Strategie & Struktur",
+        "text": "Bevor gebaut wird, wird geklärt. Ziel, Zielgruppe, Inhalte, Seitenstruktur — alles, was später den Unterschied macht."
+      },
+      {
+        "@type": "HowToStep",
+        "position": 3,
+        "name": "Design & Umsetzung",
+        "text": "Das Design folgt der Struktur. Wir entwickeln, Sie sehen Zwischenstände, wir liefern. Verbindlich."
+      },
+      {
+        "@type": "HowToStep",
+        "position": 4,
+        "name": "Launch",
+        "text": "Die Website geht live. Vollständig, getestet, bereit für das, was kommt."
+      },
+      {
+        "@type": "HowToStep",
+        "position": 5,
+        "name": "Was danach kommt",
+        "text": "Was nach dem Launch kommt — Inhalte, Technik, Weiterentwicklung — ist bei Bedarf Teil der Zusammenarbeit."
+      }
     ]
   }
   </script>
@@ -952,13 +994,13 @@ footer { border-top:1px solid var(--border); padding:4.5rem 0 2.5rem }
       </li>
 
       <li role="listitem"><a href="/chatifa-ueber-uns">Über uns</a></li>
-      <li role="listitem"><a href="chatifa-kontakt.html">Kontakt</a></li>
+      <li role="listitem"><a href="/chatifa-kontakt">Kontakt</a></li>
     </ul>
 
     <!-- Desktop CTA buttons -->
     <div class="nav-right">
-      <a href="chatifa-projekt-anfragen.html" class="btn btn-ghost" style="font-size:13px;padding:.5rem 1.1rem">Einschätzung einholen →</a>
-      <a href="chatifa-projekt-anfragen.html" class="btn btn-primary" style="font-size:13px;padding:.5rem 1.1rem">Projekt anfragen</a>
+      <a href="/chatifa-projekt-anfragen" class="btn btn-ghost" style="font-size:13px;padding:.5rem 1.1rem">Einschätzung einholen →</a>
+      <a href="/chatifa-projekt-anfragen" class="btn btn-primary" style="font-size:13px;padding:.5rem 1.1rem">Projekt anfragen</a>
     </div>
 
     <!-- Mobile hamburger -->
@@ -987,23 +1029,23 @@ footer { border-top:1px solid var(--border); padding:4.5rem 0 2.5rem }
     <div class="panel-leistungen-inner">
 
       <div class="panel-cards-row">
-        <a href="chatifa-websites.html" class="card panel-service-card" tabindex="-1">
+        <a href="/chatifa-websites" class="card panel-service-card" tabindex="-1">
           <div class="grid-bg"></div>
           <div class="card-glow"></div>
           <div style="position:relative;z-index:2;display:flex;flex-direction:column;gap:.5rem;height:100%">
             <span class="kicker">Websites</span>
-            <h3 class="t-h3">Klarheit für Besucher.</h3>
+            <p class="t-h3">Klarheit für Besucher.</p>
             <p class="t-sm">Strukturierte Websites, die Angebot, Relevanz und nächste Schritte klar führen.</p>
             <span class="panel-service-link" aria-hidden="true">Mehr erfahren →</span>
           </div>
         </a>
 
-        <a href="chatifa-automatisierung.html" class="card panel-service-card" tabindex="-1">
+        <a href="/chatifa-automatisierung" class="card panel-service-card" tabindex="-1">
           <div class="grid-bg"></div>
           <div class="card-glow"></div>
           <div style="position:relative;z-index:2;display:flex;flex-direction:column;gap:.5rem;height:100%">
             <span class="kicker">Automatisierung</span>
-            <h3 class="t-h3">Entlastung für Teams.</h3>
+            <p class="t-h3">Entlastung für Teams.</p>
             <p class="t-sm">Workflows und Automatisierungen dort, wo wiederkehrende Arbeit Zeit kostet.</p>
             <span class="panel-service-link" aria-hidden="true">Mehr erfahren →</span>
           </div>
@@ -1017,8 +1059,8 @@ footer { border-top:1px solid var(--border); padding:4.5rem 0 2.5rem }
           <span>Eine grobe Idee reicht — wir prüfen, ob und wie wir helfen können.</span>
         </div>
         <div class="panel-cta-bar-actions">
-          <a href="chatifa-projekt-anfragen.html" class="btn-text" tabindex="-1">Einschätzung einholen →</a>
-          <a href="chatifa-projekt-anfragen.html" class="btn btn-primary" tabindex="-1">Projekt anfragen</a>
+          <a href="/chatifa-projekt-anfragen" class="btn-text" tabindex="-1">Einschätzung einholen →</a>
+          <a href="/chatifa-projekt-anfragen" class="btn btn-primary" tabindex="-1">Projekt anfragen</a>
         </div>
       </div>
 
@@ -1035,7 +1077,7 @@ footer { border-top:1px solid var(--border); padding:4.5rem 0 2.5rem }
   >
     <div class="panel-ressourcen-inner">
 
-      <a href="chatifa-glossar.html" class="card panel-resource-card" tabindex="-1">
+      <a href="/chatifa-glossar" class="card panel-resource-card" tabindex="-1">
         <div class="grid-bg"></div>
         <div class="card-glow"></div>
         <div style="position:relative;z-index:2;display:flex;flex-direction:column;gap:.45rem;height:100%">
@@ -1045,7 +1087,7 @@ footer { border-top:1px solid var(--border); padding:4.5rem 0 2.5rem }
               <path d="M5 5.5h6M5 8h6M5 10.5h4" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"/>
             </svg>
           </div>
-          <h3 class="t-h3">Glossar</h3>
+          <p class="t-h3">Glossar</p>
           <p class="t-sm" style="flex:1">Begriffe aus Website, UX und Automatisierung — klar erklärt.</p>
                   </div>
       </a>
@@ -1061,13 +1103,13 @@ footer { border-top:1px solid var(--border); padding:4.5rem 0 2.5rem }
               <path d="M10 10.5l1 1 2-2" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </div>
-          <h3 class="t-h3">Ratgeber</h3>
+          <p class="t-h3">Ratgeber</p>
           <p class="t-sm" style="flex:1">Konkrete Anleitungen und Einschätzungen zu digitalen Projekten.</p>
           <span class="panel-tag">Bald verfügbar</span>
         </div>
       </a>
 
-      <a href="chatifa-preiskalkulator.html" class="card panel-resource-card" tabindex="-1">
+      <a href="/chatifa-preiskalkulator" class="card panel-resource-card" tabindex="-1">
         <div class="grid-bg"></div>
         <div class="card-glow"></div>
         <div style="position:relative;z-index:2;display:flex;flex-direction:column;gap:.45rem;height:100%">
@@ -1082,7 +1124,7 @@ footer { border-top:1px solid var(--border); padding:4.5rem 0 2.5rem }
               <circle cx="11" cy="10.5" r=".75" fill="currentColor"/>
             </svg>
           </div>
-          <h3 class="t-h3">Preiskalkulator</h3>
+          <p class="t-h3">Preiskalkulator</p>
           <p class="t-sm" style="flex:1">Orientierung zum realistischen Budget für Website-Projekte.</p>
                   </div>
       </a>
@@ -1118,12 +1160,12 @@ footer { border-top:1px solid var(--border); padding:4.5rem 0 2.5rem }
       </button>
       <div class="mobile-accordion-body" id="mob-body-leistungen" role="region">
         <div class="mobile-accordion-inner">
-          <a href="chatifa-websites.html" class="mobile-service-item">
+          <a href="/chatifa-websites" class="mobile-service-item">
             <span class="kicker">Websites</span>
             <span class="t-h3">Klarheit für Besucher.</span>
             <span class="t-sm">Strukturierte Websites, die Angebot, Relevanz und nächste Schritte klar führen.</span>
           </a>
-          <a href="chatifa-automatisierung.html" class="mobile-service-item">
+          <a href="/chatifa-automatisierung" class="mobile-service-item">
             <span class="kicker">Automatisierung</span>
             <span class="t-h3">Entlastung für Teams.</span>
             <span class="t-sm">Workflows und Automatisierungen dort, wo wiederkehrende Arbeit Zeit kostet.</span>
@@ -1147,7 +1189,7 @@ footer { border-top:1px solid var(--border); padding:4.5rem 0 2.5rem }
       </button>
       <div class="mobile-accordion-body" id="mob-body-ressourcen" role="region">
         <div class="mobile-accordion-inner">
-          <a href="chatifa-glossar.html" class="mobile-resource-item">
+          <a href="/chatifa-glossar" class="mobile-resource-item">
             <div class="mobile-resource-icon" aria-hidden="true">
               <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
                 <path d="M3 2h8a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1z" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"/>
@@ -1170,7 +1212,7 @@ footer { border-top:1px solid var(--border); padding:4.5rem 0 2.5rem }
               <span class="panel-tag">Bald verfügbar</span>
             </div>
           </a>
-          <a href="chatifa-preiskalkulator.html" class="mobile-resource-item">
+          <a href="/chatifa-preiskalkulator" class="mobile-resource-item">
             <div class="mobile-resource-icon" aria-hidden="true">
               <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
                 <rect x="2" y="2" width="12" height="12" rx="2" stroke="currentColor" stroke-width="1.25"/>
@@ -1187,13 +1229,13 @@ footer { border-top:1px solid var(--border); padding:4.5rem 0 2.5rem }
 
     <!-- Plain links -->
     <a href="/chatifa-ueber-uns" class="mobile-nav-link">Über uns</a>
-    <a href="chatifa-kontakt.html" class="mobile-nav-link">Kontakt</a>
+    <a href="/chatifa-kontakt" class="mobile-nav-link">Kontakt</a>
 
     <div class="mobile-divider" aria-hidden="true"></div>
 
     <!-- CTA block -->
     <div class="mobile-cta-block">
-      <a href="chatifa-projekt-anfragen.html" class="btn btn-primary">Projekt anfragen</a>
+      <a href="/chatifa-projekt-anfragen" class="btn btn-primary">Projekt anfragen</a>
     </div>
 
   </div>
@@ -1267,7 +1309,7 @@ footer { border-top:1px solid var(--border); padding:4.5rem 0 2.5rem }
     </div>
 
     <div class="callout reveal d1">
-      Das Problem liegt selten im Design. Es liegt in der Struktur, der <a href="chatifa-glossar-nutzerfuehrung.html" class="glossar-link">Nutzerführung</a> — und darin, dass Websites gebaut werden, aber nicht weiterentwickelt.
+      Das Problem liegt selten im Design. Es liegt in der Struktur, der <a href="/chatifa-glossar-nutzerfuehrung" class="glossar-link">Nutzerführung</a> — und darin, dass Websites gebaut werden, aber nicht weiterentwickelt.
     </div>
 
   </div>
@@ -1341,16 +1383,16 @@ footer { border-top:1px solid var(--border); padding:4.5rem 0 2.5rem }
       <div style="position:relative;z-index:2">
         <ul class="tag-list" aria-label="Leistungsumfang">
           <li class="tag-item">Unternehmenswebsite oder Relaunch</li>
-          <li class="tag-item"><a href="chatifa-glossar-landingpage.html" class="glossar-link">Landingpages</a></li>
+          <li class="tag-item"><a href="/chatifa-glossar-landingpage" class="glossar-link">Landingpages</a></li>
           <li class="tag-item">UX &amp; Seitenstruktur</li>
           <li class="tag-item">Content-Architektur</li>
-          <li class="tag-item"><a href="chatifa-glossar-responsives-design.html" class="glossar-link">Responsives Design</a></li>
+          <li class="tag-item"><a href="/chatifa-glossar-responsives-design" class="glossar-link">Responsives Design</a></li>
           <li class="tag-item">Technische Umsetzung</li>
-          <li class="tag-item"><a href="chatifa-glossar-seo-grundstruktur.html" class="glossar-link">SEO-Basis</a></li>
+          <li class="tag-item"><a href="/chatifa-glossar-seo-grundstruktur" class="glossar-link">SEO-Basis</a></li>
           <li class="tag-item">Performance</li>
           <li class="tag-item">Kontaktmöglichkeiten &amp; Nutzerführung</li>
           <li class="tag-item">Tracking-Vorbereitung</li>
-          <li class="tag-item"><a href="chatifa-glossar-cms.html" class="glossar-link">CMS auf Anfrage</a></li>
+          <li class="tag-item"><a href="/chatifa-glossar-cms" class="glossar-link">CMS auf Anfrage</a></li>
         </ul>
         <p class="entsteht-note">
           <em>Jedes Projekt beginnt mit Klarheit über Ziel, Zielgruppe und Struktur</em> — bevor das erste Design entsteht.
@@ -1591,7 +1633,7 @@ footer { border-top:1px solid var(--border); padding:4.5rem 0 2.5rem }
           </span>
         </button>
         <div class="faq-body" role="region">
-          <p class="faq-inner">Keine Pauschalen. Jedes Projekt wird individuell kalkuliert — nach Umfang, Komplexität und gewünschtem Leistungsumfang. Im Erstgespräch bekommen wir gemeinsam ein klares Bild. Danach folgt ein konkretes Angebot. <a href="chatifa-preiskalkulator.html" class="glossar-link">Preiskalkulator nutzen</a></p>
+          <p class="faq-inner">Keine Pauschalen. Jedes Projekt wird individuell kalkuliert — nach Umfang, Komplexität und gewünschtem Leistungsumfang. Im Erstgespräch bekommen wir gemeinsam ein klares Bild. Danach folgt ein konkretes Angebot. <a href="/chatifa-preiskalkulator" class="glossar-link">Preiskalkulator nutzen</a></p>
         </div>
       </div>
 
@@ -1672,33 +1714,33 @@ footer { border-top:1px solid var(--border); padding:4.5rem 0 2.5rem }
       <div>
         <p class="footer-col-h">Leistungen</p>
         <ul class="footer-links" role="list">
-          <li><a href="#">Websites</a></li>
-          <li><a href="#">Automatisierung</a></li>
+          <li><a href="/chatifa-websites">Websites</a></li>
+          <li><a href="/chatifa-automatisierung">Automatisierung</a></li>
         </ul>
       </div>
       <div>
         <p class="footer-col-h">Unternehmen</p>
         <ul class="footer-links" role="list">
           <li><a href="/chatifa-ueber-uns">Über uns</a></li>
-          <li><a href="#">Prozess</a></li>
+          <li><a href="/#process">Prozess</a></li>
           <li><a href="#cta">Projekt anfragen</a></li>
-          <li><a href="#">Kontakt</a></li>
+          <li><a href="/chatifa-kontakt">Kontakt</a></li>
         </ul>
       </div>
       <div>
         <p class="footer-col-h">Ressourcen</p>
         <ul class="footer-links" role="list">
-          <li><a href="#">Glossar</a></li>
+          <li><a href="/chatifa-glossar">Glossar</a></li>
           <li><a href="#">Ratgeber</a></li>
-          <li><a href="#">Website-Preiskalkulator</a></li>
+          <li><a href="/chatifa-preiskalkulator">Website-Preiskalkulator</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bar">
       <span class="footer-copy">© 2026 Chatifa. Alle Rechte vorbehalten.</span>
       <nav class="footer-legal" aria-label="Rechtliche Links">
-        <a href="chatifa-impressum.html">Impressum</a>
-        <a href="chatifa-datenschutz.html">Datenschutz</a>
+        <a href="/chatifa-impressum">Impressum</a>
+        <a href="/chatifa-datenschutz">Datenschutz</a>
       </nav>
     </div>
   </div>

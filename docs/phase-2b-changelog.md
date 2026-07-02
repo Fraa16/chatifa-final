@@ -32,6 +32,8 @@ Das horizontale 5-Spalten-`.steps` wurde durch den vertikalen Homepage-Block ers
 ### 7. `#einsatz` als Bento mit Hero-Zelle
 Erste Use-Case-Karte ("Anfragen qualifizieren") als `.usecase-card-lg` 2×2 (exakte #why-Geometrie der Homepage, 6 Karten = 9 Slots). Padding der Hero-Zelle auf 2.75rem wie die Homepage-Hero-Zellen; Icon und Copy unverändert. Karten 2/3 stapeln rechts, 4–6 bilden die untere Reihe.
 
+Nachtrag (Review-Feedback): Die Hero-Zelle war zunächst ohne Visual und wirkte leer. Ergänzt um `.usecase-card-inner`/`.usecase-visual` (Muster von `.prob-card-inner`/`.prob-visual`) mit statischem Inline-SVG in der Diagramm-Sprache: drei eingehende Anfragen laufen in einen Prüf-Knoten, ein Akzent-Pfad führt zur richtigen Stelle, ein gedämpfter Abzweig wird aussortiert; Pill "Automatisch bewertet".
+
 ## Verifikation
 
 - `npm run build` fehlerfrei.

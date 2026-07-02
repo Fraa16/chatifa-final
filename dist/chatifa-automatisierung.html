@@ -182,6 +182,43 @@ section  { position:relative; overflow:hidden }
   background:radial-gradient(circle,rgba(var(--glow-rgb),.18) 0%,rgba(var(--glow-rgb),.05) 42%,transparent 68%);
   filter:blur(3px);
 }
+/* Layered smoke + grain — depth behind hero and CTA */
+.smoke {
+  position:absolute; pointer-events:none; z-index:0;
+  border-radius:50%;
+}
+.smoke-1 {
+  width:1100px; height:640px; top:-220px; left:calc(50% - 780px);
+  background:radial-gradient(ellipse at center, rgba(var(--glow-rgb),.09) 0%, rgba(var(--glow-rgb),.03) 45%, transparent 70%);
+  animation:drift-a 26s ease-in-out infinite alternate;
+}
+.smoke-2 {
+  width:900px; height:560px; top:-120px; right:calc(50% - 740px);
+  background:radial-gradient(ellipse at center, rgba(var(--glow-rgb),.06) 0%, transparent 65%);
+  animation:drift-b 34s ease-in-out infinite alternate;
+}
+.smoke-3 {
+  width:1200px; height:420px; bottom:-160px; left:50%; transform:translateX(-50%);
+  background:radial-gradient(ellipse at center, rgba(255,255,255,.03) 0%, transparent 70%);
+  animation:drift-c 30s ease-in-out infinite alternate;
+}
+.smoke-cta {
+  width:900px; height:480px; top:-120px; left:calc(50% - 450px);
+  background:radial-gradient(ellipse at center, rgba(var(--glow-rgb),.06) 0%, transparent 65%);
+  animation:drift-b 36s ease-in-out infinite alternate;
+}
+@keyframes drift-a { from{transform:translate3d(0,0,0) scale(1)} to{transform:translate3d(70px,26px,0) scale(1.06)} }
+@keyframes drift-b { from{transform:translate3d(0,0,0) scale(1)} to{transform:translate3d(-60px,-20px,0) scale(1.05)} }
+@keyframes drift-c { from{transform:translateX(-50%) scale(1)} to{transform:translateX(calc(-50% + 40px)) scale(1.04)} }
+.grain {
+  position:absolute; inset:0; pointer-events:none; z-index:0;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");
+  background-size:160px 160px;
+  opacity:.12; mix-blend-mode:screen;
+}
+@media (prefers-reduced-motion: reduce){
+  .smoke-1,.smoke-2,.smoke-3,.smoke-cta { animation:none }
+}
 
 /* ═══════════════════════════════════════
    TYPOGRAPHY
@@ -248,6 +285,21 @@ section  { position:relative; overflow:hidden }
   margin-bottom: 4.5rem;
 }
 .sec-head .kicker { margin-bottom: 1.25rem; }
+/* Pill treatment for section kickers — mirrors .hero-badge, without pulse */
+.sec-head .kicker,
+.cta-kicker {
+  display: inline-flex; align-items: center; gap: 8px;
+  border: 1px solid rgba(var(--glow-rgb),.18);
+  background: var(--accent-soft);
+  border-radius: var(--r-pill);
+  padding: .35rem 1rem;
+}
+.sec-head .kicker::before,
+.cta-kicker::before {
+  content: ''; width: 6px; height: 6px; flex-shrink: 0;
+  background: var(--accent); border-radius: 50%;
+  box-shadow: 0 0 8px rgba(var(--glow-rgb),.9);
+}
 .sec-head .t-h1   { max-width: 680px; margin: 0 auto; }
 .sec-head .lead {
   font-size: var(--f-body-lg); line-height: var(--lh-body);
@@ -397,11 +449,19 @@ section  { position:relative; overflow:hidden }
 ═══════════════════════════════════════ */
 #problem { padding:9rem 0; border-top:1px solid var(--border) }
 
+/* Bento: cell 01 spans 2×2, 02/03 stack right, callout runs full width */
 .prob-grid {
   display:grid; grid-template-columns:repeat(3,1fr); gap:1.25rem;
-  margin-bottom:2.25rem;
 }
 .prob-card { padding:2.25rem }
+.prob-card-lg { grid-column:1/3; grid-row:1/3 }
+.prob-card-inner {
+  position:relative; z-index:2;
+  display:flex; flex-direction:column; height:100%;
+}
+.prob-visual { margin-top:auto; padding-top:2rem }
+.prob-visual svg { display:block; width:100%; max-width:460px }
+.prob-grid .callout { grid-column:1/-1; max-width:none; margin:0 }
 .prob-num {
   font-size:var(--f-2xs); font-weight:var(--w-bold);
   letter-spacing:var(--ls-wider); color:var(--accent);
@@ -425,10 +485,18 @@ section  { position:relative; overflow:hidden }
 ═══════════════════════════════════════ */
 #einsatz { padding:9rem 0; border-top:1px solid var(--border) }
 
+/* Bento: erste Karte als 2×2-Hero-Zelle, Rest füllt das 3×3-Raster */
 .usecase-grid {
   display:grid; grid-template-columns:repeat(3,1fr); gap:1.25rem;
 }
 .usecase-card { padding:2rem 2.25rem }
+.usecase-card-lg { grid-column:1/3; grid-row:1/3; padding:2.75rem }
+.usecase-card-inner {
+  position:relative; z-index:2;
+  display:flex; flex-direction:column; height:100%;
+}
+.usecase-visual { margin-top:auto; padding-top:2rem }
+.usecase-visual svg { display:block; width:100%; max-width:460px }
 .usecase-icon {
   width:36px; height:36px; border-radius:var(--r-sm);
   background:var(--secondary);
@@ -593,7 +661,9 @@ footer { border-top:1px solid var(--border); padding:4.5rem 0 2.5rem }
 ═══════════════════════════════════════ */
 @media(max-width:940px){
   .prob-grid   { grid-template-columns:1fr 1fr }
+  .prob-card-lg { grid-column:1/-1; grid-row:auto }
   .usecase-grid { grid-template-columns:1fr 1fr }
+  .usecase-card-lg { grid-column:1/-1; grid-row:auto }
   .phase-grid  { grid-template-columns:1fr 1fr }
   .bridge-body { grid-template-columns:1fr }
   .footer-grid { grid-template-columns:1fr 1fr }
@@ -602,6 +672,7 @@ footer { border-top:1px solid var(--border); padding:4.5rem 0 2.5rem }
   .wrap,.wrap-md,.wrap-sm { padding:0 1.25rem }
   .prob-grid   { grid-template-columns:1fr }
   .usecase-grid { grid-template-columns:1fr }
+  .usecase-card-lg { padding:2.25rem }
   .phase-grid  { grid-template-columns:1fr }
   .bridge-card { padding:2.25rem 1.5rem }
   .footer-grid { grid-template-columns:1fr; gap:2rem }
@@ -1148,7 +1219,10 @@ footer { border-top:1px solid var(--border); padding:4.5rem 0 2.5rem }
 </div><!-- /mobile-menu -->
 <!-- ══ HERO (SUBPAGE) ══ -->
 <section id="hero-sub">
+  <div class="smoke smoke-1" aria-hidden="true"></div>
+  <div class="smoke smoke-2" aria-hidden="true"></div>
   <div class="orb orb-hero" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
 
   <div class="wrap-md">
     <div class="hero-badge kicker reveal">Automatisierung · B2B</div>
@@ -1185,13 +1259,34 @@ footer { border-top:1px solid var(--border); padding:4.5rem 0 2.5rem }
     </div>
 
     <div class="prob-grid">
-      <div class="card prob-card reveal d1">
+      <div class="card prob-card prob-card-lg reveal d1">
         <div class="grid-bg"></div>
         <div class="card-glow"></div>
-        <div style="position:relative;z-index:2">
+        <div class="prob-card-inner">
           <span class="prob-num">01</span>
           <h3 class="t-h3">Anfragen kommen an, aber nichts passiert automatisch</h3>
           <p class="t-sm" style="margin-top:.6rem">Jede eingehende Anfrage muss manuell gesichtet, bewertet und weitergeleitet werden. Was fehlt, ist ein Ablauf, der das ohne Aufwand übernimmt.</p>
+          <div class="prob-visual" aria-hidden="true">
+            <svg viewBox="0 0 460 200" xmlns="http://www.w3.org/2000/svg">
+              <!-- Anfrage kommt an, danach reißt die Kette ab -->
+              <circle cx="52" cy="90" r="18" fill="rgba(237,90,38,0.10)" stroke="#ED5A26" stroke-width="1.5"/>
+              <circle cx="52" cy="90" r="6" fill="#ED5A26"/>
+              <text x="52" y="132" text-anchor="middle" font-family="Instrument Sans,sans-serif" font-size="11" font-weight="500" fill="#8F827B">Anfrage</text>
+              <line x1="76" y1="90" x2="140" y2="90" stroke="#3A2028" stroke-width="1.5"/>
+              <rect x="146" y="70" width="110" height="40" rx="10" fill="#120B10" stroke="#2C1820" stroke-width="1"/>
+              <rect x="160" y="84" width="60" height="4" rx="2" fill="#2C1820"/>
+              <rect x="160" y="94" width="40" height="4" rx="2" fill="#2C1820" opacity=".6"/>
+              <line x1="262" y1="90" x2="298" y2="90" stroke="#3A2028" stroke-width="1.5" stroke-dasharray="4 7" stroke-linecap="round" opacity=".7"/>
+              <circle cx="330" cy="42" r="14" fill="#120B10" stroke="#2C1820" stroke-width="1.5"/>
+              <circle cx="356" cy="90" r="14" fill="#120B10" stroke="#2C1820" stroke-width="1.5"/>
+              <circle cx="330" cy="140" r="14" fill="#120B10" stroke="#2C1820" stroke-width="1.5"/>
+              <path d="M304,84 C316,72 318,58 324,50" fill="none" stroke="#2C1820" stroke-width="1.5" stroke-dasharray="3 7" stroke-linecap="round" opacity=".6"/>
+              <path d="M306,90 L338,90" fill="none" stroke="#2C1820" stroke-width="1.5" stroke-dasharray="3 7" stroke-linecap="round" opacity=".6"/>
+              <path d="M304,96 C316,108 318,122 324,132" fill="none" stroke="#2C1820" stroke-width="1.5" stroke-dasharray="3 7" stroke-linecap="round" opacity=".6"/>
+              <rect x="300" y="160" width="140" height="24" rx="12" fill="#1A0E14" stroke="#2C1820" stroke-width="1"/>
+              <text x="370" y="176" text-anchor="middle" font-family="Instrument Sans,sans-serif" font-size="11" fill="#6D625D">Manuell weiterleiten?</text>
+            </svg>
+          </div>
         </div>
       </div>
       <div class="card prob-card reveal d2">
@@ -1212,10 +1307,10 @@ footer { border-top:1px solid var(--border); padding:4.5rem 0 2.5rem }
           <p class="t-sm" style="margin-top:.6rem">Wer auf eine Antwort wartet, verliert Zeit. Wer Follow-ups manuell nachverfolgt, verliert Anfragen. Beides ist lösbar.</p>
         </div>
       </div>
-    </div>
 
-    <div class="callout reveal d1">
-      Das Problem ist nicht fehlendes Personal. Meistens fehlt ein sauberer Ablauf, der wiederkehrende Aufgaben ohne manuellen Eingriff erledigt.
+      <div class="callout reveal d4">
+        Das Problem ist nicht fehlendes Personal. Meistens fehlt ein sauberer Ablauf, der wiederkehrende Aufgaben ohne manuellen Eingriff erledigt.
+      </div>
     </div>
 
   </div>
@@ -1238,11 +1333,11 @@ footer { border-top:1px solid var(--border); padding:4.5rem 0 2.5rem }
 
     <div class="usecase-grid">
 
-      <!-- Card 1: Anfragen qualifizieren -->
-      <div class="card usecase-card reveal d1">
+      <!-- Card 1: Anfragen qualifizieren — Hero-Zelle des Bentos -->
+      <div class="card usecase-card usecase-card-lg reveal d1">
         <div class="grid-bg"></div>
         <div class="card-glow"></div>
-        <div style="position:relative;z-index:2">
+        <div class="usecase-card-inner">
           <div class="usecase-icon" aria-hidden="true">
             <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
               <circle cx="9" cy="6" r="3" stroke="currentColor" stroke-width="1.5"/>
@@ -1252,6 +1347,27 @@ footer { border-top:1px solid var(--border); padding:4.5rem 0 2.5rem }
           </div>
           <h3 class="t-h3">Anfragen qualifizieren</h3>
           <p class="t-sm" style="margin-top:.6rem">Eingehende Anfragen werden anhand definierter Kriterien automatisch bewertet und kategorisiert — bevor jemand manuell eingreift. Relevante Anfragen kommen sofort an die richtige Stelle.</p>
+          <div class="usecase-visual" aria-hidden="true">
+            <svg viewBox="0 0 460 200" xmlns="http://www.w3.org/2000/svg">
+              <!-- Eingehende Anfragen werden geprüft und sortiert -->
+              <circle cx="36" cy="50" r="6" fill="#3A2028"/>
+              <circle cx="36" cy="100" r="6" fill="#3A2028"/>
+              <circle cx="36" cy="150" r="6" fill="#3A2028"/>
+              <path d="M46,50 C90,50 110,88 142,96" fill="none" stroke="#3A2028" stroke-width="1.5" stroke-linecap="round"/>
+              <line x1="46" y1="100" x2="142" y2="100" stroke="#3A2028" stroke-width="1.5" stroke-linecap="round"/>
+              <path d="M46,150 C90,150 110,112 142,104" fill="none" stroke="#3A2028" stroke-width="1.5" stroke-linecap="round"/>
+              <circle cx="170" cy="100" r="20" fill="rgba(237,90,38,0.10)" stroke="#ED5A26" stroke-width="1.5"/>
+              <path d="M161,100 L168,107 L180,91" fill="none" stroke="#ED5A26" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+              <rect x="100" y="140" width="140" height="24" rx="12" fill="#1A0E14" stroke="#2C1820" stroke-width="1"/>
+              <text x="170" y="156" text-anchor="middle" font-family="Instrument Sans,sans-serif" font-size="11" fill="#6D625D">Automatisch bewertet</text>
+              <path d="M192,92 C250,76 290,66 330,60" fill="none" stroke="#ED5A26" stroke-width="1.5" opacity=".6" stroke-linecap="round"/>
+              <circle cx="356" cy="56" r="18" fill="#ED5A26"/>
+              <path d="M348,56 L354,62 L365,49" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M190,110 C240,128 270,142 306,148" fill="none" stroke="#2C1820" stroke-width="1.5" stroke-dasharray="4 6" stroke-linecap="round"/>
+              <circle cx="328" cy="152" r="12" fill="#120B10" stroke="#2C1820" stroke-width="1.5"/>
+              <path d="M323,147 L333,157 M333,147 L323,157" stroke="#6D625D" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
         </div>
       </div>
 
@@ -1518,6 +1634,7 @@ footer { border-top:1px solid var(--border); padding:4.5rem 0 2.5rem }
 
 <!-- ══ CTA ══ -->
 <section id="cta">
+  <div class="smoke smoke-cta" aria-hidden="true"></div>
   <div class="orb orb-cta" aria-hidden="true"></div>
   <div class="wrap">
     <div class="card cta-card reveal">

@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "build": "mkdir -p dist && cp *.html fonts.css robots.txt sitemap.xml dist/ && cp -r assets dist/",
+    "sync": "node scripts/sync-partials.js",
+    "build": "npm run sync && rm -rf dist && mkdir -p dist && cp *.html fonts.css robots.txt sitemap.xml llms.txt dist/ && cp -r assets fonts dist/",
     "dev": "serve . --listen 5173",
     "start": "serve . --listen 5173"
   },

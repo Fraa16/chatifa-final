@@ -11,7 +11,7 @@ PAGES:
 - chatifa-projekt-anfragen.html
 - chatifa-kontakt.html
 - chatifa-preiskalkulator.html
-- chatifa-ueberuns.html
+- chatifa-ueber-uns.html
 - chatifa-impressum.html
 - chatifa-datenschutz.html
 - chatifa-glossar.html
